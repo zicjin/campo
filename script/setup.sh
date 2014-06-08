@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 USER=`zcj`
-APP_ROOT=/var/www/baozou-dis
+APP_NAME=`baozou-dis`
+APP_ROOT=/var/www/$APP_NAME
 
 sudo apt-get update
 
@@ -55,14 +56,14 @@ sed -i "s/secret_key_base: \w\+/secret_key_base: `bundle exec rake secret`/g" $A
 # Resque init script
 sudo cp config/resque.example.sh /etc/init.d/resque
 sudo chmod +x /etc/init.d/resque
-sudo sed -i "s|APP_ROOT=.\+|APP_ROOT=$APP_ROOT/current|" /etc/init.d/resque #没有g，使用 |……|……| 表示非全局匹配
+sudo sed -i "s|APP_ROOT=.\+|APP_ROOT=$APP_ROOT/current|" /etc/init.d/resque #使用 |……|……| 不需要转义'/'符号
 sudo sed -i "s/USER=\w\+/USER=$USER/" /etc/init.d/resque
 sudo update-rc.d resque defaults
 
 # Nginx config
-sudo cp config/nginx.example.conf /etc/nginx/sites-available/campo
-sudo sed -i "s|root .\+;|root $APP_ROOT/current/public;|" /etc/nginx/sites-available/campo
-sudo ln -s /etc/nginx/sites-available/campo /etc/nginx/sites-enabled
+sudo cp config/nginx.example.conf /etc/nginx/sites-available/$APP_NAME
+sudo sed -i "s|root .\+;|root $APP_ROOT/current/public;|" /etc/nginx/sites-available/$APP_NAME
+sudo ln -s /etc/nginx/sites-available/$APP_NAME /etc/nginx/sites-enabled
 sudo rm /etc/nginx/sites-enabled/default
 sudo sed -i 's/# passenger_root/passenger_root/' /etc/nginx/nginx.conf
 sudo sed -i "s|# passenger_ruby .\+;|passenger_ruby /home/$USER/.rvm/wrappers/default/ruby;|" /etc/nginx/nginx.conf
