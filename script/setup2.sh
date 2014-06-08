@@ -4,13 +4,13 @@ USER=`whoami`
 APP_ROOT=/var/www/campo
 
 # Production environment
-sudo mkdir -p $APP_ROOT
-sudo chown $USER:$USER $APP_ROOT
-mkdir -p $APP_ROOT/shared/config
-cp config/database.example.yml $APP_ROOT/shared/config/database.yml
-cp config/secrets.example.yml $APP_ROOT/shared/config/secrets.yml
-cp config/config.example.yml $APP_ROOT/shared/config/config.yml
-sed -i "s/secret_key_base: \w\+/secret_key_base: `bundle exec rake secret`/g" $APP_ROOT/shared/config/secrets.yml
+sudo mkdir -p /var/www/campo
+sudo chown $USER:$USER /var/www/campo
+mkdir -p /var/www/campo/shared/config
+cp config/database.example.yml /var/www/campo/shared/config/database.yml
+cp config/secrets.example.yml /var/www/campo/shared/config/secrets.yml
+cp config/config.example.yml /var/www/campo/shared/config/config.yml
+sed -i "s/secret_key_base: \w\+/secret_key_base: `bundle exec rake secret`/g" /var/www/campo/shared/config/secrets.yml
 
 # Resque init script
 sudo cp config/resque.example.sh /etc/init.d/resque
