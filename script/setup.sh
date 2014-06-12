@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 USER=`whoami`
-APP_ROOT=/home/zcj/www/d.baozoubisai.com
+APP_ROOT=/home/$USER/www/d.baozoubisai.com
 
 sudo apt-get update
 
