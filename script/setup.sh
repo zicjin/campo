@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 USER=`whoami`
-APP_ROOT=/var/www/campo
+APP_ROOT=/home/zcj/www/d.baozoubisai.com
 
 sudo apt-get update
 
 # Install system packages
-sudo DEBIAN_FRONTEND=noninteractive apt-get install -y redis-server memcached git-core nodejs imagemagick postfix
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y redis-server memcached git-core nodejs imagemagick postfix curl
 
 # Install Elasticsearch
 wget -O - http://packages.elasticsearch.org/GPG-KEY-elasticsearch | sudo apt-key add -
@@ -28,11 +28,13 @@ sudo apt-get update
 sudo apt-get install -y nginx-extras passenger
 
 # Install rvm and ruby
-sudo apt-get install -y curl
 curl -sSL https://get.rvm.io | bash -s stable
 source ~/.rvm/scripts/rvm
-rvm install 2.1.1
-rvm use --default 2.1.1
+sed -i 's!cache.ruby-lang.org/pub/ruby!ruby.taobao.org/mirrors/ruby!' ~/.rvm/config/db
+gem sources --remove https://rubygems.org/
+gem sources -a https://ruby.taobao.org/
+rvm use --install --default 2.1.1
+gem install rails --no-ri --no-rdoc
 
 # Development environment
 cp config/database.example.yml config/database.yml
