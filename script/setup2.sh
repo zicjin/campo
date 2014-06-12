@@ -1,16 +1,14 @@
-#!/usr/bin/env bash
-
-USER=`whoami`
-APP_ROOT=/var/www/campo
+USER=`zcj`
+APP_ROOT=/home/zcj/www/d.baozoubisai.com
 
 # Production environment
-sudo mkdir -p /var/www/campo
-sudo chown $USER:$USER /var/www/campo
-mkdir -p /var/www/campo/shared/config
-cp config/database.example.yml /var/www/campo/shared/config/database.yml
-cp config/secrets.example.yml /var/www/campo/shared/config/secrets.yml
-cp config/config.example.yml /var/www/campo/shared/config/config.yml
-sed -i "s/secret_key_base: \w\+/secret_key_base: `bundle exec rake secret`/g" /var/www/campo/shared/config/secrets.yml
+sudo mkdir -p $APP_ROOT
+sudo chown $USER:$USER $APP_ROOT
+sudo mkdir -p $APP_ROOT/shared/config
+sudo cp config/database.example.yml $APP_ROOT/shared/config/database.yml
+sudo cp config/secrets.example.yml $APP_ROOT/shared/config/secrets.yml
+sudo cp config/config.example.yml $APP_ROOT/shared/config/config.yml
+sed -i "s/secret_key_base: \w\+/secret_key_base: `bundle exec rake secret`/g" $APP_ROOT/shared/config/secrets.yml
 
 # Resque init script
 sudo cp config/resque.example.sh /etc/init.d/resque
@@ -23,7 +21,4 @@ sudo update-rc.d resque defaults
 sudo cp config/nginx.example.conf /etc/nginx/sites-available/campo
 sudo sed -i "s|root .\+;|root $APP_ROOT/current/public;|" /etc/nginx/sites-available/campo
 sudo ln -s /etc/nginx/sites-available/campo /etc/nginx/sites-enabled
-sudo rm /etc/nginx/sites-enabled/default
-sudo sed -i 's/# passenger_root/passenger_root/' /etc/nginx/nginx.conf
-sudo sed -i "s|# passenger_ruby .\+;|passenger_ruby /home/$USER/.rvm/wrappers/default/ruby;|" /etc/nginx/nginx.conf
 sudo service nginx restart

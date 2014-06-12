@@ -1,9 +1,9 @@
 # config valid only for Capistrano 3.1
 lock '3.1.0'
 
-set :application, 'campo'
+set :application, 'd.baozoubisai.com'
 set :repo_url, 'git@github.com:zicjin/campo.git'
-set :deploy_to, -> { "/var/www/#{fetch(:application)}" }
+set :deploy_to, -> { "/home/zcj/www/#{fetch(:application)}" }
 set :rails_env, 'production'
 
 set :linked_files, %w{config/database.yml config/config.yml config/secrets.yml}
