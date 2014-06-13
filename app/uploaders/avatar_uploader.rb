@@ -8,6 +8,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   VERSION_SIZES = {
+    small: 24,
     normal: 48,
     bigger: 96
   }

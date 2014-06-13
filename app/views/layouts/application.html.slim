@@ -2,8 +2,8 @@ doctype html
 html
   head
     title = @page_title ? "#{@page_title} - #{CONFIG['title']}" : CONFIG['title']
-    = stylesheet_link_tag    "http://baozoubisai.com/assets_dist/content/main.css", media: "all", "data-turbolinks-track" => true
-    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag "http://baozoubisai.com/assets_dist/content/main.css", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     = csrf_meta_tags
@@ -42,7 +42,7 @@ html
                     .badge = unread_notifications_count > 99 ? '99+' : unread_notifications_count
               li.dropdown
                 a.dropdown-toggle data-toggle="dropdown" href='#'
-                  img.img-circle.img-avatar src=current_user.avatar.normal.url
+                  img.img-circle.img-avatar src=current_user.avatar.small.url
                   '
                   = current_user.name
                   '
