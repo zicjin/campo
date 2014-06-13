@@ -2,10 +2,9 @@ doctype html
 html
   head
     title = @page_title ? "#{@page_title} - #{CONFIG['title']}" : CONFIG['title']
+    = stylesheet_link_tag    "http://baozoubisai.com/assets_dist/content/main.css", media: "all", "data-turbolinks-track" => true
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
-    - if I18n.locale != 'en'
-      = javascript_include_tag "locales/#{I18n.locale}"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     = csrf_meta_tags
     - if login?
@@ -15,61 +14,59 @@ html
         };
 
   body
-    nav.navbar.navbar-static-top
+    header.navbar.navbar-inverse.navbar-fixed-top role="banner"
       .container
         .navbar-header
-          a.navbar-brand href=root_path
-            = CONFIG['title']
-        ul.nav.navbar-nav.navbar-right
-          - if login?
-            li class=('active' if request.original_fullpath =~ /^\/notifications/)
-              a.notifications-bell href=notifications_path
-                i.fa.fa-bell-o
-                - if unread_notifications_count > 0
-                  .badge = unread_notifications_count > 99 ? '99+' : unread_notifications_count
-            li.dropdown
-              a.dropdown-toggle data-toggle="dropdown" href='#'
-                img.img-circle.img-avatar src=current_user.avatar.normal.url
-                '
-                = current_user.name
-                '
-                i.fa.fa-caret-down
-              ul.dropdown-menu.dropdown-menu-right
-                li
-                  a href=user_root_path(username: current_user.username)
-                    = t '.profile'
-                li.divider
-                li.dropdown-header
-                  = t '.likes'
-                li
-                  a href=likes_user_topics_path(username: current_user.username)
-                    = t '.topics'
-                li
-                  a href=likes_user_comments_path(username: current_user.username)
-                    = t '.comments'
-                li.divider
-                li
-                  a href=settings_account_path
-                    = t '.settings'
-                li.divider
-                li
-                  a href=logout_path data-method="delete"
-                    = t '.logout'
-          - else
-            li
-              a href=signup_path(return_to: params[:return_to] || return_to_path(request.fullpath))
-                = t '.sign_up'
-            li
-              a href=login_path(return_to: params[:return_to] || return_to_path(request.fullpath))
-                = t '.sign_in'
-          li.navbar-toggle
-            a.tiem type="button" data-toggle="collapse" data-target="#navbar"
-              i.fa.fa-bars
-        #navbar.collapse.navbar-collapse
+          button.navbar-toggle type="button" data-toggle="collapse" data-target=".navbar-collapse"
+            span.sr-only 切换导航
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand href=root_path id="brand" title="暴走比赛 BaoZouBiSai.com"
+        nav.collapse.navbar-collapse role="navigation"
           ul.nav.navbar-nav
+            li
+              a href="http://baozoubisai.com"
+                i.glyphicon.glyphicon-list.mr5 style="font-size: 16px;"
+                span 全部比赛
+            li
+              a.apptoggle href="javascript:;" APP
             li class=('active' if request.original_fullpath =~ /^\/topics/)
-              a href=topics_path
-                = t '.community'
+              a href=topics_path 社区
+          ul#loginedNav.nav.navbar-nav.navbar-right
+            - if login?
+              li class=('active' if request.original_fullpath =~ /^\/notifications/)
+                a.notifications-bell href=notifications_path
+                  i.fa.fa-bell-o
+                  - if unread_notifications_count > 0
+                    .badge = unread_notifications_count > 99 ? '99+' : unread_notifications_count
+              li.dropdown
+                a.dropdown-toggle data-toggle="dropdown" href='#'
+                  img.img-circle.img-avatar src=current_user.avatar.normal.url
+                  '
+                  = current_user.name
+                  '
+                  i.fa.fa-caret-down
+                ul.dropdown-menu.dropdown-menu-right
+                  li
+                    a href=user_root_path(username: current_user.username) 个人资料
+                  li.divider
+                  li.dropdown-header "收藏"
+                  li
+                    a href=likes_user_topics_path(username: current_user.username) 话题
+                  li
+                    a href=likes_user_comments_path(username: current_user.username) 评论
+                  li.divider
+                  li
+                    a href=settings_account_path 设置
+                  li.divider
+                  li
+                    a href=logout_path data-method="delete" 注销
+            - else
+              li
+                a href=signup_path(return_to: params[:return_to] || return_to_path(request.fullpath)) 注册
+              li
+                a href=login_path(return_to: params[:return_to] || return_to_path(request.fullpath)) 登录
 
     - if login? and !current_user.confirmed?
       = render 'share/user_confirm_required'
