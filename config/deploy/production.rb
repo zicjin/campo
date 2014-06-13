@@ -7,8 +7,6 @@
 role :app, %w{d.baozoubisai.com}
 role :web, %w{d.baozoubisai.com}
 role :db,  %w{d.baozoubisai.com}
-#set :password, "zcj"
-#set :user, "zcj"
 
 # Extended Server Syntax
 # ======================
@@ -16,7 +14,7 @@ role :db,  %w{d.baozoubisai.com}
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server 'd.baozoubisai.com', user: 'zcj', roles: %w{web app db}, password: 'zcj'
+server 'd.baozoubisai.com', user: 'zcj', password: 'zcj', roles: %w{web app db}
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options

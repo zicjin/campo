@@ -1,0 +1,145 @@
+$front_net_path: '../src/front_net/' !default;
+
+// Core
+$textColor:        #404040 !default;
+$linkColor:        #4787ed !default;
+$linkColorHover:   darken($linkColor, 15%) !default;
+$viewweight: 600px;
+
+// Accent colors
+$naka:      rgb(63,63,63)  !default; //replace 48 48 48
+$red:       rgb(221,56,35) !default;
+$red-act:   rgb(213,42,28) !default;
+$yellow:    rgb(225,201,0) !default;
+$orange-act:rgb(244,180,0) !default; //replace 255 201 0
+$orange:    rgb(204,102,0) !default;
+$green:     rgb(41,132,90) !default;
+$green-act: rgb(48,156,106)!default;
+$blue:      rgb(24,96,192) !default;
+$blue-act:  rgb(48,96,144) !default;
+$violet:    #583C7B;
+
+// For Bootstrap2 -------------------------
+$fontAwesomePath: $front_net_path + 'bootstrap/fortawesome/font';
+$sansFontFamily: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$serifFontFamily:"黑体", Georgia, "Times New Roman", Times, serif !default;
+$font-size-base:          14px !default;
+$baseLineHeight: 20px;
+$baseFontSize: 100%;
+$baseFontSizePx: 16px;
+$iconSpritePath:          $front_net_path + "bootstrap/img/glyphicons-halflings.png";
+$iconWhiteSpritePath:     $front_net_path + "bootstrap/img/glyphicons-halflings-white.png";
+$iconRedSpritePath:       $front_net_path + "bootstrap/img/glyphicons-halflings-red.png";
+$btnPrimaryBackground:              lighten($linkColor, 8%);
+$btnPrimaryBackgroundHighlight:     darken($linkColor, 8%);
+$btnInfoBackground:                 lighten($naka, 8%);
+$btnInfoBackgroundHighlight:        darken($naka, 8%);
+$btnSuccessBackground:              lighten($blue-act, 8%);
+$btnSuccessBackgroundHighlight:     darken($blue-act, 8%);
+$btnWarningBackground:              lighten($yellow, 8%);
+$btnWarningBackgroundHighlight:     darken($yellow, 8%);
+$btnDangerBackground:               lighten($red, 8%);
+$btnDangerBackgroundHighlight:      darken($red, 8%);
+$btnInverseBackground:              lighten($naka, 8%);
+$btnInverseBackgroundHighlight:     darken($naka, 8%);
+$bodyBackground: #FFF !default;
+$lightBackground: #f5f5f5;
+$grayDarker:            #0a0a0a !default;
+$grayDark:              #333 !default;
+$gray:                  #888 !default;
+$grayLight:             #bbb !default;
+$grayLighter:           #f5f5f5 !default;
+
+// For Bootstrap3
+$icon-font-path: "../bower_components/bootstrap-sass/vendor/assets/fonts/bootstrap/" !default;
+$font-family-sans-serif:  "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-serif:       "黑体", Georgia, "Times New Roman", Times, serif !default;
+$body-bg: white;
+$gray-darker:            $grayDarker !default;
+$gray-dark:              $grayDark !default;
+$gray:                   $gray !default;
+$gray-light:             $grayLight !default;
+$gray-lighter:           $grayLighter !default;
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+}
+
+// MIXIN -------------------------
+@mixin clearfix {*zoom:1;
+    &:before, &:after {content: "\0020"; display: block; height: 0; overflow: hidden; }
+    &:after {clear: both;}
+}
+@mixin none_sty{list-style: none;padding:0;margin:0;background:none;float:none;width:auto;height:auto;position:static;display:inline;line-height:auto;}
+@mixin in_bk {display:inline-block;zoom:1;*display:inline;position:relative;}
+@mixin ellipsis{overflow: hidden; white-space: nowrap; width: 360px; text-overflow:ellipsis;}
+@mixin onelineh($size) {line-height:$size;height:$size;}
+@mixin maxWidth($width) {max-width:$width;_width:$width; overflow:visible;}
+@mixin maxHeight($height) {max-height:$height;_height:$height; overflow:visible;}
+@mixin hide-text {font: 0/0 a;color: transparent;text-shadow: none;background-color: transparent;border: 0;}
+@mixin gradient-v($startColor: #555, $startColorPos: 0, $endColor: #333, $endColorPos: 100%) {
+    background-color: mix($startColor, $endColor, 62.5%);
+    background-image: -moz-linear-gradient(top, $startColor $startColorPos, $endColor $endColorPos); // FF 3.6+
+    background-image: -webkit-gradient(linear, 0 $startColorPos, 0 $endColorPos, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
+    background-image: -webkit-linear-gradient(top, $startColor $startColorPos, $endColor $endColorPos); // Safari 5.1+, Chrome 10+
+    background-image: -o-linear-gradient(top, $startColor $startColorPos, $endColor $endColorPos); // Opera 11.10
+    background-image: linear-gradient(to bottom, $startColor $startColorPos, $endColor $endColorPos); // Standard, IE10
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($startColor)}', endColorstr='#{ie-hex-str($endColor)}', GradientType=0); // IE9 and down
+}
+@mixin gradient-h($startColor: #555, $startColorPos: 0, $endColor: #333, $endColorPos: 100%) {
+    background-color: $endColor;
+    background-image: -moz-linear-gradient(left, $startColor, $endColor); // FF 3.6+
+    background-image: -webkit-gradient(linear, $startColorPos 0, $endColorPos 0, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
+    background-image: -webkit-linear-gradient(left, $startColor, $endColor); // Safari 5.1+, Chrome 10+
+    background-image: -o-linear-gradient(left, $startColor, $endColor); // Opera 11.10
+    background-image: linear-gradient(to right, $startColor, $endColor); // Standard, IE10
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($startColor)}', endColorstr='#{ie-hex-str($endColor)}', GradientType=1); // IE9 and down
+}
+@mixin dib(){
+    font-size: 12px;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    @include in_bk;
+}
+@mixin background-image-retina($file, $type, $width, $height) {
+    background-image: url($file + '.' + $type);
+    @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+        & {
+            background-image: url($file + '_@2x.' + $type);
+            background-size: $width $height;
+        }
+    }
+}
+
+// rem相对于根元素<html>的font-size
+// 改变默认fontSize(16px),便于rem对其使用整数 —— $baseFontSizePx:10px;$baseFontSize:62.5%(10/16);html{font-size:$baseFontSize}
+// FontSize Rem:
+//|  px  |     rem        |
+//-------------------------
+//|  12  | 12/10 = 1.2    |
+//|  14  | 14/10 = 1.4    |
+//|  16  | 16/10 = 1.6    |
+//|  18  | 18/10 = 1.8    |
+//|  20  | 20/10 = 2.0    |
+//|  24  | 24/10 = 2.4    |
+//|  30  | 30/10 = 3.0    |
+//|  36  | 36/10 = 3.6    |
+@mixin rem($property, $values...) {
+    $pxValues: '';
+    $remValues: '';
+    $fontSize: $baseFontSizePx / ($baseFontSizePx * 0 + 1); //去除单位字符‘px’
+    @each $value in $values {
+        $pxValues: #{$pxValues + ' ' + $value * $fontSize}px;
+        $remValues: #{$remValues + ' ' + $value}rem;
+    }
+    #{$property}: $pxValues;
+    #{$property}: $remValues;
+}
+// .wrapper {
+//     @include rem(font-size, 1.2);
+//     @include rem(margin, 1, .5, 2, 3);
+// } //暂不建议使用rem

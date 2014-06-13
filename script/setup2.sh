@@ -1,5 +1,5 @@
-USER=`zcj`
-APP_ROOT=/home/zcj/www/d.baozoubisai.com
+USER=`whoami`
+APP_ROOT=/home/$USER/www/d.baozoubisai.com
 
 # Production environment
 sudo mkdir -p $APP_ROOT
