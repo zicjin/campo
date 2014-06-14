@@ -39,6 +39,8 @@ $border-radius-large:       2px;
 @import "subscriptions";
 @import "markdown";
 
+body {background: #eee;}
+
 .text-hide-overflow {
   overflow: hidden;
   text-overflow: ellipsis;
