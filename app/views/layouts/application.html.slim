@@ -67,6 +67,22 @@ html
               li
                 a href=login_path(return_to: params[:return_to] || return_to_path(request.fullpath)) 登录
 
+    #jumbotron
+        .container
+            b.copywrite
+            p.appbtns
+                a.androidbtn href="/download/baozou.apk"
+                a.iphonebtn.mt15 href="https://itunes.apple.com/cn/app/bao-zou-bi-sai/id856686869"
+            b.androidpic
+            b.androidpic.hover
+            b.iphonepic
+            b.iphonepic.hover
+            .qrwapper.fn-none title="扫码打开本站 o_0"
+                .qrcode.alert.alert-warning
+                    button.close type="button" &times;
+                    | 扫码下载 o_0
+                    img src="http://baozoubisai.com/assets_dist/content/images/QRcode.png" alt="QRcode"
+
     - if login? and !current_user.confirmed?
       = render 'share/user_confirm_required'
     = yield

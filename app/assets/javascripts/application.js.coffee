@@ -25,3 +25,21 @@ $(document).on 'page:update', ->
     .focus -> search_form.addClass 'typing'
     .blur -> search_form.removeClass 'typing'
   $('b', search_form).on 'click', -> search_form.submit()
+
+  $('a.apptoggle').on 'click', ->
+    $('#jumbotron').slideToggle()
+    $(this).parent('li').toggleClass('active')
+
+  jumbotron = $('#jumbotron')
+  $('.androidbtn', jumbotron).hover ->
+    if not glo_touchDevice
+      $('.androidpic').show()
+      $('.iphonepic').hide()
+  , null
+  $('.iphonebtn', jumbotron).hover ->
+    if not glo_touchDevice
+      $('.androidpic').hide()
+      $('.iphonepic').show()
+  , null
+  $('.qrwapper, .qrwapper>.close', jumbotron).on 'click', ->
+    $('.qrcode', jumbotron).fadeToggle()
