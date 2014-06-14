@@ -22,7 +22,7 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand href=root_path id="brand" title="暴走比赛 BaoZouBiSai.com"
+          a.navbar-brand href=root_path id="brand" title="暴走比赛 BaozouBisai.com"
         nav.collapse.navbar-collapse role="navigation"
           ul.nav.navbar-nav
             li
@@ -30,7 +30,7 @@ html
                 span 比赛日程
             li
               a.apptoggle href="javascript:;" APP
-            li class=('active' if request.original_fullpath =~ /^\/topics/)
+            li class=('active' if request.original_fullpath =~ /^\/topics/ or "/")
               a href=topics_path 社区
           ul#loginedNav.nav.navbar-nav.navbar-right
             - if login?
@@ -50,7 +50,7 @@ html
                   li
                     a href=user_root_path(username: current_user.username) 个人资料
                   li.divider
-                  li.dropdown-header "收藏"
+                  li.dropdown-header 收藏
                   li
                     a href=likes_user_topics_path(username: current_user.username) 话题
                   li

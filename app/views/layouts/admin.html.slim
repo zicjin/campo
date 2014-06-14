@@ -1,8 +1,8 @@
 doctype html
 html
   head
-    title
-      = @page_title ? "#{@page_title} - #{t('.admin', name: CONFIG['title'])}" : t('.admin', name: CONFIG['title'])
+    title = @page_title ? "#{@page_title} - #{t('.admin', name: CONFIG['title'])}" : t('.admin', name: CONFIG['title'])
+    = stylesheet_link_tag "http://baozoubisai.com/assets_dist/content/main.css", media: "all", "data-turbolinks-track" => true
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     meta name="viewport" content="width=device-width, initial-scale=1.0"
@@ -14,34 +14,26 @@ html
         };
 
   body
-    nav.navbar.navbar-campo.navbar-static-top.navbar-inverse
+    header#navdoc.navbar.navbar-inverse.navbar-fixed-top role="banner"
       .container
         .navbar-header
-          a.navbar-brand href=admin_root_path
-            = t '.admin', name: CONFIG['title']
-        ul.nav.navbar-nav.navbar-right
-          li
-            a href=root_path
-              i.fa.fa-sign-out
-          li.navbar-toggle
-            a.tiem type="button" data-toggle="collapse" data-target="#navbar"
-              i.fa.fa-bars
-        #navbar.collapse.navbar-collapse
+          button.navbar-toggle type="button" data-toggle="collapse" data-target=".navbar-collapse"
+            span.sr-only 切换导航
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand href=admin_root_path 暴走比赛 Admin
+        nav.collapse.navbar-collapse role="navigation"
           ul.nav.navbar-nav
             li class=('active' if controller_name == 'users')
-              a href=admin_users_path
-                = t '.users'
+              a href=admin_users_path 用户
             li class=('active' if controller_name == 'categories')
-              a href=admin_categories_path
-                = t '.categories'
+              a href=admin_categories_path 分类
             li class=('active' if controller_name == 'topics')
-              a href=admin_topics_path
-                = t '.topics'
+              a href=admin_topics_path 话题
             li class=('active' if controller_name == 'comments')
-              a href=admin_comments_path
-                = t '.comments'
+              a href=admin_comments_path 评论
             li class=('active' if controller_name == 'attachments')
-              a href=admin_attachments_path
-                = t '.attachments'
+              a href=admin_attachments_path 附件
 
     = yield

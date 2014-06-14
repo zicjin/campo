@@ -41,11 +41,10 @@
                 = paginate @topics, theme: 'campo'
 
       .col-md-3
-        = render 'search_form'
         .panel
           .panel-body
-            a.btn.btn-success.btn-block href=new_topic_path(category_id: @category.try(:slug))
-              = t '.create_topic'
+            = render 'search_form'
+            a.btn.btn-success.btn-block.mt10 href=new_topic_path(category_id: @category.try(:slug)) 创建话题
         .panel
           .panel-body
             ul.nav.nav-pills.nav-stacked
