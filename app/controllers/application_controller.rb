@@ -90,7 +90,7 @@ class ApplicationController < ActionController::Base
   end
 
   def forget_me
-    cookies.delete(:remember_token)
+    cookies.delete(:remember_token, domain:'baozoubisai.com')
   end
 
   def remember_me
@@ -98,7 +98,7 @@ class ApplicationController < ActionController::Base
       value: current_user.remember_token,
       expires: 2.weeks.from_now,
       httponly: true,
-      domain: '.baozoubisai.com'
+      domain: 'baozoubisai.com'
     }
   end
 
