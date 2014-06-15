@@ -100,9 +100,13 @@ class ApplicationController < ActionController::Base
       #httponly: true,
       domain: '.baozoubisai.com'
     }
-    cookies[:discourse_logged] = {
-      value: 'true',
-      domain: 'www.baozoubisai.com'
+    cookies[:customer_name] = {
+      value: current_user.username,
+      domain: '.baozoubisai.com'
+    }
+    cookies[:customer_avatar] = {
+      value: current_user.avatar.small.url,
+      domain: '.baozoubisai.com'
     }
   end
 
