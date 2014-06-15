@@ -97,7 +97,8 @@ class ApplicationController < ActionController::Base
     cookies[:remember_token] = {
       value: current_user.remember_token,
       expires: 2.weeks.from_now,
-      httponly: true
+      httponly: true,
+      domain: '.baozoubisai.com'
     }
   end
 

@@ -86,3 +86,6 @@ html
     - if login? and !current_user.confirmed?
       = render 'share/user_confirm_required'
     = yield
+
+javascript:
+  var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000353154'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1000353154' type='text/javascript'%3E%3C/script%3E"));
