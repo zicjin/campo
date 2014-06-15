@@ -30,7 +30,7 @@ html
                 span 比赛日程
             li
               a.apptoggle href="javascript:;" APP
-            li class=('active' if request.original_fullpath =~ /^\/topics/ or "/")
+            li class=('active' if request.original_fullpath =~ /^\/topics/ or request.original_fullpath == "/")
               a href=topics_path 社区
           ul#loginedNav.nav.navbar-nav.navbar-right
             - if login?
@@ -86,3 +86,5 @@ html
     - if login? and !current_user.confirmed?
       = render 'share/user_confirm_required'
     = yield
+
+    = stylesheet_link_tag "http://baozoubisai.com/assets_dist/bower_components/font-awesome/css/font-awesome.min.css", media: "all"
