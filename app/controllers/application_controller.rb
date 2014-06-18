@@ -108,6 +108,10 @@ class ApplicationController < ActionController::Base
       value: current_user.avatar.small.url,
       domain: '.baozoubisai.com'
     }
+    cookies[:csrf_token] = {
+      value: form_authenticity_token,
+      domain: '.baozoubisai.com'
+    }
   end
 
   def set_locale
