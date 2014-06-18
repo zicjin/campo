@@ -102,10 +102,12 @@ class ApplicationController < ActionController::Base
     }
     cookies[:customer_name] = {
       value: current_user.username,
+      expires: 2.weeks.from_now,
       domain: '.baozoubisai.com'
     }
     cookies[:customer_avatar] = {
       value: current_user.avatar.small.url,
+      expires: 2.weeks.from_now,
       domain: '.baozoubisai.com'
     }
     cookies[:csrf_token] = {
