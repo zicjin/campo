@@ -38,7 +38,9 @@ $border-radius-large:       2px;
 
 body {background: #eee;
   &.for-iosapp{padding-top:0;
-    header .navbar-header{display:none;}
+    header{min-height:0;border:none;
+      .navbar-header{display:none;}
+    }
   }
 }
 
