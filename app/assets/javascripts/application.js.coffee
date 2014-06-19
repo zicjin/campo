@@ -43,3 +43,6 @@ $(document).on 'page:update', ->
   , null
   $('.qrwapper, .qrwapper>.close', jumbotron).on 'click', ->
     $('.qrcode', jumbotron).fadeToggle()
+
+window.glo_iosapp_nav = ->
+  $('button.navbar-toggle').click()

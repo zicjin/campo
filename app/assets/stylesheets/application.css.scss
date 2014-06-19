@@ -36,7 +36,11 @@ $border-radius-large:       2px;
 @import "subscriptions";
 @import "markdown";
 
-body {background: #eee;}
+body {background: #eee;
+  &.for-iosapp{padding-top:0;
+    header .navbar-header{display:none;}
+  }
+}
 
 .text-hide-overflow {
   overflow: hidden;
