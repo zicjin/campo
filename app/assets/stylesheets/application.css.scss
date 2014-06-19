@@ -36,13 +36,12 @@ $border-radius-large:       2px;
 @import "subscriptions";
 @import "markdown";
 
-body {background: #eee;
-  &.for-iosapp{padding-top:0;
-    header{min-height:0;border:none;
-      .navbar-header{display:none;}
-    }
+html.for-iosapp {
+  header{min-height:0;border:none;
+    .navbar-header{display:none;}
   }
 }
+body {background: #eee;}
 
 .text-hide-overflow {
   overflow: hidden;
