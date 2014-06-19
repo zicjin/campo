@@ -37,6 +37,7 @@ $border-radius-large:       2px;
 @import "markdown";
 
 html.for-iosapp {
+  body{padding-top:0;}
   header{min-height:0;border:none;
     .navbar-header{display:none;}
   }
