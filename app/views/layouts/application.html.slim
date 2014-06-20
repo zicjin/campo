@@ -30,11 +30,13 @@ html
                 span 比赛日程
             li
               a.apptoggle href="javascript:;" APP
-            li class=('active' if request.original_fullpath =~ /^\/topics/ or request.original_fullpath == "/")
-              a href=topics_path 社区
+            li class=('active' if current_page?(:controller => 'topics') or request.original_fullpath == "/")
+              a href=topics_path 足球
+            li class=('active' if current_page?(:controller => 'nba_topics'))
+              a href=nba_topics_path NBA
           ul#loginedNav.nav.navbar-nav.navbar-right
             - if login?
-              li class=('active' if request.original_fullpath =~ /^\/notifications/)
+              li class=('active' if current_page?(:controller => 'notifications'))
                 a.notifications-bell href=notifications_path
                   i.fa.fa-bell-o
                   - if unread_notifications_count > 0

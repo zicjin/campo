@@ -164,6 +164,45 @@ ALTER SEQUENCE likes_id_seq OWNED BY likes.id;
 
 
 --
+-- Name: nba_topics; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE nba_topics (
+    id integer NOT NULL,
+    user_id integer,
+    category_id integer,
+    title character varying(255),
+    body text,
+    hot double precision DEFAULT 0.0,
+    comments_count integer DEFAULT 0,
+    likes_count integer DEFAULT 0,
+    subscriptions_count integer DEFAULT 0,
+    trashed boolean DEFAULT false,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: nba_topics_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE nba_topics_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: nba_topics_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE nba_topics_id_seq OWNED BY nba_topics.id;
+
+
+--
 -- Name: notifications; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -355,6 +394,13 @@ ALTER TABLE ONLY likes ALTER COLUMN id SET DEFAULT nextval('likes_id_seq'::regcl
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY nba_topics ALTER COLUMN id SET DEFAULT nextval('nba_topics_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY notifications ALTER COLUMN id SET DEFAULT nextval('notifications_id_seq'::regclass);
 
 
@@ -409,6 +455,14 @@ ALTER TABLE ONLY comments
 
 ALTER TABLE ONLY likes
     ADD CONSTRAINT likes_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: nba_topics_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY nba_topics
+    ADD CONSTRAINT nba_topics_pkey PRIMARY KEY (id);
 
 
 --
@@ -483,6 +537,27 @@ CREATE INDEX index_likes_on_likeable_id_and_likeable_type ON likes USING btree (
 --
 
 CREATE INDEX index_likes_on_user_id ON likes USING btree (user_id);
+
+
+--
+-- Name: index_nba_topics_on_category_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_nba_topics_on_category_id ON nba_topics USING btree (category_id);
+
+
+--
+-- Name: index_nba_topics_on_hot; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_nba_topics_on_hot ON nba_topics USING btree (hot);
+
+
+--
+-- Name: index_nba_topics_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_nba_topics_on_user_id ON nba_topics USING btree (user_id);
 
 
 --
@@ -584,4 +659,8 @@ INSERT INTO schema_migrations (version) VALUES ('20140405074043');
 INSERT INTO schema_migrations (version) VALUES ('20140412065000');
 
 INSERT INTO schema_migrations (version) VALUES ('20140412113810');
+
+INSERT INTO schema_migrations (version) VALUES ('20140620155647');
+
+INSERT INTO schema_migrations (version) VALUES ('20140620172533');
 

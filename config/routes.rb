@@ -44,7 +44,16 @@ Rails.application.routes.draw do
       get 'categoried/:category_id', to: 'topics#index', as: :categoried
       get 'search'
     end
+    member do
+      delete :trash
+    end
+  end
 
+  resources :nba_topics, only: [:index, :show, :new, :create, :edit, :update], concerns: [:commentable, :likeable, :subscribable] do
+    collection do
+      get 'categoried/:category_id', to: 'nba_topics#index', as: :nba_categoried
+      get 'search'
+    end
     member do
       delete :trash
     end
@@ -70,6 +79,11 @@ Rails.application.routes.draw do
 
   scope path: '~:username', module: 'users', as: 'user' do
     resources :topics, only: [:index] do
+      collection do
+        get :likes
+      end
+    end
+    resources :nba_topics, only: [:index] do
       collection do
         get :likes
       end
@@ -107,6 +121,17 @@ Rails.application.routes.draw do
     resources :categories, except: [:edit]
 
     resources :topics, only: [:index, :show, :update] do
+      collection do
+        get :trashed
+      end
+
+      member do
+        delete :trash
+        patch :restore
+      end
+    end
+
+    resources :nba_topics, only: [:index, :show, :update] do
       collection do
         get :trashed
       end
