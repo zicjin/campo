@@ -87,6 +87,36 @@ zh-CN:
         no_category: "不分类"
         restore: "还原"
         save_changes: "保存修改"
+    nba_topics:
+      flashes:
+        successfully_restored: "成功还原话题"
+        successfully_trashed: "成功删除话题"
+        successfully_updated: "成功更新话题"
+      index:
+        normal: "正常"
+        topics: "话题"
+        trashed: "回收站"
+      show:
+        delete: "删除"
+        delete_confirm: "你确定要删除次话题吗？"
+        no_category: "不分类"
+        restore: "还原"
+        save_changes: "保存修改"
+    tennis_topics:
+      flashes:
+        successfully_restored: "成功还原话题"
+        successfully_trashed: "成功删除话题"
+        successfully_updated: "成功更新话题"
+      index:
+        normal: "正常"
+        topics: "话题"
+        trashed: "回收站"
+      show:
+        delete: "删除"
+        delete_confirm: "你确定要删除次话题吗？"
+        no_category: "不分类"
+        restore: "还原"
+        save_changes: "保存修改"
     users:
       flashes:
         successfully_destroy: "成功彻底删除用户"
@@ -275,6 +305,78 @@ zh-CN:
       to_comment: "后发表评论"
       your_account_had_been_locked: "你的帐号已被锁定"
     topic:
+      comments_count: "%{count} 条评论"
+  nba_topics:
+    edit:
+      edit_topic: "编辑话题"
+    form:
+      cancel: "取消"
+      create_topic: "创建话题"
+      no_category: "不分类"
+      save_changes: "保存修改"
+      title: "标题"
+    index:
+      all_categories: "所有分类"
+      create_topic: "创建话题"
+      hot: "热门"
+      hot_topics: "热门话题"
+      newest: "最新"
+      newest_topics: "最新话题"
+      no_topic_yet: "还没有话题"
+    new:
+      new_topic: "新话题"
+    search:
+      no_matching_results: "没有匹配结果"
+      search: "搜索"
+    show:
+      add_this_comment: "添加评论"
+      comments: "评论"
+      delete_confirm: "你确定要删除此话题吗？"
+      login: "登录"
+      no_comment_yet: "还没有评论"
+      no_more_topics: "没有更多话题"
+      or: "或"
+      related_topics: "相关话题"
+      sign_up: "注册"
+      to_comment: "后发表评论"
+      your_account_had_been_locked: "你的帐号已被锁定"
+    nba_topic:
+      comments_count: "%{count} 条评论"
+  tennis_topics:
+    edit:
+      edit_topic: "编辑话题"
+    form:
+      cancel: "取消"
+      create_topic: "创建话题"
+      no_category: "不分类"
+      save_changes: "保存修改"
+      title: "标题"
+    index:
+      all_categories: "所有分类"
+      create_topic: "创建话题"
+      hot: "热门"
+      hot_topics: "热门话题"
+      newest: "最新"
+      newest_topics: "最新话题"
+      no_topic_yet: "还没有话题"
+    new:
+      new_topic: "新话题"
+    search:
+      no_matching_results: "没有匹配结果"
+      search: "搜索"
+    show:
+      add_this_comment: "添加评论"
+      comments: "评论"
+      delete_confirm: "你确定要删除此话题吗？"
+      login: "登录"
+      no_comment_yet: "还没有评论"
+      no_more_topics: "没有更多话题"
+      or: "或"
+      related_topics: "相关话题"
+      sign_up: "注册"
+      to_comment: "后发表评论"
+      your_account_had_been_locked: "你的帐号已被锁定"
+    tennis_topic:
       comments_count: "%{count} 条评论"
   user_mailer:
     confirmation:

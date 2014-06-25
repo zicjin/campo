@@ -1,0 +1,16 @@
+- cache [tennis_topic, locale] do
+  a.list-group-item.topic href=tennis_topic_last_path(tennis_topic)
+    .list-group-item-avatar
+      img.img-rounded alt="avatar" src=tennis_topic.user.avatar.normal.url
+    .list-group-item-content
+      .list-group-item-heading
+        b = tennis_topic.title
+      .text-muted
+        = tennis_topic.user.name
+        = ' · '
+        = time_ago_tag tennis_topic.created_at
+        - if tennis_topic.category
+          = ' · '
+          = tennis_topic.category.name
+        = ' · '
+        = t '.comments_count', count: tennis_topic.comments_count

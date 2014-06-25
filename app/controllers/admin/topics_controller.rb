@@ -1,5 +1,6 @@
 class Admin::TopicsController < Admin::ApplicationController
   before_action :find_topic, only: [:show, :update, :trash, :restore]
+  before_action :topic_categories, only: [:show]
 
   def index
     @topics = Topic.includes(:user).order(id: :desc).page(params[:page])
@@ -38,5 +39,9 @@ class Admin::TopicsController < Admin::ApplicationController
 
   def find_topic
     @topic = Topic.with_trashed.find params[:id]
+  end
+
+  def topic_categories
+    @categories = Category.where(group: 0)
   end
 end

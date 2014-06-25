@@ -41,13 +41,13 @@
         .panel
           .panel-body
             = render 'search_form'
-            a.btn.btn-success.btn-block.mt10 href=new_nba_topic_path(category_id: @category.try(:slug)) 创建话题
+            a.btn.btn-success.btn-block.mt10 href=new_tennis_topic_path(category_id: @category.try(:slug)) 创建话题
         .panel
           .panel-body
             ul.nav.nav-pills.nav-stacked
               li class=('active' unless @category)
                 a href=topics_path 所有分类
-              - Category.order(topics_count: :desc).where(group: 1).each do |category|
+              - Category.order(topics_count: :desc).where(group: 2).each do |category|
                 li class=('active' if category == @category)
                   a href=categoried_topics_path(category_id: category.slug)
                     = category.name

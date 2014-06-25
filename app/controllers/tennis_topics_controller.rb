@@ -1,10 +1,10 @@
-class NbaTopicsController < ApplicationController
+class TennisTopicsController < ApplicationController
   before_action :login_required, :no_locked_required, except: [:index, :show, :search]
   before_action :find_topic, only: [:edit, :update, :trash]
   before_action :topic_categories, only: [:new, :edit]
 
   def index
-    @topics = NbaTopic.includes(:user, :category).page(params[:page])
+    @topics = TennisTopic.includes(:user, :category).page(params[:page])
 
     if params[:category_id]
       @category = Category.where('lower(slug) = ?', params[:category_id].downcase).first!
@@ -25,7 +25,7 @@ class NbaTopicsController < ApplicationController
   end
 
   def search
-    @topics = NbaTopic.search(
+    @topics = TennisTopic.search(
       query: {
         multi_match: {
           query: params[:q].to_s,
@@ -41,7 +41,7 @@ class NbaTopicsController < ApplicationController
   end
 
   def show
-    @topic = NbaTopic.find params[:id]
+    @topic = TennisTopic.find params[:id]
 
     if params[:comment_id] and comment = @topic.comments.find_by(id: params.delete(:comment_id))
       params[:page] = comment.page
@@ -55,13 +55,12 @@ class NbaTopicsController < ApplicationController
   end
 
   def new
-    # binding.pry
-    @category = Category.where('lower(slug) = ?', params[:category_id].downcase).where(group: 1).first if params[:category_id].present?
-    @topic = NbaTopic.new category: @category
+    @category = Category.where('lower(slug) = ?', params[:category_id].downcase).where(group: 2).first if params[:category_id].present?
+    @topic = TennisTopic.new category: @category
   end
 
   def create
-    @topic = current_user.nba_topics.create topic_params
+    @topic = current_user.tennis_topics.create topic_params
   end
 
   def edit
@@ -73,20 +72,20 @@ class NbaTopicsController < ApplicationController
 
   def trash
     @topic.trash
-    redirect_via_turbolinks_to nba_topics_path
+    redirect_via_turbolinks_to tennis_topics_path
   end
 
   private
 
   def topic_params
-    params.require(:nba_topic).permit(:title, :category_id, :body)
+    params.require(:tennis_topic).permit(:title, :category_id, :body)
   end
 
   def find_topic
-    @topic = current_user.nba_topics.find params[:id]
+    @topic = current_user.tennis_topics.find params[:id]
   end
 
   def topic_categories
-    @categories = Category.where(group: 1)
+    @categories = Category.where(group: 2)
   end
 end

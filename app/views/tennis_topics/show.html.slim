@@ -20,7 +20,7 @@
                         '
                         = "@#{@topic.user.username}"
                       = ' · '
-                      a href=nba_topic_path(@topic)
+                      a href=tennis_topic_path(@topic)
                         = time_ago_tag @topic.created_at
                       - if @topic.category
                         = ' · '
@@ -36,9 +36,9 @@
                           span.count
                             - if @topic.likes_count > 0
                               = @topic.likes_count
-                        a.btn data-visible-to="creator" href=edit_nba_topic_path(@topic)
+                        a.btn data-visible-to="creator" href=edit_tennis_topic_path(@topic)
                           i.fa.fa-pencil
-                        a.btn data-visible-to="creator" href=trash_nba_topic_path(@topic) data-remote="true" data-method="delete" data-confirm=t('.delete_confirm')
+                        a.btn data-visible-to="creator" href=trash_tennis_topic_path(@topic) data-remote="true" data-method="delete" data-confirm=t('.delete_confirm')
                           i.fa.fa-trash-o
 
         .panel#comments
@@ -104,7 +104,7 @@
                 - more_like_this_topics = @topic.more_like_this
                 - if more_like_this_topics.any?
                   - more_like_this_topics.each do |topic|
-                    a.list-group-item href=nba_topic_path(topic)
+                    a.list-group-item href=tennis_topic_path(topic)
                       = topic.title
                 - else
                   .list-group-item.text-center.text-muted

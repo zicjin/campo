@@ -30,18 +30,20 @@ html
                 span 比赛日程
             li
               a.apptoggle href="javascript:;" APP
-            li class=('active' if current_page?(:controller => 'topics') or request.original_fullpath == "/")
+            li class=('active' if params[:controller] == 'topics' or request.original_fullpath == "/")
               a href=topics_path 足球
-            li class=('active' if current_page?(:controller => 'nba_topics'))
+            li class=('active' if params[:controller] == 'nba_topics')
               a href=nba_topics_path NBA
+            li class=('active' if params[:controller] == 'tennis_topics')
+              a href=tennis_topics_path 网球
           ul#loginedNav.nav.navbar-nav.navbar-right
             - if login?
-              li class=('active' if current_page?(:controller => 'notifications'))
+              li class=('active' if params[:controller] == 'notifications')
                 a.notifications-bell href=notifications_path
                   i.fa.fa-bell-o
                   - if unread_notifications_count > 0
                     .badge = unread_notifications_count > 99 ? '99+' : unread_notifications_count
-              li.dropdown
+              li.dropdown class=('active' if request.original_fullpath =~ /^\/~/)
                 a.dropdown-toggle data-toggle="dropdown" href='#'
                   img.img-circle.img-avatar src=current_user.avatar.small.url
                   '

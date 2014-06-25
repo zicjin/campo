@@ -4,12 +4,20 @@ module CommentsHelper
     case comment.commentable
     when Topic
       topic_path(comment.commentable, comment_id: comment.id, anchor: "comment-#{comment.id}", only_path: options[:only_path])
+    when NbaTopic
+      nba_topic_path(comment.commentable, comment_id: comment.id, anchor: "comment-#{comment.id}", only_path: options[:only_path])
+    when TennisTopic
+      tennis_topic_path(comment.commentable, comment_id: comment.id, anchor: "comment-#{comment.id}", only_path: options[:only_path])
     end
   end
 
   def comment_title(comment)
     case comment.commentable
     when Topic
+      comment.commentable.title
+    when NbaTopic
+      comment.commentable.title
+    when TennisTopic
       comment.commentable.title
     else
       t 'helpers.comments.deleted_entry'
@@ -20,6 +28,10 @@ module CommentsHelper
     case comment.commentable
     when Topic
       topic_last_path(@comment.commentable)
+    when NbaTopic
+      nba_topic_last_path(@comment.commentable)
+    when TennisTopic
+      tennis_topic_last_path(@comment.commentable)
     end
   end
 end

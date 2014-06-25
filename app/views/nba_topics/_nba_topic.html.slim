@@ -1,0 +1,16 @@
+- cache [nba_topic, locale] do
+  a.list-group-item.topic href=nba_topic_last_path(nba_topic)
+    .list-group-item-avatar
+      img.img-rounded alt="avatar" src=nba_topic.user.avatar.normal.url
+    .list-group-item-content
+      .list-group-item-heading
+        b = nba_topic.title
+      .text-muted
+        = nba_topic.user.name
+        = ' · '
+        = time_ago_tag nba_topic.created_at
+        - if nba_topic.category
+          = ' · '
+          = nba_topic.category.name
+        = ' · '
+        = t '.comments_count', count: nba_topic.comments_count

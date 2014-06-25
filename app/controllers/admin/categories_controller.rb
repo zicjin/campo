@@ -1,5 +1,6 @@
 class Admin::CategoriesController < Admin::ApplicationController
   before_action :find_category, only: [:show, :edit, :update, :destroy]
+  before_action :groups_selector, only: [:show, :new, :edit]
 
   def index
     @categories = Category.order(topics_count: :desc)
@@ -16,7 +17,7 @@ class Admin::CategoriesController < Admin::ApplicationController
     @category = Category.new category_params
 
     if @category.save
-      flash[:success] = I18n.t('admin.categories.flashes.successfully_created')
+      flash[:success] = '成功创建分类'
       redirect_to admin_category_path(@category)
     else
       render :new
@@ -28,7 +29,7 @@ class Admin::CategoriesController < Admin::ApplicationController
 
   def update
     if @category.update_attributes category_params
-      flash[:success] = I18n.t('admin.categories.flashes.successfully_updated')
+      flash[:success] = '成功更新分类'
       redirect_to admin_category_path(@category)
     else
       render :edit
@@ -37,17 +38,21 @@ class Admin::CategoriesController < Admin::ApplicationController
 
   def destroy
     @category.destroy
-    flash[:success] = I18n.t('admin.categories.flashes.successfully_destroy')
+    flash[:success] = '成功彻底删除分类'
     redirect_to admin_categories_path
   end
 
   private
 
   def category_params
-    params.require(:category).permit(:name, :slug, :description)
+    params.require(:category).permit(:name, :slug, :group, :description)
   end
 
   def find_category
     @category = Category.find params[:id]
+  end
+
+  def groups_selector
+    @groups = Category.groups
   end
 end

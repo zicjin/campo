@@ -1,11 +1,13 @@
 class SessionsController < ApplicationController
   before_action :no_login_required, :access_limiter, only: [:new, :create]
+  # skip_before_action :verify_authenticity_token
 
   def new
     store_location params[:return_to]
   end
 
   def create
+    # binding.pry
     login = params[:login].downcase
     @user = if login.include?('@')
               User.where('lower(email) = ?', login).first

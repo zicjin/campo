@@ -89,6 +89,36 @@ en:
         no_category: No category
         restore: Restore
         save_changes: Save changes
+    nba_topics:
+      flashes:
+        successfully_restored: Successfully restored
+        successfully_trashed: Successfully trashed
+        successfully_updated: Successfully updated
+      index:
+        normal: Normal
+        topics: Topics
+        trashed: Trashed
+      show:
+        delete: Delete
+        delete_confirm: Are you sure you want to delete this comment?
+        no_category: No category
+        restore: Restore
+        save_changes: Save changes
+    tennis_topics:
+      flashes:
+        successfully_restored: Successfully restored
+        successfully_trashed: Successfully trashed
+        successfully_updated: Successfully updated
+      index:
+        normal: Normal
+        topics: Topics
+        trashed: Trashed
+      show:
+        delete: Delete
+        delete_confirm: Are you sure you want to delete this comment?
+        no_category: No category
+        restore: Restore
+        save_changes: Save changes
     users:
       flashes:
         successfully_destroy: Successfully destroy
@@ -282,6 +312,78 @@ en:
       to_comment: To comment
       your_account_had_been_locked: Your account had been locked
     topic:
+      comments_count: "%{count} comments"
+  nba_topics:
+    edit:
+      edit_topic: Edit topic
+    form:
+      cancel: Cancel
+      create_topic: Create topic
+      no_category: No category
+      save_changes: Save changes
+      title: Title
+    index:
+      all_categories: All categories
+      create_topic: Create topic
+      hot: Hot
+      hot_topics: Hot topics
+      newest: Newest
+      newest_topics: Newest topics
+      no_topic_yet: No topic yet
+    new:
+      new_topic: New topic
+    search:
+      no_matching_results: No matching results
+      search: Search
+    show:
+      add_this_comment: Add this comment
+      comments: Comments
+      delete_confirm: Are you sure you want to delete this topic?
+      login: Login
+      no_comment_yet: No comment yet
+      no_more_topics: No more topics
+      or: Or
+      related_topics: Related topics
+      sign_up: Sign up
+      to_comment: To comment
+      your_account_had_been_locked: Your account had been locked
+    nba_topic:
+      comments_count: "%{count} comments"
+  tennis_topics:
+    edit:
+      edit_topic: Edit topic
+    form:
+      cancel: Cancel
+      create_topic: Create topic
+      no_category: No category
+      save_changes: Save changes
+      title: Title
+    index:
+      all_categories: All categories
+      create_topic: Create topic
+      hot: Hot
+      hot_topics: Hot topics
+      newest: Newest
+      newest_topics: Newest topics
+      no_topic_yet: No topic yet
+    new:
+      new_topic: New topic
+    search:
+      no_matching_results: No matching results
+      search: Search
+    show:
+      add_this_comment: Add this comment
+      comments: Comments
+      delete_confirm: Are you sure you want to delete this topic?
+      login: Login
+      no_comment_yet: No comment yet
+      no_more_topics: No more topics
+      or: Or
+      related_topics: Related topics
+      sign_up: Sign up
+      to_comment: To comment
+      your_account_had_been_locked: Your account had been locked
+    tennis_topic:
       comments_count: "%{count} comments"
   user_mailer:
     confirmation:

@@ -13,7 +13,7 @@
   - else
     = f.submit '保存修改', class: 'btn btn-success', tabIndex: 4, 'data-disable-with' => '保存修改'
     '
-    a.btn.btn-default href=nba_topic_path(@topic) tabIndex="5"
+    a.btn.btn-default href=tennis_topic_path(@topic) tabIndex="5"
       = 取消
 
 - form_id = @topic.new_record? ? 'new_topic' : "edit_topic_#{@topic.id}"

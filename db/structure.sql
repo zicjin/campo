@@ -71,7 +71,10 @@ CREATE TABLE categories (
     description text,
     topics_count integer DEFAULT 0,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    "group" integer DEFAULT 0,
+    nba_topics_count integer DEFAULT 0,
+    tennis_topics_count integer DEFAULT 0
 );
 
 
@@ -281,6 +284,45 @@ ALTER SEQUENCE subscriptions_id_seq OWNED BY subscriptions.id;
 
 
 --
+-- Name: tennis_topics; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE tennis_topics (
+    id integer NOT NULL,
+    user_id integer,
+    category_id integer,
+    title character varying(255),
+    body text,
+    hot double precision DEFAULT 0.0,
+    comments_count integer DEFAULT 0,
+    likes_count integer DEFAULT 0,
+    subscriptions_count integer DEFAULT 0,
+    trashed boolean DEFAULT false,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: tennis_topics_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tennis_topics_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tennis_topics_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tennis_topics_id_seq OWNED BY tennis_topics.id;
+
+
+--
 -- Name: topics; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -415,6 +457,13 @@ ALTER TABLE ONLY subscriptions ALTER COLUMN id SET DEFAULT nextval('subscription
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY tennis_topics ALTER COLUMN id SET DEFAULT nextval('tennis_topics_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY topics ALTER COLUMN id SET DEFAULT nextval('topics_id_seq'::regclass);
 
 
@@ -479,6 +528,14 @@ ALTER TABLE ONLY notifications
 
 ALTER TABLE ONLY subscriptions
     ADD CONSTRAINT subscriptions_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tennis_topics_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY tennis_topics
+    ADD CONSTRAINT tennis_topics_pkey PRIMARY KEY (id);
 
 
 --
@@ -589,6 +646,27 @@ CREATE INDEX index_subscriptions_on_user_id ON subscriptions USING btree (user_i
 
 
 --
+-- Name: index_tennis_topics_on_category_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_tennis_topics_on_category_id ON tennis_topics USING btree (category_id);
+
+
+--
+-- Name: index_tennis_topics_on_hot; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_tennis_topics_on_hot ON tennis_topics USING btree (hot);
+
+
+--
+-- Name: index_tennis_topics_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_tennis_topics_on_user_id ON tennis_topics USING btree (user_id);
+
+
+--
 -- Name: index_topics_on_category_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -663,4 +741,10 @@ INSERT INTO schema_migrations (version) VALUES ('20140412113810');
 INSERT INTO schema_migrations (version) VALUES ('20140620155647');
 
 INSERT INTO schema_migrations (version) VALUES ('20140620172533');
+
+INSERT INTO schema_migrations (version) VALUES ('20140624113831');
+
+INSERT INTO schema_migrations (version) VALUES ('20140624142848');
+
+INSERT INTO schema_migrations (version) VALUES ('20140624154119');
 
