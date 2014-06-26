@@ -21,7 +21,7 @@
                   a href=admin_user_path(@comment.user)
                     = @comment.user.name
               .form-group
-                = markdown_area f, :body, tabIndex: 1
+                = render partial: 'share/editor_area', locals: {form: f, name: :body, tabIndex: 1}
               .form-group
                 = f.label :created_at
                 = f.text_field :created_at, class: 'form-control', disabled: true

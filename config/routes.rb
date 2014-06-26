@@ -13,8 +13,6 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  post 'markdown/preview', to: 'markdown#preview'
-
   resources :users, only: [:create] do
     collection do
       get :check_email

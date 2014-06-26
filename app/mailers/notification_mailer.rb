@@ -1,7 +1,7 @@
 class NotificationMailer < ActionMailer::Base
   include Resque::Mailer
 
-  helper :markdown, :comments
+  helper :comments
 
   def mention(user_id, comment_id)
     @user = User.find user_id

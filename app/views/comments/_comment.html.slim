@@ -12,7 +12,7 @@
         a href=comment_link(comment)
           = time_ago_tag comment.created_at
       article.comment-body
-        = markdown_format comment.body
+        == comment.body
       .list-group-item-actions.clearfix
         .pull-right
           a.btn data-reply-to="@#{comment.user.username} ##{comment.id} "

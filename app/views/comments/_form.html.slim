@@ -11,7 +11,7 @@
         = time_ago_tag comment.created_at
   = form_for comment, remote: true do |f|
     .form-group
-      = markdown_area f, :body
+      = render partial: 'share/editor_area', locals: {form: f, name: :body}
     = f.submit t('.save_changes'), class: 'btn btn-success', 'data-disable-with' => t('.save_changes')
     '
     a.btn.btn-default href=cancel_comment_path(comment) data-remote="true"

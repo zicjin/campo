@@ -24,7 +24,7 @@
 
           - if @category && @category.description.present?
             .panel-body
-              = markdown_format @category.description
+              == @category.description
 
           .panel-body
             .list-group.list-group-campo.recordable

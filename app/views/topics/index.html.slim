@@ -20,11 +20,11 @@
                 li class=('active' if params[:tab] == 'newest')
                   a href=url_for(tab: 'newest') 最新
             h3.panel-title
-              = @category.try(:name) || '所有分类'
+              = @category.try(:name)
 
           - if @category && @category.description.present?
             .panel-body
-              = markdown_format @category.description
+              == @category.description
 
           .panel-body
             .list-group.list-group-campo.recordable
@@ -40,13 +40,15 @@
       .col-md-3
         .panel
           .panel-body
+            a.btn.btn-default.btn-block.btn-lg.mb20 href=new_topic_path(category_id: @category.try(:slug))
+              | 创建话题
+              i.fa.fa-pencil.ml10
             = render 'search_form'
-            a.btn.btn-success.btn-block.mt10 href=new_topic_path(category_id: @category.try(:slug)) 创建话题
         .panel
           .panel-body
-            ul.nav.nav-pills.nav-stacked
+            ul.nav.nav-pills
               li class=('active' unless @category)
-                a href=topics_path 所有分类
+                a href=topics_path 所有
               - Category.order(topics_count: :desc).where(group: 0).each do |category|
                 li class=('active' if category == @category)
                   a href=categoried_topics_path(category_id: category.slug)

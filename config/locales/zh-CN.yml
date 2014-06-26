@@ -170,12 +170,6 @@ zh-CN:
     en: "英文"
     zh-CN: "简体中文"
     zh-TW: "正体中文"
-  markdown:
-    area:
-      attach_images_by: "添加图片"
-      preview: "预览"
-      select_them: "选择文件"
-      write: "编辑"
   notification_mailer:
     comment:
       view_it_on_web: "查看网页"

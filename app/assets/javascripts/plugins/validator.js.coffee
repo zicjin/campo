@@ -8,9 +8,7 @@ $.validator.setDefaults
   errorElement: "span"
   errorClass: "help-block"
   errorPlacement: (error, element) ->
-    if element.closest('.markdown-area').length
-      error.insertAfter(element.closest('.markdown-area'))
-    else if element.parent('.input-group').length
+    if element.parent('.input-group').length
       error.insertAfter(element.parent())
     else
       error.insertAfter(element)

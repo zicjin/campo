@@ -173,12 +173,6 @@ en:
     en: English
     zh-CN: Chinese(Simplified)
     zh-TW: Chinese(Traditional)
-  markdown:
-    area:
-      attach_images_by: Attach images by
-      preview: Preview
-      select_them: Select them
-      write: Write
   notification_mailer:
     comment:
       view_it_on_web: View it on web

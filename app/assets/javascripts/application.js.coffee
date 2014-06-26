@@ -1,4 +1,3 @@
-#= require jquery
 #= require jquery_ujs
 #= require turbolinks
 #= require bootstrap
@@ -8,6 +7,7 @@
 #= require nprogress
 #= require campo
 #= require_tree ./plugins
+#= require_tree ./simditor
 
 $(document).on 'page:fetch', ->
   NProgress.start()

@@ -27,7 +27,7 @@
                         a href=categoried_topics_path(category_id: @topic.category.slug)
                           = @topic.category.name
                     article.comment-body
-                      = markdown_format @topic.body
+                      == @topic.body
                     .list-group-item-actions.clearfix
                       .pull-right
                         a.btn id="like-for-topic-#{@topic.id}" href=topic_like_path(@topic) data-remote="true" data-method="post"
@@ -73,7 +73,7 @@
                           = "@#{current_user.username}"
                       = form_for @topic.comments.new, url: topic_comments_path(@topic), remote: true do |f|
                         .form-group
-                          = markdown_area f, :body
+                          = render partial: 'share/editor_area', locals: {form: f, name: :body}
                         = f.submit t('.add_this_comment'), class: 'btn btn-success', 'data-disable-with' => t('.add_this_comment')
               - else
                 = t '.your_account_had_been_locked'

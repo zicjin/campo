@@ -1,6 +1,8 @@
 @import "var";
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
+@import "simditor";
+@import "simditor-emoji";
 
 $navbar-inverse-bg: $violet;
 
@@ -34,7 +36,6 @@ $border-radius-large:       2px;
 @import "comments";
 @import "notifications";
 @import "subscriptions";
-@import "markdown";
 
 html.for-iosapp {
   @media (max-width: 767px) {
@@ -53,3 +54,11 @@ body {background: #eee;}
 }
 
 .main{position:relative;z-index:3;background: #eee;}
+
+.file-upload {background: $gray-lighter;position: relative;
+  input[type=file] {position: absolute;width: 100%;top: 0;bottom: 0;outline: 0;opacity: 0;cursor: pointer;}
+  .text {padding: $padding-base-vertical/2 $padding-base-horizontal;}
+  &:hover {
+    a {text-decoration: underline;}
+  }
+}

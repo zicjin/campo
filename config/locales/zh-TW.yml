@@ -140,12 +140,6 @@ zh-TW:
     en: "英文"
     zh-CN: "簡體中文"
     zh-TW: "正體中文"
-  markdown:
-    area:
-      attach_images_by: "添加圖片"
-      preview: "預覽"
-      select_them: "選擇文件"
-      write: "編輯"
   notification_mailer:
     comment:
       view_it_on_web: "查看網頁"

@@ -1,0 +1,13 @@
+- tabIndex ||= nil
+= form.text_area name, id: 'editor', data: { behaviors: 'autosize' }, tabIndex: tabIndex, autofocus:""
+
+coffee:
+  editor = new Simditor
+    textarea: $('#editor')
+    placeholder:"文明发言……"
+    toolbar: ['emoji', 'title', 'bold', 'italic', 'underline', '|', 'ol', 'ul', 'blockquote', 'table', '|', 'link', 'image', 'hr']
+    upload:
+      url: '/attachments'
+    pasteImage: true
+    emoji:
+        imagePath: '/assets/images/emoji/'
