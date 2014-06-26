@@ -30,3 +30,5 @@
 /config/deploy
 
 nohup.out
+
+/public
