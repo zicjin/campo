@@ -114,7 +114,7 @@
   VideoPopover = (function(_super) {
     __extends(VideoPopover, _super);
 
-    VideoPopover.prototype._tpl = "<div class=\"link-settings\">\n  <div class=\"settings-field\">\n    <label>视频地址</label>\n    <input class=\"video-src\" type=\"text\"/>\n    </a>\n  </div>\n</div>";
+    VideoPopover.prototype._tpl = "<div class=\"link-settings\">\n  <div class=\"settings-field\">\n    <label>视频地址</label>\n    <input class=\"video-src\" type=\"text\"/>\n <a class=\"btn btn-default btn-xs\">回车<i class=\"fa fa-level-down ml5\"></i></a>\n  </div>\n</div>";
 
     function VideoPopover(button) {
       this.button = button;
@@ -124,21 +124,27 @@
     VideoPopover.prototype.render = function() {
       this.el.addClass('video-popover').append(this._tpl);
       this.srcEl = this.el.find('.video-src');
-      this.srcEl.on('keydown', (function(_this) {
-        return function(e) {
-          if (e.which === 13) {
-            e.preventDefault();
-            _this.button.loadVideo(_this.srcEl.val(), _this.target);
-            return _this.srcEl.blur();
-          }
-        };
-      })(this));
-      return this.srcEl.on('blur', (function(_this) {
-        return function() {
+      var _this = this;
+      this.srcEl.on('keydown', function(e) {
+        if (e.which === 13) {
+          e.preventDefault();
+          _this.button.loadVideo(_this.srcEl.val(), _this.target);
           _this.target.remove();
-          return _this.hide();
-        };
-      })(this));
+          _this.hide();
+        }
+      });
+
+      this.btnEl = this.el.find('.btn');
+      this.btnEl.on('click', function(e) {
+        _this.button.loadVideo(_this.srcEl.val(), _this.target);
+      });
+
+      return this.srcEl.on('blur', function() {
+        setTimeout(function(){
+          _this.target.remove();
+          _this.hide();
+        }, 100);
+      });
     };
 
     VideoPopover.prototype.show = function() {

@@ -6,6 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
+/vendor/bundle
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -22,6 +23,7 @@
 
 # Ignore uploads.
 /public/uploads
+/public/system
 
 # Ignore Vagrant config.
 /.vagrant
@@ -31,4 +33,13 @@
 
 nohup.out
 
-/public
+# https://github.com/github/gitignore/blob/master/Rails.gitignore
+*.rbc
+capybara-*.html
+.rspec
+/coverage/
+/spec/tmp
+**.orig
+rerun.txt
+pickle-email-*.html
+.rvmrc

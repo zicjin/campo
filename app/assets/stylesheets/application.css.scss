@@ -62,3 +62,9 @@ body {background: #eee;}
     a {text-decoration: underline;}
   }
 }
+
+#topic_title{max-width:606px;}
+
+@media (max-width: 768px) {
+  #user-confirm-required{display:none;}
+}

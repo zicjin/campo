@@ -27,9 +27,6 @@ gem 'turbolinks', github: 'chloerei/turbolinks', branch: 'reset-scroll-position'
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.1.0'
 
-# Font Awesome
-gem 'font-awesome-sass', '~> 4.1.0'
-
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
@@ -73,6 +70,9 @@ gem 'rails-i18n', '~> 4.0.1'
 # redis
 gem 'redis', '~> 3.0.7'
 gem 'hiredis', '~> 0.4.5'
+
+# https://github.com/yeeli/getvideo
+gem 'getvideo'
 
 # Background jobs
 gem 'resque', '~> 1.25.1'

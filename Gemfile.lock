@@ -98,9 +98,12 @@ GEM
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.3)
-    font-awesome-sass (4.1.0)
-      sass (~> 3.2)
     formatador (0.2.5)
+    getvideo (0.0.5)
+      faraday
+      multi_json
+      multi_xml
+      nokogiri
     gravtastic (3.2.6)
     guard (2.6.1)
       formatador (>= 0.2.4)
@@ -153,6 +156,7 @@ GEM
     minitest (5.3.5)
     mono_logger (1.1.0)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     multipart-post (2.0.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -273,7 +277,7 @@ DEPENDENCIES
   elasticsearch-model (~> 0.1.0)
   elasticsearch-rails (~> 0.1.0)
   factory_girl_rails (~> 4.3.0)
-  font-awesome-sass (~> 4.1.0)
+  getvideo
   gravtastic (~> 3.2.6)
   guard-livereload
   hiredis (~> 0.4.5)

@@ -82,6 +82,7 @@ Rails.application.routes.draw do
   end
 
   resources :attachments, only: [:create]
+  resources :getvideo, only: [:index]
 
   root 'topics#index'
 
