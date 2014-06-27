@@ -17,9 +17,12 @@
         .pull-right
           a.btn data-reply-to="@#{comment.user.username} ##{comment.id} "
             i.fa.fa-reply
-          a.btn id="like-for-comment-#{comment.id}" href=comment_like_path(comment) data-remote="true" data-method="post"
-            i.fa.fa-heart
             '
+            '回复
+          a.btn id="like-for-comment-#{comment.id}" href=comment_like_path(comment) data-remote="true" data-method="post"
+            i.fa.fa-lightbulb-o
+            '
+            '亮了
             span.count
               - if comment.likes_count > 0
                 = comment.likes_count

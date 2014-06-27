@@ -31,8 +31,9 @@
                     .list-group-item-actions.clearfix
                       .pull-right
                         a.btn id="like-for-topic-#{@topic.id}" href=topic_like_path(@topic) data-remote="true" data-method="post"
-                          i.fa.fa-heart
+                          i.fa.fa-lightbulb-o
                           '
+                          '亮了
                           span.count
                             - if @topic.likes_count > 0
                               = @topic.likes_count

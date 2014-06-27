@@ -182,7 +182,8 @@ CREATE TABLE nba_topics (
     subscriptions_count integer DEFAULT 0,
     trashed boolean DEFAULT false,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    preview character varying(255)
 );
 
 
@@ -299,7 +300,8 @@ CREATE TABLE tennis_topics (
     subscriptions_count integer DEFAULT 0,
     trashed boolean DEFAULT false,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    preview character varying(255)
 );
 
 
@@ -338,7 +340,8 @@ CREATE TABLE topics (
     subscriptions_count integer DEFAULT 0,
     trashed boolean DEFAULT false,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    preview character varying(255)
 );
 
 
@@ -747,4 +750,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140624113831');
 INSERT INTO schema_migrations (version) VALUES ('20140624142848');
 
 INSERT INTO schema_migrations (version) VALUES ('20140624154119');
+
+INSERT INTO schema_migrations (version) VALUES ('20140627050953');
 

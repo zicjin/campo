@@ -20,7 +20,7 @@
                 li class=('active' if params[:tab] == 'newest')
                   a href=url_for(tab: 'newest') 最新
             h3.panel-title
-              = @category.try(:name) || '所有分类'
+              = @category.try(:name)
 
           - if @category && @category.description.present?
             .panel-body
@@ -44,7 +44,7 @@
             a.btn.btn-success.btn-block.mt10 href=new_tennis_topic_path(category_id: @category.try(:slug)) 创建话题
         .panel
           .panel-body
-            ul.nav.nav-pills.nav-stacked
+            ul.nav.nav-pills
               li class=('active' unless @category)
                 a href=topics_path 所有分类
               - Category.order(topics_count: :desc).where(group: 2).each do |category|

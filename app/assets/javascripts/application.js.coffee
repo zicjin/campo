@@ -11,12 +11,11 @@
 
 $(document).on 'page:fetch', ->
   NProgress.start()
-$(document).on 'page:change', ->
+.on 'page:change', ->
   NProgress.done()
-$(document).on 'page:restore', ->
+.on 'page:restore', ->
   NProgress.remove()
-
-$(document).on 'page:update', ->
+.on 'page:update', ->
   $('[data-behaviors~=autosize]').autosize()
 
   $("time[data-behaviors~=timeago]").timeago()

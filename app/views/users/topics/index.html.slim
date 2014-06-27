@@ -12,11 +12,9 @@
             .pull-right
               ul.nav.nav-pills
                 li class=('active' if action_name == 'index')
-                  a href=user_topics_path
-                    = t '.publish'
+                  a href=user_topics_path 发布
                 li class=('active' if action_name == 'likes')
-                  a href=likes_user_topics_path
-                    = t '.likes'
+                  a href=likes_user_topics_path 喜欢的
             h3.panel-title
               = t '.topics'
           .panel-body

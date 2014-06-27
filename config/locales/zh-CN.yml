@@ -443,3 +443,17 @@ zh-CN:
         publish: "发布"
         topics: "话题"
         user_s_topics: "%{name} 的话题"
+    nba_topics:
+      index:
+        likes: "收藏"
+        no_topic_yet: "还没有话题"
+        publish: "发布"
+        topics: "话题"
+        user_s_topics: "%{name} 的话题"
+    tennis_topics:
+      index:
+        likes: "收藏"
+        no_topic_yet: "还没有话题"
+        publish: "发布"
+        topics: "话题"
+        user_s_topics: "%{name} 的话题"

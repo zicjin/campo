@@ -61,14 +61,18 @@ class NbaTopicsController < ApplicationController
   end
 
   def create
-    @topic = current_user.nba_topics.create topic_params
+    _params = topic_params
+    _params[:preview] = parse_preview _params[:body]
+    @topic = current_user.nba_topics.create _params
   end
 
   def edit
   end
 
   def update
-    @topic.update_attributes topic_params
+    _params = topic_params
+    _params[:preview] = parse_preview _params[:body]
+    @topic.update_attributes _params
   end
 
   def trash
@@ -89,4 +93,20 @@ class NbaTopicsController < ApplicationController
   def topic_categories
     @categories = Category.where(group: 1)
   end
+
+  def parse_preview(content)
+    _doc = Nokogiri::HTML(content)
+
+    _embeds = _doc.css("embed")
+    if _embeds.length > 0
+      _video = Getvideo.parse _embeds.first['src']
+      return _video.cover
+    end
+
+    _imgs = _doc.css("img")
+    if _imgs.length > 0
+      return _imgs.first['src']
+    end
+  end
+
 end

@@ -2,8 +2,16 @@
   a.list-group-item class=('active' if controller_name == 'topics') href=user_topics_path
     .pull-right
       i.fa.fa-chevron-right
-    = t '.topics'
+    ' 足球话题
+  a.list-group-item class=('active' if controller_name == 'nba_topics') href=user_nba_topics_path
+    .pull-right
+      i.fa.fa-chevron-right
+    ' NBA话题
+  a.list-group-item class=('active' if controller_name == 'tennis_topics') href=user_tennis_topics_path
+    .pull-right
+      i.fa.fa-chevron-right
+    ' 网球话题
   a.list-group-item class=('active' if controller_name == 'comments') href=user_comments_path
     .pull-right
       i.fa.fa-chevron-right
-    = t '.comments'
+    ' 评论

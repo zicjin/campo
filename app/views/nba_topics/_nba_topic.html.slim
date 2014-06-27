@@ -1,5 +1,5 @@
 - cache [nba_topic, locale] do
-  a.list-group-item.topic href=nba_topic_last_path(nba_topic)
+  a.list-group-item.topic href=nba_topic_last_path(nba_topic) class=('haspreview' if nba_topic.preview)
     .list-group-item-avatar
       img.img-rounded alt="avatar" src=nba_topic.user.avatar.normal.url
     .list-group-item-content
@@ -14,3 +14,5 @@
           = nba_topic.category.name
         = ' · '
         = t '.comments_count', count: nba_topic.comments_count
+    - if nba_topic.preview
+      img.preview src=nba_topic.preview

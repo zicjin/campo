@@ -1,5 +1,5 @@
 - cache [tennis_topic, locale] do
-  a.list-group-item.topic href=tennis_topic_last_path(tennis_topic)
+  a.list-group-item.topic href=tennis_topic_last_path(tennis_topic) class=('haspreview' if tennis_topic.preview)
     .list-group-item-avatar
       img.img-rounded alt="avatar" src=tennis_topic.user.avatar.normal.url
     .list-group-item-content
@@ -14,3 +14,5 @@
           = tennis_topic.category.name
         = ' · '
         = t '.comments_count', count: tennis_topic.comments_count
+    - if tennis_topic.preview
+      img.preview src=tennis_topic.preview

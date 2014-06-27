@@ -100,6 +100,14 @@
 .list-group {
   padding: 0;
 
+  .topic.haspreview{
+    padding-right:121px;
+    img.preview{
+      height: 74px; max-width: 111px;
+      position:absolute;top:0;right:0;
+    }
+  }
+
   .list-group-item {
     border: none;
     border-bottom: 1px solid #eee;
