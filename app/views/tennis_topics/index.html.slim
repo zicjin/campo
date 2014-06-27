@@ -40,7 +40,7 @@
       .col-md-3
         .panel
           .panel-body
-            a.btn.btn-default.btn-block.btn-lg.mb20 href=new_topic_path(category_id: @category.try(:slug))
+            a.btn.btn-default.btn-block.btn-lg.mb20 href=new_tennis_topic_path(category_id: @category.try(:slug))
               | 创建话题
               i.fa.fa-pencil.ml10
             = render 'search_form'
