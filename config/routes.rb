@@ -49,7 +49,7 @@ Rails.application.routes.draw do
 
   resources :nba_topics, only: [:index, :show, :new, :create, :edit, :update], concerns: [:commentable, :likeable, :subscribable] do
     collection do
-      get 'categoried/:category_id', to: 'nba_topics#index', as: :nba_categoried
+      get 'categoried/:category_id', to: 'nba_topics#index', as: :categoried
       get 'search'
     end
     member do
@@ -59,7 +59,7 @@ Rails.application.routes.draw do
 
   resources :tennis_topics, only: [:index, :show, :new, :create, :edit, :update], concerns: [:commentable, :likeable, :subscribable] do
     collection do
-      get 'categoried/:category_id', to: 'tennis_topics#index', as: :tennis_categoried
+      get 'categoried/:category_id', to: 'tennis_topics#index', as: :categoried
       get 'search'
     end
     member do
