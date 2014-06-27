@@ -13,8 +13,7 @@
   - else
     = f.submit t('.save_changes'), class: 'btn btn-success', tabIndex: 4, 'data-disable-with' => t('.save_changes')
     '
-    a.btn.btn-default href=topic_path(@topic) tabIndex="5"
-      = t '.cancel'
+    a.btn.btn-default href=topic_path(@topic) tabIndex="5" 取消
 
 - form_id = @topic.new_record? ? 'new_topic' : "edit_topic_#{@topic.id}"
 
