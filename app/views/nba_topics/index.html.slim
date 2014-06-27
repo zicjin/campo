@@ -40,8 +40,10 @@
       .col-md-3
         .panel
           .panel-body
+            a.btn.btn-default.btn-block.btn-lg.mb20 href=new_topic_path(category_id: @category.try(:slug))
+              | 创建话题
+              i.fa.fa-pencil.ml10
             = render 'search_form'
-            a.btn.btn-success.btn-block.mt10 href=new_nba_topic_path(category_id: @category.try(:slug)) 创建话题
         .panel
           .panel-body
             ul.nav.nav-pills
