@@ -103,10 +103,10 @@ class TopicsController < ApplicationController
     end
 
     _imgs = _doc.css("img")
-    if _imgs.length > 0
-      # images = doc.css("img").map{|links| links['src']}
+    if _imgs.length > 0 and _imgs.first['src'].length < 200
       return _imgs.first['src']
     end
+    # images = doc.css("img").map{|links| links['src']}
   end
 
 end

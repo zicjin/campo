@@ -104,7 +104,7 @@ class NbaTopicsController < ApplicationController
     end
 
     _imgs = _doc.css("img")
-    if _imgs.length > 0
+    if _imgs.length > 0 and _imgs.first['src'].length < 200
       return _imgs.first['src']
     end
   end
