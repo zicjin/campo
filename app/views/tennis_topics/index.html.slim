@@ -48,7 +48,7 @@
           .panel-body
             ul.nav.nav-pills
               li class=('active' unless @category)
-                a href=topics_path 所有分类
+                a href=tennis_topics_path 所有分类
               - Category.order(topics_count: :desc).where(group: 2).each do |category|
                 li class=('active' if category == @category)
                   a href=categoried_tennis_topics_path(category_id: category.slug)
