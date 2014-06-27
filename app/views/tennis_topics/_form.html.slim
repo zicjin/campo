@@ -2,7 +2,7 @@
   .row
     .col-md-9
       .form-group
-        = f.text_field :title, class: 'form-control', placeholder: '标题', tabIndex: 1
+        = f.text_field :title, class: 'form-control form-head', placeholder: '标题', tabIndex: 1
     .col-md-3
       .form-group
         = f.collection_select :category_id, @categories.order(topics_count: :desc), :id, :name, {}, class: 'form-control', tabIndex: 2

@@ -51,5 +51,5 @@
                 a href=topics_path 所有分类
               - Category.order(topics_count: :desc).where(group: 1).each do |category|
                 li class=('active' if category == @category)
-                  a href=categoried_topics_path(category_id: category.slug)
+                  a href=categoried_nba_topics_path(category_id: category.slug)
                     = category.name
