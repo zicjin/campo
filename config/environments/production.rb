@@ -58,7 +58,7 @@ Rails.application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
   config.action_controller.asset_host = Proc.new { |source, request|
     if source =~ /respond\.proxy-.+(js|gif)$/
-      "#{request.protocol}#{request.host_with_port}"
+      "//baozoubisai.com"
     end
   }
 
