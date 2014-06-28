@@ -1,16 +1,17 @@
 - subscription = subscribable.subscriptions.find_by(user: current_user)
+- subscription = subscribable.subscriptions.find_by(user: current_user)
 .btn-group id="subscription-for-#{subscribable.class.name.downcase}-#{subscribable.id}"
   .btn.btn-default.dropdown-toggle data-toggle="dropdown"
-    - if subscription.subscribed?
-      i.fa.fa-eye
-      '
-      '关注中
-      '
-      i.fa.fa-caret-down
-    - elsif subscription.nil?
+    - if subscription.nil?
       i.fa.fa-eye-slash
       '
       '未关注
+      '
+      i.fa.fa-caret-down
+    - elsif subscription.subscribed?
+      i.fa.fa-eye
+      '
+      '关注中
       '
       i.fa.fa-caret-down
     - elsif subscription.ignored?

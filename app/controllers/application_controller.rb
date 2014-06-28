@@ -90,15 +90,16 @@ class ApplicationController < ActionController::Base
   end
 
   def forget_me
-    cookies.delete(:remember_token, domain:'.baozoubisai.com')
+    cookies.delete(:remember_token)
+    cookies.delete(:customer_name, domain:'.baozoubisai.com')
+    cookies.delete(:csrf_token, domain:'.baozoubisai.com')
   end
 
   def remember_me
     cookies[:remember_token] = {
       value: current_user.remember_token,
       expires: 2.weeks.from_now,
-      #httponly: true,
-      domain: '.baozoubisai.com'
+      httponly: true
     }
     cookies[:customer_name] = {
       value: current_user.username,
