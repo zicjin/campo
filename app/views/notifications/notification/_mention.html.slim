@@ -17,4 +17,4 @@
           '
           = time_ago_tag comment.created_at
         .text-muted
-          = truncate comment.body, length: 140
+          = truncate strip_tags(comment.body), length: 140

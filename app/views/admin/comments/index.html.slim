@@ -26,7 +26,7 @@
                   .list-group-item-heading
                     = comment.id
                     = '. '
-                    b = truncate comment.body
+                    b = truncate strip_tags(comment.body)
                   .text-muted
                     = comment.user.name
                     = ' · '

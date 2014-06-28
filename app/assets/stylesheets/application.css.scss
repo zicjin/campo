@@ -68,3 +68,5 @@ input.form-head{max-width:606px;}
 @media (max-width: 768px) {
   #user-confirm-required{display:none;}
 }
+
+.notifications-bell span.badge{background-color: $yellow;}
