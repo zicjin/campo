@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # binding.pry
     login = params[:login].downcase
     @user = if login.include?('@')
               User.where('lower(email) = ?', login).first

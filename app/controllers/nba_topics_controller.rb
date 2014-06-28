@@ -55,7 +55,6 @@ class NbaTopicsController < ApplicationController
   end
 
   def new
-    # binding.pry
     @category = Category.where('lower(slug) = ?', params[:category_id].downcase).where(group: 1).first if params[:category_id].present?
     @topic = NbaTopic.new category: @category
   end
