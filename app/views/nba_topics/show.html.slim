@@ -47,7 +47,7 @@
             h3.panel-title
               = t '.comments'
           .panel-body
-            ul.list-group.list-group-campo id="comments-for-topic-#{@topic.id}"
+            ul.list-group.list-group-campo id="comments-for-nbatopic-#{@topic.id}"
               - if @comments.any?
                 = render @comments
               - else
@@ -72,7 +72,7 @@
                           b = current_user.name
                           '
                           = "@#{current_user.username}"
-                      = form_for @topic.comments.new, url: topic_comments_path(@topic), remote: true do |f|
+                      = form_for @topic.comments.new, url: nba_topic_comments_path(@topic), remote: true do |f|
                         .form-group
                           = render partial: 'share/editor_area', locals: {form: f, name: :body}
                         = f.submit t('.add_this_comment'), class: 'btn btn-success', 'data-disable-with' => t('.add_this_comment')

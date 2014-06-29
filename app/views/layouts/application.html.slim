@@ -9,11 +9,11 @@ html
     = javascript_include_tag "//libs.baidu.com/jquery/1.10.2/jquery.min.js"
     = javascript_include_tag "application", "data-turbolinks-track" => true
 
-    - if respond?
-      = javascript_include_tag "respond.js"
-      = stylesheet_link_tag "http://baozoubisai.com/assets_dist/respond-proxy.html", id: "respond-proxy", rel:"respond-proxy"
-      link href=image_url("respond.proxy.gif") id="respond-redirect" rel="respond-redirect"
-      = javascript_include_tag "respond.proxy.js"
+    / - if respond?
+    = javascript_include_tag "respond.js"
+    = stylesheet_link_tag "http://baozoubisai.com/assets_dist/respond-proxy.html", id: "respond-proxy", rel:"respond-proxy"
+    link href=image_url("respond.proxy.gif") id="respond-redirect" rel="respond-redirect"
+    = javascript_include_tag "respond.proxy.js"
 
     = favicon_link_tag 'favicon.ico'
     = csrf_meta_tags
