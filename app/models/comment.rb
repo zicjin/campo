@@ -38,12 +38,11 @@ class Comment < ActiveRecord::Base
     return @menton_users if defined?(@menton_users)
 
     doc = Nokogiri::HTML.fragment(body)
-    usernames = doc.search('text()').map { |node|
-      unless node.ancestors('a, pre, code').any?
-        node.text.scan(/@([a-z0-9][a-z0-9-]*)/i).flatten
-      end
+    nodes = doc.css("a.reply_to")
+    usernames = nodes.map { |node|
+      node.text.gsub '@', ''
     }.flatten.compact.uniq
-
+    binding.pry
     @menton_users = User.where(username: usernames)
   end
 end

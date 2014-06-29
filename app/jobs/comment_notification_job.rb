@@ -27,6 +27,7 @@ class CommentNotificationJob
   end
 
   def self.create_comment_notification(comment)
+    binding.pry
     if comment.commentable.respond_to? :subscribed_users
       users = comment.commentable.subscribed_users - comment.mention_users - [comment.user]
 

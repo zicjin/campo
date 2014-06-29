@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="renderer" content="webkit|ie-stand">
+    <link href="/assets/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+    <title>暴走比赛</title>
+    <link href="http://baozoubisai.com/assets_dist/content/out.css" rel="stylesheet">
+    <script src="//libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+  <div id='JudgeOldIe'>
+      <p class='title'>您的浏览器已经Out啦 >_< <span>推荐使用以下浏览器，也可以使用360、搜狗等浏览器的极速模式……</span></p>
+      <p><a href='http://www.google.com/chrome' class='chrome'></a>
+      <a href='http://www.firefox.com/' class='firefox'></a>
+      <a href='http://windows.microsoft.com/ie' class='ie10'></a></p>
+  </div>
+
+  <div id="jumbotron" class="">
+      <div class="container">
+          <p>
+              <a href="/" id="brand" title="暴走比赛 BaoZouBiSai.com"></a>
+          </p>
+          <p>我们暴走于最热门的体育赛事之间</p>
+          <p>赛程预告、视频直播，一触即达</p>
+          <p>从此不再错过女神……</p>
+          <p class="appbtns">
+              <a class="androidbtn" href="/download/baozou.apk"></a>
+              <a class="iphonebtn mt15" href="https://itunes.apple.com/cn/app/bao-zou-bi-sai/id856686869"></a>
+          </p>
+          <b class="androidpic"></b>
+          <b class="iphonepic"></b>
+          <div class="qrwapper fn-none" title="扫码打开本站 o_0">
+              <div class="qrcode alert alert-warning">
+                  <button type="button" class="close">&times;</button>
+                  扫码下载 o_0
+                  <img src="@(sharp_net.Mvc.UrlBuild.AssetsUrl() + "/content/images/QRcode.png")" alt="QRcode" />
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div id="footer">
+      <div class="container">
+          <p>&copy; 2014 - 暴走比赛</p>
+          <p>
+              联系：<img src='http://baozoubisai.com/assets_dist/content/images/myemail.png' alt="email" />
+          </p>
+          <p>
+              <span><a href="http://baozoubisai.com">baozoubisai.com</a>, all rights reserved</span>
+          </p>
+      </div>
+  </div>
+
+  <script>
+      $(function () {
+          $('#jumbotron .androidbtn').mouseover(function () {
+              $('.androidpic').show();
+              $('.iphonepic').hide();
+          });
+          $('#jumbotron .iphonebtn').mouseover(function () {
+              $('.androidpic').hide();
+              $('.iphonepic').show();
+          });
+      })
+  </script>
+
+</body>
+</html>

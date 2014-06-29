@@ -2,6 +2,13 @@ class NbaTopicsController < ApplicationController
   before_action :login_required, :no_locked_required, except: [:index, :show, :search]
   before_action :find_topic, only: [:edit, :update, :trash]
   before_action :topic_categories, only: [:new, :edit]
+  before_action :modern_bower, only: [:index, :show, :search]
+
+  def modern_bower
+    unless modern_bower?
+      render :action=>'index_old', :layout=>false
+    end
+  end
 
   def index
     @topics = NbaTopic.includes(:user, :category).page(params[:page])
@@ -91,21 +98,6 @@ class NbaTopicsController < ApplicationController
 
   def topic_categories
     @categories = Category.where(group: 1)
-  end
-
-  def parse_preview(content)
-    _doc = Nokogiri::HTML(content)
-
-    _embeds = _doc.css("embed")
-    if _embeds.length > 0
-      _video = Getvideo.parse _embeds.first['src']
-      return _video.cover
-    end
-
-    _imgs = _doc.css("img")
-    if _imgs.length > 0 and _imgs.first['src'].length < 200
-      return _imgs.first['src']
-    end
   end
 
 end

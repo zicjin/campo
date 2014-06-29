@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :login?, :current_user
+  helper_method :login?, :current_user, :modern_bower?
 
   before_action :set_locale
 
@@ -120,4 +120,28 @@ class ApplicationController < ActionController::Base
   def set_locale
     I18n.locale = current_user.try(:locale) || http_accept_language.compatible_language_from(I18n.available_locales) || I18n.default_locale
   end
+
+  def parse_preview(content)
+    _doc = Nokogiri::HTML(content)
+
+    _embeds = _doc.css("embed")
+    if _embeds.length > 0
+      begin
+        _video = Getvideo.parse _embeds.first['src']
+        return _video.cover
+      rescue
+      end
+    end
+
+    _imgs = _doc.css("img")
+    if _imgs.length > 0 and _imgs.first['src'].length < 200
+      return _imgs.first['src']
+    end
+    # images = doc.css("img").map{|links| links['src']}
+  end
+
+  def modern_bower?
+    session[:modern_bower] ||= (request.user_agent !~ /MSIE 7/) && (request.user_agent !~ /MSIE 6/)
+  end
+
 end
