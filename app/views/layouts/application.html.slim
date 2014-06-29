@@ -10,11 +10,11 @@ html
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = javascript_include_tag "http://baozoubisai.com/assets_dist/modernizr.js"
 
-    - if respond?
-      script src="/assets/respond.js"
-      link href="http://baozoubisai.com/assets_dist/respond-proxy.html" id="respond-proxy" rel="respond-proxy"
-      link href="/assets/respond.proxy.gif" id="respond-redirect" rel="respond-redirect"
-      script src="/assets/respond.proxy.js"
+    / - if respond?
+    script src="/assets/respond.js"
+    link href="http://baozoubisai.com/assets_dist/respond-proxy.html" id="respond-proxy" rel="respond-proxy"
+    link href="/assets/respond.proxy.gif" id="respond-redirect" rel="respond-redirect"
+    script src="/assets/respond.proxy.js"
 
     = favicon_link_tag 'favicon.ico'
     = csrf_meta_tags
