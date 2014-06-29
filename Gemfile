@@ -103,7 +103,5 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.3.0'
 end
 
-group :production do
-  # https://github.com/alexspeller/non-stupid-digest-assets
-  gem "non-stupid-digest-assets"
-end
+# https://github.com/alexspeller/non-stupid-digest-assets
+gem "non-stupid-digest-assets"
