@@ -102,6 +102,3 @@ end
 group :development, :test do
   gem 'factory_girl_rails', '~> 4.3.0'
 end
-
-# https://github.com/alexspeller/non-stupid-digest-assets
-gem "non-stupid-digest-assets"

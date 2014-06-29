@@ -1,1 +1,0 @@
-NonStupidDigestAssets.whitelist = ["respond.proxy.gif", "respond.proxy.js", "respond.js"]
