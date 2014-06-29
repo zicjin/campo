@@ -42,7 +42,6 @@ class Comment < ActiveRecord::Base
     usernames = nodes.map { |node|
       node.text.gsub '@', ''
     }.flatten.compact.uniq
-    binding.pry
     @menton_users = User.where(username: usernames)
   end
 end

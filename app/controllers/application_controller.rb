@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :login?, :current_user, :modern_bower?
+  helper_method :login?, :current_user, :modern_bower?, :respond?
 
   before_action :set_locale
 
@@ -142,6 +142,10 @@ class ApplicationController < ActionController::Base
 
   def modern_bower?
     session[:modern_bower] ||= (request.user_agent !~ /MSIE 7/) && (request.user_agent !~ /MSIE 6/)
+  end
+
+  def respond?
+    session[:respond] ||= (request.user_agent =~ /MSIE 8/)
   end
 
 end
