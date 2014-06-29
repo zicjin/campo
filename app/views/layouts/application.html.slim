@@ -2,13 +2,19 @@ doctype html
 html
   head
     title = @page_title ? "#{@page_title} - #{CONFIG['title']}" : CONFIG['title']
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+
     = stylesheet_link_tag "http://baozoubisai.com/assets_dist/content/main.css", media: "all"
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "//libs.baidu.com/jquery/1.10.2/jquery.min.js"
     = javascript_include_tag "application", "data-turbolinks-track" => true
-    = stylesheet_link_tag "http://baozoubisai.com/assets_dist/respond-proxy.html", id: "respond-proxy", rel:"respond-proxy"
+
+    / = javascript_include_tag "respond.js"
+    / = stylesheet_link_tag "http://baozoubisai.com/assets_dist/respond-proxy.html", id: "respond-proxy", rel:"respond-proxy"
+    / = stylesheet_link_tag "respond.proxy.gif", id:"respond-redirect", rel:"respond-redirect"
+    / = javascript_include_tag "respond.proxy.js"
+
     = respond_include_tags
-    meta name="viewport" content="width=device-width, initial-scale=1.0"
     = favicon_link_tag 'favicon.ico'
     = csrf_meta_tags
     - if login?
