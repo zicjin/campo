@@ -45,14 +45,14 @@ html.for-iosapp {
     ul.navbar-nav:first-child{display:none;}
   }
 }
-body {background: #eee;}
+body {background: #eee!important;}
 
 .text-hide-overflow {
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.main{position:relative;z-index:3;background: #eee;}
+.main{position:relative;z-index:3;}
 
 .file-upload {background: $gray-lighter;position: relative;
   input[type=file] {position: absolute;width: 100%;top: 0;bottom: 0;outline: 0;opacity: 0;cursor: pointer;}
