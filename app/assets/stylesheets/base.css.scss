@@ -2,7 +2,7 @@
  *= require font-awesome
 */
 
-@import "../../front_net/sass/var";
+@import "var";
 
 $navbar-inverse-bg: $violet;
 
@@ -78,7 +78,7 @@ $border-radius-large:       2px;
 @import "bootstrap/utilities";
 @import "bootstrap/responsive-utilities";
 
-@import "../../front_net/sass/com";
+@import "com";
 @import "jumbotron";
 
 html{overflow-x:hidden;} //http://goo.gl/LPujVh

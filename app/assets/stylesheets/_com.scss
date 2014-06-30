@@ -1,0 +1,104 @@
+﻿@import "var";
+
+// Commen -------------------------
+.fn-hide{visibility:hidden;}
+.fn-hide-im{visibility:hidden!important;}
+.fn-left,.fn-right,.fn-left-im,.fn-right-im {display:inline;} /* 设置内联, 减少浮动带来的bug */
+.fn-left {float:left;}
+.fn-left-im{float:left!important;}
+.fn-right {float:right;}
+.fn-right-im{float:right!important;}
+.fn-none{display:none;}
+.fn-none-im{display:none!important;}
+.fn-height0{height:0!important;visibility:hidden;margin:0!important;padding:0!important;}
+.fn-nonesty{@include none_sty;}
+.fn-show{display:block;}
+.fn-show-im{display:block!important;}
+.fn-rel{position:relative;}
+.fn-cs{cursor: pointer;}
+.fn-du{cursor: pointer;
+    &:hover{text-decoration: underline;}
+}
+.fn-fw{font-weight:700!important;}
+.fn-tal{text-align:left!important;}
+.fn-tar{text-align:right!important;}
+.fn-tac{text-align:center!important;}
+.fn-nowrap{white-space:nowrap;}
+.fn-vam{vertical-align:middle;}
+.fn-vat{vertical-align:top;}
+.fn-f12{font-size:12px}
+.fn-f14{font-size:14px}
+.fn-f14va input[type='radio'], .fn-f14va input[type='checkbox']{vertical-align:-1px\9;} /*font-size:14时，单复选框对齐良好*/
+.fn-f13va input[type='radio'], .fn-f13va input[type='checkbox']{vertical-align:0;}
+.fn-f12va input[type='radio'], .fn-f12va input[type='checkbox']{vertical-align:-3px;}
+.fn-zmax{z-index:999;}
+.fn-clear { @include clearfix; }
+.fn-ellipsis {@include ellipsis;}
+.fn-inbk, a.fn-ellipsis, span.fn-ellipsis {@include in_bk;}
+.fn-dibwrap {font-size:0;/* 所有浏览器 */ *word-spacing:-1px;/* IE6、7 */}
+@media screen and (-webkit-min-device-pixel-ratio:0){ /* firefox 中 letter-spacing 会导致脱离普通流的元素水平位移 */
+    .fn-dibwrap{letter-spacing:-5px;/* Safari 等不支持字体大小为 0 的浏览器, N 根据父级字体调节*/}
+}
+.graylink{color:$gray;
+    &:hover{color:$linkColorHover;}
+}
+
+// Color -------------------------
+.gray{color:$gray;}
+.green{color:$green;}
+.red{color:$red;}
+.bnaka{background-color:$naka}
+.bred{background-color:$red}
+.bred-act{background-color:$red-act}
+.byellow{background-color:$yellow}
+.borange{background-color:$orange}
+.bblue{background-color:$blue}
+.bblue-act{background-color:$blue-act}
+
+// Margin -------------------------
+.m0{margin:0!important;}
+.m20{margin:20px;}
+
+.ml5{margin-left:5px;}
+.ml10{margin-left:10px;}
+.ml20{margin-left:20px;}
+.ml40{margin-left:40px;}
+
+.mr5{margin-right:5px;}
+.mr10{margin-right:10px;}
+.mr15{margin-right:15px;}
+.mr20{margin-right:20px;}
+
+.mt5{margin-top:5px;}
+.mt10{margin-top:10px;}
+.mt15{margin-top:15px;}
+.mt20{margin-top:20px;}
+.mt40{margin-top:40px;}
+
+.mb0{margin-bottom:0;}
+.mb0i{margin-bottom:0!important;}
+.mb5{margin-bottom:5px;}
+.mb10{margin-bottom:10px;}
+.mb15{margin-bottom:15px;}
+.mb20{margin-bottom:20px;}
+
+.p10{padding:10px;}
+.p20{padding:20px;}
+
+.pl10{padding-left:10px;}
+.pl20{padding-left:20px;}
+.pl40{padding-left:40px;}
+
+.pr100{padding-right:100px;}
+.pr10{padding-right:10px;}
+.pr20{padding-right:20px;}
+.pr20{padding-right:20px;}
+
+.pb10{padding-bottom:10px;}
+.pb20{padding-bottom:20px;}
+.pb5{padding-bottom:5px;}
+
+.pt5{padding-top:5px;}
+.pt10{padding-top:10px;}
+.pt20{padding-top:20px;}
+.pt30{padding-top:30px;}
