@@ -37,7 +37,7 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
-    bootstrap-sass (3.1.1.1)
+    bootstrap-sass (3.2.0.0)
       sass (~> 3.2)
     builder (3.2.2)
     capistrano (3.1.0)
@@ -98,6 +98,8 @@ GEM
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.3)
+    font-awesome-sass (4.1.0)
+      sass (~> 3.2)
     formatador (0.2.5)
     getvideo (0.0.5)
       faraday
@@ -267,7 +269,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
-  bootstrap-sass (~> 3.1.0)
+  bootstrap-sass (~> 3.2.0)
   capistrano (~> 3.1.0)
   capistrano-bundler (~> 1.1.2)
   capistrano-rails (~> 1.0.0)
@@ -277,6 +279,7 @@ DEPENDENCIES
   elasticsearch-model (~> 0.1.0)
   elasticsearch-rails (~> 0.1.0)
   factory_girl_rails (~> 4.3.0)
+  font-awesome-sass (~> 4.1.0)
   getvideo
   gravtastic (~> 3.2.6)
   guard-livereload

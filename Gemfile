@@ -24,8 +24,11 @@ gem 'jquery-rails'
 # Wait for https://github.com/rails/turbolinks/pull/364
 gem 'turbolinks', github: 'chloerei/turbolinks', branch: 'reset-scroll-position'
 
+# Font Awesome
+gem 'font-awesome-sass', '~> 4.1.0'
+
 # Bootstrap
-gem 'bootstrap-sass', '~> 3.1.0'
+gem 'bootstrap-sass', '~> 3.2.0'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -77,6 +80,8 @@ gem 'getvideo'
 # Background jobs
 gem 'resque', '~> 1.25.1'
 gem 'resque_mailer', '~> 2.2.6'
+
+gem "non-stupid-digest-assets"
 
 group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/jonleighton/spring

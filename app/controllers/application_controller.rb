@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :login?, :current_user, :modern_bower?, :respond?
+  helper_method :login?, :current_user, :modern_bower?, :touch_device?
 
   before_action :set_locale
 
@@ -144,8 +144,8 @@ class ApplicationController < ActionController::Base
     session[:modern_bower] ||= (request.user_agent !~ /MSIE 7/) && (request.user_agent !~ /MSIE 6/)
   end
 
-  def respond?
-    session[:respond] ||= (request.user_agent =~ /MSIE 8/)
+  def touch_device?
+    session[:touch_device] ||= (request.user_agent =~ /\b(Android|iPhone|iPad|Windows Phone|Kindle|BackBerry)\b/i)
   end
 
 end

@@ -1,0 +1,3 @@
+[submodule "app/front_net"]
+	path = app/front_net
+	url = git@github.com:zicjin/front_net.git

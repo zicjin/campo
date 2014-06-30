@@ -1,0 +1,127 @@
+/*
+ *= require font-awesome
+*/
+
+@import "../../front_net/sass/var";
+
+$navbar-inverse-bg: $violet;
+
+// Inverted navbar links
+$navbar-inverse-link-color:                 #cdbfe3;
+$navbar-inverse-link-hover-color:           #fff;
+// Inverted navbar brand label
+$navbar-inverse-brand-color:                #fff;
+$navbar-inverse-brand-hover-color:          #fff;
+// Inverted navbar toggle
+$navbar-inverse-toggle-hover-bg:            #333;
+$navbar-inverse-toggle-icon-bar-bg:         #fff;
+$navbar-inverse-toggle-border-color:        #333;
+
+$brand-primary:         $violet;
+$brand-success:         $naka;
+$brand-info:            $blue;
+$brand-warning:         $yellow;
+$brand-danger:          $red;
+
+$input-border-focus:		$yellow;
+$border-radius-base:        2px;
+$border-radius-small:       0px;
+$border-radius-large:       2px;
+
+// Core variables and mixins
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+// Reset
+@import "bootstrap/normalize";
+@import "bootstrap/print";
+
+// Core CSS
+@import "bootstrap/scaffolding";
+@import "bootstrap/type";
+//@import "bootstrap/code";
+@import "bootstrap/grid";
+//@import "bootstrap/tables";
+@import "bootstrap/forms";
+@import "bootstrap/buttons";
+
+// Components
+@import "bootstrap/component-animations";
+@import "bootstrap/glyphicons";
+@import "bootstrap/dropdowns";
+@import "bootstrap/button-groups";
+@import "bootstrap/input-groups";
+@import "bootstrap/navs";
+@import "bootstrap/navbar";
+//@import "bootstrap/breadcrumbs";
+@import "bootstrap/pagination";
+//@import "bootstrap/pager"; //wait future
+//@import "bootstrap/labels"; //wait future
+@import "bootstrap/badges";
+//@import "bootstrap/jumbotron";
+//@import "bootstrap/thumbnails";
+@import "bootstrap/alerts";
+//@import "bootstrap/progress-bars"; //wait future
+//@import "bootstrap/media";
+@import "bootstrap/list-group";
+@import "bootstrap/panels";
+//@import "bootstrap/wells";
+@import "bootstrap/close";
+
+// Components JavaScript
+//@import "bootstrap/modals";
+@import "bootstrap/tooltip";
+@import "bootstrap/popovers";
+//@import "bootstrap/carousel";
+
+// Utility classes
+@import "bootstrap/utilities";
+@import "bootstrap/responsive-utilities";
+
+@import "../../front_net/sass/com";
+@import "jumbotron";
+
+html{overflow-x:hidden;} //http://goo.gl/LPujVh
+input[type='text'], textarea{outline:none;resize:none;}
+a.trans{@include transition(color 0.2s ease-in-out 0s,background-color 0.2s ease-in-out 0s,border 0.2s ease-in-out 0s);}
+.violet{color:$violet;}
+.bviolet{background:$violet;}
+
+body{padding-top:51px;}
+#navdoc {box-shadow: 0 1px 0 rgba(255,255,255,.1);}
+#brand {width: 194+15+5px;height: 50px;background: url("logo.png") no-repeat;padding:0;
+	@include background-image-retina(logo, png, 194px, 100px);
+	@media (min-width: $grid-float-breakpoint) { //varbar.scss 153 line
+		.navbar > .container &, .navbar > .container-fluid & {
+			background-position-x: $navbar-padding-horizontal;
+		}
+	}
+	&:hover{background-position-y: -50px}
+}
+li.dropheader{
+	&>a{color:$gray-light;font-size:18px;}
+}
+#body{position:relative;z-index:3;background:$body-bg;min-height:500px;
+	border-top:1px solid #3e2c5a;box-shadow:0 -1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.search-form{position:relative;
+	.search-icon{background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAGlQTFRFzMzM+/v7zc3N9/f30NDQ8/Pz/Pz82tra+fn519fX/f39zs7O+Pj47Ozs2dnZ3d3d8fHx39/f8PDw+vr67u7u8vLy6Ojo0dHR9vb29fX15eXl5+fn09PT7e3t4+Pj29vb1NTU7+/v////TIrzGQAAACN0Uk5T/////////////////////////////////////////////wBmKYOWAAAAkElEQVR42lTORxKDQAxE0Z4cydkJW/c/pEHDhr9SvUWXQESqW7B0ijgQjQlnabxgTQhzPwektUCDYLLPJqBhsBrVcBxDBW1PEBJlTkEKBo2WoYUu4FAz1HAM9ifhDBkHfHiD/FOiJCuGmN9OQ9evQzb+NPptaifTf4EHA5EVR940e76gJJQSN6AY6Q7cX4ABAAOTFEyLr2nyAAAAAElFTkSuQmCC) no-repeat scroll center 5px;
+		border: none;height: 24px;width: 24px;cursor: pointer; position:absolute;top:5px;right:3px;
+	}
+	&.typing{
+		.search-icon{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAMCAMAAACKnBfWAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACdQTFRFxMTExsbG6enp09PTxcXF/Pz80NDQzc3N9PT0x8fH7Ozs+Pj4////xKNEXwAAAA10Uk5T////////////////AD3oIoYAAABFSURBVHjaXM1JDsAwCANAQ+iS5f/vLUEIufFthLCxKHJfYAPPYQu/ZdnW9rMiPcIKimEyd7/fu2Riv/6jkvvTte/5BBgAIxgFd7m8jG4AAAAASUVORK5CYII=) no-repeat scroll center 6px!important;}
+	}
+}
+
+footer{
+	padding-top: 40px;
+	padding-bottom: 40px;
+	margin-top: 40px;
+	color: #777;
+	text-align: center;
+	border-top: 1px solid #e5e5e5;
+	span{color:#999;font-size:12px;}
+}
+
+input, select, textarea {max-width: 280px;}

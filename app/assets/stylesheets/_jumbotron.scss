@@ -1,0 +1,57 @@
+#jumbotron{font-size: 16px;text-shadow: 0 1px 0 rgba(0,0,0,.15);color: #cdbfe3;background-color: $violet;display:none;
+  @include background-image-retina(jumbotron, jpg, 1630px, 200px); background-repeat:no-repeat;background-position:center 0;
+  .container{position:relative;height:200px;padding: 15px;color:#eee;font-size:21px;}
+  // .symbols{display:block;height:200px;width:1500px;@include background-image-retina(jumbotron, png, 1500px, 200px); background-repeat:no-repeat; position:absolute;left:-230px;top:0;}
+  b.copywrite{display:block;height:200px;@include background-image-retina(copywrite, png, 413px, 172px); background-repeat:no-repeat;position:relative;width:420px;
+    @media (max-width: 550px){
+      &{display:none;}
+    }
+  }
+  p.appbtns{position:absolute;top:30px;right: 10px;z-index:20;
+    @media (min-width: 1199px){
+      &{right:300px;}
+    }
+  }
+  a.iphonebtn {display: block;width: 229px;height: 63px;@include background-image-retina(iphonebtn, png, 229px, 195px);cursor:pointer;position:relative;
+    &:hover { background-position-y: -66px; }
+    &:active { background-position-y: -129px; }
+  }
+  a.androidbtn {display: block;width: 229px;height: 63px;@include background-image-retina(androidbtn, png, 229px, 195px);cursor:pointer;
+    &:hover { background-position-y: -66px; }
+    &:active { background-position-y: -129px; }
+  }
+
+  b.androidpic{@include background-image-retina(android_symbols, png, 410px, 580px);display: block;height: 580px;width: 410px;position: absolute;top: 0;right:-62px;
+    &.hover{opacity:0;@include transition(opacity 0.2s ease-in-out 0.2s);
+      &:hover{z-index:100;opacity:1.0;}
+    }
+  }
+  b.iphonepic{@include background-image-retina(iphone_symbols, png, 434px, 630px);display: none;height: 630px;width: 434px;position: absolute;top: 0;right:-74px;
+    &.hover{opacity:0;@include transition(opacity 0.2s ease-in-out 0.2s);
+      &:hover{z-index:100;opacity:1.0;}
+    }
+  }
+  @media (max-width: 1200px){ //IE8使用respond.js 时依然存在问题，@media无法嵌套使用。所以要反向使用max-width
+    b.androidpic, b.iphonepic{display:none!important;}
+  }
+  @media (min-width: 1200px){
+    .qrwapper{width:50px;height:50px;position:absolute;bottom:18px;right: -60px;cursor:pointer;display:block;
+      background:url(twoCode.png) no-repeat right top;z-index:101;
+      .qrcode{position:absolute;top:90px;right: 0;display:none;}
+    }
+  }
+}
+#jumbotron-ticai{@include background-image-retina(jumbotron, jpg, 1630px, 200px); background-repeat:no-repeat;background-position:center 0;
+  border: 1px solid #ddd;border-radius: 6px; @include box-shadow(0 1px 1px rgba(0, 0, 0, 0.05));
+  a.iphonebtn {@include in_bk;width: 229px;height: 63px;@include background-image-retina(iphonebtn, png, 229px, 195px);cursor:pointer;margin-bottom:20px;
+    &:hover { background-position-y: -66px; }
+    &:active { background-position-y: -129px; }
+  }
+  a.androidbtn {@include in_bk;width: 229px;height: 63px;@include background-image-retina(androidbtn, png, 229px, 195px);cursor:pointer;margin-bottom:20px;
+    &:hover { background-position-y: -66px; }
+    &:active { background-position-y: -129px; }
+  }
+  h3{color:#efefef;line-height:40px;
+    a{color:$yellow;}
+  }
+}

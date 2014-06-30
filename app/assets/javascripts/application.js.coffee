@@ -11,26 +11,13 @@
 
 window.glo_touchDevice = 'ontouchstart' in document.documentElement
 
-$(document).on 'page:fetch', ->
-  NProgress.start()
-.on 'page:change', ->
-  NProgress.done()
-.on 'page:restore', ->
-  NProgress.remove()
-.on 'page:update', ->
-  $('[data-behaviors~=autosize]').autosize()
-  $("time[data-behaviors~=timeago]").timeago()
-  update_nav()
-
-$ ->
+ready = ->
   search_form = $('form.search-form')
   $('input', search_form)
     .focus -> search_form.addClass 'typing'
     .blur -> search_form.removeClass 'typing'
   $('b', search_form).on 'click', -> search_form.submit()
-  update_nav()
 
-update_nav = ->
   jumbotron = $('#jumbotron')
   $('a.apptoggle').on 'click', ->
     jumbotron.slideToggle()
@@ -47,6 +34,19 @@ update_nav = ->
   , null
   $('.qrwapper, .qrwapper>.close', jumbotron).on 'click', ->
     $('.qrcode', jumbotron).fadeToggle()
+
+$(document).ready ready
+
+$(document).on 'page:fetch', ->
+  NProgress.start()
+.on 'page:change', ->
+  NProgress.done()
+.on 'page:restore', ->
+  NProgress.remove()
+.on 'page:update', ->
+  $('[data-behaviors~=autosize]').autosize()
+  $("time[data-behaviors~=timeago]").timeago()
+.on 'page:load', ready
 
 window.glo_iosapp_nav = ->
   $('button.navbar-toggle').click()
