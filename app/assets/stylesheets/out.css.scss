@@ -1,0 +1,50 @@
+﻿@import "var";
+@import "com";
+
+html{overflow-x:hidden;} //http://goo.gl/LPujVh
+.violet{color:$violet;}
+.bviolet{background:$violet;}
+
+#JudgeOldIe{width:100%;height:100%;background:#fff;padding:20px 0;
+  p{margin:20px 0;text-align:center;}
+  p.title{font-size:34px;}
+  span{font-size:18px;display:block;margin-top:24px;}
+  .ie10,.chrome,.firefox{@include in_bk;width:125px;height:135px;margin:0 20px;background: url(browsehappy-sprite.png) no-repeat;}
+  .ie10{background-position: -500px 0;}
+  .chrome{background-position: 0 0;}
+  .firefox{background-position: -125px 0;}
+}
+.container{margin:0 auto;width:950px;position:relative;}
+#brand {background: url(logo.png) no-repeat;display:block;width:194px;height:50px;
+  &:hover{background-position-y: -50px}
+}
+#jumbotron{font-size: 16px;color: #cdbfe3;background-color:$violet;
+  .container{position:relative;height:200px;padding: 30px 0;color:#eee;font-size:21px;}
+  p.appbtns{position:absolute;top:30px;left: 380px;}
+  a.iphonebtn {display: block;width: 200px;height: 64px;background: url(iphonebtn.png) no-repeat -1px 0;cursor:pointer;
+    &:hover { background-position-y: -66px; }
+    &:active { background-position-y: -129px; }
+  }
+  a.androidbtn {display: block;width: 200px;height: 64px;background: url(androidbtn.png) no-repeat -1px 0;cursor:pointer;
+    &:hover { background-position-y: -66px; }
+    &:active { background-position-y: -129px; }
+  }
+  b.androidpic{background:url(android_symbols.png);display: block;height: 580px;width: 410px;position: absolute;top: 0;right:-72px;
+    &.hover{opacity:0;
+      &:hover{z-index:100;opacity:1.0;}
+    }
+  }
+  b.iphonepic{background:url(iphone_symbols.png);display: none;height: 630px;width: 434px;position: absolute;top: 0;right:-84px;
+    &.hover{opacity:0;
+      &:hover{z-index:100;opacity:1.0;}
+    }
+  }
+}
+#footer{
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 100px;
+  color: #777;
+  text-align: center;
+  border-top: 1px solid #e5e5e5;
+}
