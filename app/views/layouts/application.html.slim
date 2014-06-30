@@ -6,17 +6,25 @@ html
     meta name="renderer" content="webkit|ie-stand"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     meta content="体育,比赛,赛事,竞技,直播,视频,世界杯,足球,篮球,网球,斯诺克,NBA,CBA,英超,cctv5,cctv,cntv;体彩,直播吧,A直播,虎扑,中超,乒乓球,网球" name="keywords"
-    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     link href="/assets/base.css" rel="stylesheet"
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+
     /[if lt IE 9]
       script src="/assets/modernizr.js"
       script src="/assets/respond.js"
+
+    = javascript_include_tag "//libs.baidu.com/jquery/1.10.2/jquery.min.js"
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    - if login?
+      javascript:
+        campo.currentUser = {
+          id: #{current_user.id}
+        }
 
     = favicon_link_tag 'favicon.ico'
     - if touch_device?
       link rel="shortcut icon" type="image/ico" href="/assets/favicon.png"
       link rel="apple-touch-icon" href="/assets/favicon.png"
-
     = csrf_meta_tags
 
   body
@@ -109,13 +117,6 @@ html
             a href="http://baozoubisai.com" baozoubisai.com,
             '  all rights reserved
 
-    = javascript_include_tag "//libs.baidu.com/jquery/1.10.2/jquery.min.js"
-    = javascript_include_tag "application", "data-turbolinks-track" => true
-    - if login?
-      javascript:
-        campo.currentUser = {
-          id: #{current_user.id}
-        }
     = yield :script
 
     javascript:
