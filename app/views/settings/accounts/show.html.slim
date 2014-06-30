@@ -34,34 +34,35 @@
                 .col-sm-6.col-sm-push-3
                   = f.submit t('.save_changes'), class: 'btn btn-primary', tabIndex: 5
 
-javascript:
-  $('form.user-form').validate({
-    rules: {
-      'user[email]': {
-        required: true,
-        format: /^([^@\s]+)@((?:[a-z0-9-]+\.)+[a-z]{2,})$/i,
-        remote: '/users/check_email?id=#{current_user.id}'
+= content_for :script
+  javascript:
+    $('form.user-form').validate({
+      rules: {
+        'user[email]': {
+          required: true,
+          format: /^([^@\s]+)@((?:[a-z0-9-]+\.)+[a-z]{2,})$/i,
+          remote: '/users/check_email?id=#{current_user.id}'
+        },
+        'user[username]': {
+          required: true,
+          remote: '/users/check_username?id=#{current_user.id}',
+          format: /^[a-z0-9-]+$/i
+        },
+        'current_password': 'required'
       },
-      'user[username]': {
-        required: true,
-        remote: '/users/check_username?id=#{current_user.id}',
-        format: /^[a-z0-9-]+$/i
-      },
-      'current_password': 'required'
-    },
-    messages: {
-      'user[username]': {
-        required: '#{@user.errors.generate_message :username, :blank}',
-        remote: '#{@user.errors.generate_message :username, :taken}',
-        format: '#{@user.errors.generate_message :username, :format}'
-      },
-      'user[email]': {
-        required: '#{@user.errors.generate_message :email, :blank}',
-        remote: '#{@user.errors.generate_message :email, :taken}',
-        format: '#{@user.errors.generate_message :email, :format}'
-      },
-      'current_password': {
-        required: '#{@user.errors.generate_message :password, :blank}'
+      messages: {
+        'user[username]': {
+          required: '#{@user.errors.generate_message :username, :blank}',
+          remote: '#{@user.errors.generate_message :username, :taken}',
+          format: '#{@user.errors.generate_message :username, :format}'
+        },
+        'user[email]': {
+          required: '#{@user.errors.generate_message :email, :blank}',
+          remote: '#{@user.errors.generate_message :email, :taken}',
+          format: '#{@user.errors.generate_message :email, :format}'
+        },
+        'current_password': {
+          required: '#{@user.errors.generate_message :password, :blank}'
+        }
       }
-    }
   });

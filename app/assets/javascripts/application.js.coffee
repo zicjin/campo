@@ -5,10 +5,11 @@
 #= require jquery.validate
 #= require jquery.timeago
 #= require nprogress
-#= require campo
+#= require_self
 #= require_tree ./plugins
 #= require_tree ./simditor
 
+window.campo = {}
 window.glo_touchDevice = 'ontouchstart' in document.documentElement
 
 ready = ->

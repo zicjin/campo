@@ -23,42 +23,43 @@
                 = f.password_field :password, placeholder: t('.choose_a_password'), tabindex: 4, class: 'form-control'
               = f.submit t('.create_account'), class: 'btn btn-success', tabindex: 5
 
-javascript:
-  $('#new-user-form').validate({
-    rules: {
-      'user[name]': {
-        required: true,
+= content_for :script
+  javascript:
+    $('#new-user-form').validate({
+      rules: {
+        'user[name]': {
+          required: true,
+        },
+        'user[email]': {
+          required: true,
+          format: /^([^@\s]+)@((?:[a-z0-9-]+\.)+[a-z]{2,})$/i,
+          remote: '/users/check_email'
+        },
+        'user[username]': {
+          required: true,
+          remote: '/users/check_username',
+          format: /^[a-z0-9-]+$/i
+        },
+        'user[password]': {
+          required: true
+        }
       },
-      'user[email]': {
-        required: true,
-        format: /^([^@\s]+)@((?:[a-z0-9-]+\.)+[a-z]{2,})$/i,
-        remote: '/users/check_email'
-      },
-      'user[username]': {
-        required: true,
-        remote: '/users/check_username',
-        format: /^[a-z0-9-]+$/i
-      },
-      'user[password]': {
-        required: true
+      messages: {
+        'user[name]': {
+          required: '#{@user.errors.generate_message :name, :blank}'
+        },
+        'user[email]': {
+          required: '#{@user.errors.generate_message :email, :blank}',
+          remote: '#{@user.errors.generate_message :email, :taken}',
+          format: '#{@user.errors.generate_message :email, :format}'
+        },
+        'user[username]': {
+          required: '#{@user.errors.generate_message :username, :blank}',
+          remote: '#{@user.errors.generate_message :username, :taken}',
+          format: '#{@user.errors.generate_message :username, :format}'
+        },
+        'user[password]': {
+          required: '#{@user.errors.generate_message :password, :blank}'
+        }
       }
-    },
-    messages: {
-      'user[name]': {
-        required: '#{@user.errors.generate_message :name, :blank}'
-      },
-      'user[email]': {
-        required: '#{@user.errors.generate_message :email, :blank}',
-        remote: '#{@user.errors.generate_message :email, :taken}',
-        format: '#{@user.errors.generate_message :email, :format}'
-      },
-      'user[username]': {
-        required: '#{@user.errors.generate_message :username, :blank}',
-        remote: '#{@user.errors.generate_message :username, :taken}',
-        format: '#{@user.errors.generate_message :username, :format}'
-      },
-      'user[password]': {
-        required: '#{@user.errors.generate_message :password, :blank}'
-      }
-    }
-  });
+    });

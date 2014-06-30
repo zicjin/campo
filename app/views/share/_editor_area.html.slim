@@ -1,15 +1,16 @@
 - tabIndex ||= nil
 = form.text_area name, id: 'editor', data: { behaviors: 'autosize' }, tabIndex: tabIndex, autofocus:""
 
-javascript:
-  window.glo_editor = new Simditor({
-    textarea: $('#editor'),
-    placeholder: "文明发言……",
-    toolbar: ['image', 'video', 'link', 'title', 'bold', 'italic', 'underline', 'ol', 'ul', 'blockquote', 'table', 'hr'],
-    upload: {
-      url: '/attachments'
-    },
-    pasteImage: true,
-    defaultImage: '#{ image_url "image.png" }'
-  });
-  glo_editor.formatter._allowedAttributes['a'].push('class')
+= content_for :script
+  javascript:
+    window.glo_editor = new Simditor({
+      textarea: $('#editor'),
+      placeholder: "文明发言……",
+      toolbar: ['image', 'video', 'link', 'title', 'bold', 'italic', 'underline', 'ol', 'ul', 'blockquote', 'table', 'hr'],
+      upload: {
+        url: '/attachments'
+      },
+      pasteImage: true,
+      defaultImage: '#{ image_url "image.png" }'
+    });
+    glo_editor.formatter._allowedAttributes['a'].push('class')

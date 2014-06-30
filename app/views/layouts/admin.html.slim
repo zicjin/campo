@@ -8,11 +8,12 @@ html
     = javascript_include_tag "application", "data-turbolinks-track" => true
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     = csrf_meta_tags
-    - if login?
-      javascript:
+    javascript:
+      @campo = {}
+      - if login?
         campo.currentUser = {
           id: #{current_user.id}
-        };
+        }
 
   body
     header#navdoc.navbar.navbar-inverse.navbar-fixed-top role="banner"

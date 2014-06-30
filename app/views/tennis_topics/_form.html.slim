@@ -17,22 +17,23 @@
 
 - form_id = @topic.new_record? ? 'new_topic' : "edit_topic_#{@topic.id}"
 
-javascript:
-  $('##{form_id}').validate({
-    rules: {
-      'topic[title]': {
-        required: true
+= content_for :script
+  javascript:
+    $('##{form_id}').validate({
+      rules: {
+        'topic[title]': {
+          required: true
+        },
+        'topic[body]': {
+          required: true
+        }
       },
-      'topic[body]': {
-        required: true
+      messages: {
+        'topic[title]': {
+          required: '#{@topic.errors.generate_message :title, :blank}'
+        },
+        'topic[body]': {
+          required: '#{@topic.errors.generate_message :body, :blank}'
+        }
       }
-    },
-    messages: {
-      'topic[title]': {
-        required: '#{@topic.errors.generate_message :title, :blank}'
-      },
-      'topic[body]': {
-        required: '#{@topic.errors.generate_message :body, :blank}'
-      }
-    }
-  });
+    });

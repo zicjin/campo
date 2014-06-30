@@ -1,5 +1,27 @@
 - @page_title = @topic.title
 
+= content_for :script
+  - if login?
+    - if @topic.liked_by?(current_user)
+      javascript:
+        campo.Likes.updateLike('topic', #{@topic.id});
+
+    javascript:
+      campo.Likes.updateLikes('comment', #{current_user.likes.where(likeable_type: 'Comment', likeable_id: @comments.pluck(:id)).pluck(:likeable_id)});
+
+      $('#new_comment').validate({
+        rules: {
+          'comment[body]': {
+            required: true
+          }
+        },
+        messages: {
+          'comment[body]': {
+            required: '#{Comment.new.errors.generate_message :body, :blank}'
+          }
+        }
+      });
+
 .main
   .container
     .row
@@ -110,24 +132,3 @@
                 - else
                   .list-group-item.text-center.text-muted
                     = t '.no_more_topics'
-
-- if login?
-  - if @topic.liked_by?(current_user)
-    javascript:
-      campo.Likes.updateLike('topic', #{@topic.id});
-
-  javascript:
-    campo.Likes.updateLikes('comment', #{current_user.likes.where(likeable_type: 'Comment', likeable_id: @comments.pluck(:id)).pluck(:likeable_id)});
-
-    $('#new_comment').validate({
-      rules: {
-        'comment[body]': {
-          required: true
-        }
-      },
-      messages: {
-        'comment[body]': {
-          required: '#{Comment.new.errors.generate_message :body, :blank}'
-        }
-      }
-    });

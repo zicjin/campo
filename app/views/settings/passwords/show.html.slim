@@ -30,20 +30,21 @@
                 .col-sm-6.col-sm-push-3
                   = f.submit t('.save_changes'), class: 'btn btn-primary', tabIndex: 4
 
-javascript:
-  $('form.password-form').validate({
-    rules: {
-      'current_password': 'required',
-      'user[password]': 'required',
-      'user[password_confirmation]': {
-        equalTo: '#user_password'
+= content_for :script
+  javascript:
+    $('form.password-form').validate({
+      rules: {
+        'current_password': 'required',
+        'user[password]': 'required',
+        'user[password_confirmation]': {
+          equalTo: '#user_password'
+        }
+      },
+      messages: {
+        'current_password': '#{@user.errors.generate_message :password, :blank}',
+        'user[password]': '#{@user.errors.generate_message :password, :blank}',
+        'user[password_confirmation]': {
+          equalTo: '#{@user.errors.generate_message :password_confirmation, :confirmation}'
+        }
       }
-    },
-    messages: {
-      'current_password': '#{@user.errors.generate_message :password, :blank}',
-      'user[password]': '#{@user.errors.generate_message :password, :blank}',
-      'user[password_confirmation]': {
-        equalTo: '#{@user.errors.generate_message :password_confirmation, :confirmation}'
-      }
-    }
-  });
+    });

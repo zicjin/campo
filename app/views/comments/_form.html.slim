@@ -17,16 +17,17 @@
     a.btn.btn-default href=cancel_comment_path(comment) data-remote="true"
       = t '.cancel'
 
-javascript:
-  $('#edit_comment_#{comment.id}').validate({
-    rules: {
-      'comment[body]': {
-        required: true
+= content_for :script
+  javascript:
+    $('#edit_comment_#{comment.id}').validate({
+      rules: {
+        'comment[body]': {
+          required: true
+        }
+      },
+      messages: {
+        'comment[body]': {
+          required: '#{@comment.errors.generate_message :body, :blank}'
+        }
       }
-    },
-    messages: {
-      'comment[body]': {
-        required: '#{@comment.errors.generate_message :body, :blank}'
-      }
-    }
-  });
+    });
