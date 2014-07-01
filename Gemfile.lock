@@ -101,7 +101,7 @@ GEM
     font-awesome-sass (4.1.0)
       sass (~> 3.2)
     formatador (0.2.5)
-    getvideo (0.0.5)
+    getvideo (0.0.6)
       faraday
       multi_json
       multi_xml
@@ -230,7 +230,7 @@ GEM
       tilt (>= 1.3.3, < 2.1)
     slop (3.5.0)
     spring (1.1.3)
-    sprockets (2.8.0)
+    sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
