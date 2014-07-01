@@ -8,7 +8,7 @@
       display: inline-block;
 
       > a {
-        color: $gray-light;
+        color: $gray;
 
         &:hover {
           background: transparent;
@@ -117,7 +117,7 @@
     margin-top: -$padding-base-vertical;
     margin-right: -$padding-base-horizontal;
     float: right;
-    color: $gray-light;
+    color: $gray;
 
     &:hover {
       color: $gray-dark;
@@ -161,7 +161,7 @@
     margin-left: -$padding-base-horizontal;
 
     .btn {
-      color: $gray-light;
+      color: $gray;
 
       &:hover {
         color: $gray-dark;
@@ -182,7 +182,7 @@
 .list-group-campo.recordable {
   a.list-group-item:visited {
     .list-group-item-heading {
-      color: $gray-light;
+      color: $gray;
     }
   }
 }
