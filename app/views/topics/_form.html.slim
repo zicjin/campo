@@ -2,16 +2,16 @@
   .row
     .col-md-9
       .form-group
-        = f.text_field :title, class: 'form-control form-head', placeholder: t('.title'), tabIndex: 1
+        = f.text_field :title, class: 'form-control form-head', placeholder: '标题', tabIndex: 1
     .col-md-3
       .form-group
         = f.collection_select :category_id, @categories.order(topics_count: :desc), :id, :name, {}, class: 'form-control', tabIndex: 2
   .form-group
     = render partial: 'share/editor_area', locals: {form: f, name: :body, tabIndex: 3}
   - if topic.new_record?
-    = f.submit t('.create_topic'), class: 'btn btn-success', tabIndex: 4, 'data-disable-with' => t('.create_topic')
+    = f.submit '创建话题', class: 'btn btn-success', tabIndex: 4, 'data-disable-with' => '创建话题'
   - else
-    = f.submit t('.save_changes'), class: 'btn btn-success', tabIndex: 4, 'data-disable-with' => t('.save_changes')
+    = f.submit '保存修改', class: 'btn btn-success', tabIndex: 4, 'data-disable-with' => '保存修改'
     '
     a.btn.btn-default href=topic_path(@topic) tabIndex="5" 取消
 

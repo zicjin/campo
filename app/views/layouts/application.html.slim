@@ -15,11 +15,9 @@ html
 
     = javascript_include_tag "//libs.baidu.com/jquery/1.10.2/jquery.min.js"
     = javascript_include_tag "application", "data-turbolinks-track" => true
-    - if login?
-      javascript:
-        campo.currentUser = {
-          id: #{current_user.id}
-        }
+    javascript:
+      window.glo_touchDevice = 'ontouchstart' in document.documentElement
+      campo.currentUserId = #{login? ? current_user.id.to_s : 'null;'}
 
     = favicon_link_tag 'favicon.ico'
     - if touch_device?

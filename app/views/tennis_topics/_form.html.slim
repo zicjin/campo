@@ -15,24 +15,24 @@
     '
     a.btn.btn-default href=tennis_topic_path(@topic) tabIndex="5" 取消
 
-- form_id = @topic.new_record? ? 'new_topic' : "edit_topic_#{@topic.id}"
+- form_id = @topic.new_record? ? 'new_tennis_topic' : "edit_tennis_topic_#{@topic.id}"
 
 = content_for :script
   javascript:
     $('##{form_id}').validate({
       rules: {
-        'topic[title]': {
+        'tennis_topic[title]': {
           required: true
         },
-        'topic[body]': {
+        'tennis_topic[body]': {
           required: true
         }
       },
       messages: {
-        'topic[title]': {
+        'tennis_topic[title]': {
           required: '#{@topic.errors.generate_message :title, :blank}'
         },
-        'topic[body]': {
+        'tennis_topic[body]': {
           required: '#{@topic.errors.generate_message :body, :blank}'
         }
       }

@@ -15,24 +15,24 @@
     '
     a.btn.btn-default href=nba_topic_path(@topic) tabIndex="5" 取消
 
-- form_id = @topic.new_record? ? 'new_topic' : "edit_topic_#{@topic.id}"
+- form_id = @topic.new_record? ? 'new_nba_topic' : "edit_nba_topic_#{@topic.id}"
 
 = content_for :script
   javascript:
     $('##{form_id}').validate({
       rules: {
-        'topic[title]': {
+        'nba_topic[title]': {
           required: true
         },
-        'topic[body]': {
+        'nba_topic[body]': {
           required: true
         }
       },
       messages: {
-        'topic[title]': {
+        'nba_topic[title]': {
           required: '#{@topic.errors.generate_message :title, :blank}'
         },
-        'topic[body]': {
+        'nba_topic[body]': {
           required: '#{@topic.errors.generate_message :body, :blank}'
         }
       }

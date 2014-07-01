@@ -6,7 +6,7 @@
     window.glo_editor = new Simditor({
       textarea: $('#editor'),
       placeholder: "文明发言……",
-      toolbar: window.glo_touchDevice? ['image', 'link', 'title', 'bold', 'blockquote']: ['image', 'video', 'link', 'title', 'bold', 'italic', 'underline', 'ol', 'ul', 'blockquote', 'table', 'hr'],
+      toolbar: (window.glo_touchDevice? ['image', 'link', 'title', 'bold', 'blockquote']: ['image', 'video', 'link', 'title', 'bold', 'italic', 'underline', 'ol', 'ul', 'blockquote', 'table', 'hr']),
       upload: {
         url: '/attachments'
       },

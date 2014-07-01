@@ -10,7 +10,6 @@
 #= require_tree ./simditor
 
 window.campo = {}
-window.glo_touchDevice = 'ontouchstart' in document.documentElement
 
 ready = ->
   search_form = $('form.search-form')

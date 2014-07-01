@@ -3,11 +3,11 @@ campo.VisibleTo =
   #
   # options:
   #   - user: Visible to logined user
-  #     Check if campo.currentUser exists.
+  #     Check if campo.currentUserId exists.
   #
   #   - creator: Visible to creator
   #     Find closest element witch has data-creator-id,
-  #     and compare with campo.currentUser.id.
+  #     and compare with campo.currentUserId.
   #
   #   - no-creator: Visible to anyone except creator
   check: ->
@@ -16,17 +16,17 @@ campo.VisibleTo =
       rules = $element.data('visible-to').split(/\s/)
 
       if 'user' in rules
-        if !campo.currentUser?
+        if !campo.currentUserId?
           return $element.remove()
 
       if 'creator' in rules
         creator_id = $element.closest('[data-creator-id]').data('creator-id')
-        if (!campo.currentUser?) or (campo.currentUser.id != creator_id)
+        if (!campo.currentUserId?) or (campo.currentUserId != creator_id)
           return $element.remove()
 
       if 'no-creator' in rules
         creator_id = $element.closest('[data-creator-id]').data('creator-id')
-        if campo.currentUser? and (campo.currentUser.id == creator_id)
+        if campo.currentUserId? and (campo.currentUserId == creator_id)
           return $element.remove()
 
 $(document).on 'page:update', ->

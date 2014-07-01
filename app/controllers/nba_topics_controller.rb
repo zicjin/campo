@@ -67,6 +67,7 @@ class NbaTopicsController < ApplicationController
   end
 
   def create
+    binding.pry
     _params = topic_params
     _params[:preview] = parse_preview _params[:body]
     @topic = current_user.nba_topics.create _params
