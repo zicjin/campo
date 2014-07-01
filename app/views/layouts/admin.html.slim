@@ -8,9 +8,8 @@ html
     = javascript_include_tag "application", "data-turbolinks-track" => true
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     = csrf_meta_tags
-    javascript:
-      @campo = {}
-      - if login?
+    - if login?
+      javascript:
         campo.currentUser = {
           id: #{current_user.id}
         }
@@ -43,3 +42,5 @@ html
               a href=admin_attachments_path 附件
 
     = yield
+
+    = yield :script
