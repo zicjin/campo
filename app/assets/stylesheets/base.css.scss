@@ -78,6 +78,7 @@ $border-radius-large:       2px;
 @import "bootstrap/utilities";
 @import "bootstrap/responsive-utilities";
 
+@import "nprogress";
 @import "com";
 @import "jumbotron";
 
@@ -101,7 +102,7 @@ body{padding-top:51px;}
 li.dropheader{
 	&>a{color:$gray-light;font-size:18px;}
 }
-#body{position:relative;z-index:3;background:$body-bg;min-height:500px;
+#body{position:relative;z-index:3;background:$body-bg;min-height:380px;
 	border-top:1px solid #3e2c5a;box-shadow:0 -1px 0 rgba(255, 255, 255, 0.1);
 }
 
