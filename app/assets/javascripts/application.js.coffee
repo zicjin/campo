@@ -19,9 +19,16 @@ ready = ->
   $('b', search_form).on 'click', -> search_form.submit()
 
   jumbotron = $('#jumbotron')
+
   $('a.apptoggle').on 'click', ->
+    if jumbotron.is(":visible"))
+      $('#matchfilter').show()
+    else
+      $('body')[0].scrollTop = 0
+      $('#matchfilter').hide()
     jumbotron.slideToggle()
     $(this).parent('li').toggleClass('active')
+
   $('.androidbtn', jumbotron).hover ->
     if not glo_touchDevice
       $('.androidpic').show()
