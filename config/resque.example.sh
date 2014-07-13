@@ -13,8 +13,8 @@
 set -e
 set -u
 
-APP_ROOT=/var/www/campo/current
-USER=deploy
+APP_ROOT=/home/zcj/www/d.baozoubisai.com/current
+USER=zcj
 
 TIMEOUT=${TIMEOUT-60}
 PIDFILE="$APP_ROOT/tmp/pids/resque.%d.pid"
