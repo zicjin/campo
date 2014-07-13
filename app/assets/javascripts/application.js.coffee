@@ -21,7 +21,7 @@ ready = ->
   jumbotron = $('#jumbotron')
 
   $('a.apptoggle').on 'click', ->
-    if jumbotron.is(":visible"))
+    if jumbotron.is(":visible")
       $('#matchfilter').show()
     else
       $('body')[0].scrollTop = 0
