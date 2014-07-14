@@ -52,6 +52,13 @@
                       == @topic.body
                     .list-group-item-actions.clearfix
                       .pull-right
+                        span.jiathis_style.fn-clear.fn-inbk
+                          a.jiathis_button_tsina
+                          a.jiathis_button_weixin
+                          a.jiathis_button_qzone
+                          a.jiathis.jiathis_txt.jiathis_separator.jtico.jtico_jiathis href="http://www.jiathis.com/share" target="_blank"
+                          a#jiathis_counter_style.jiathis_counter_style
+                        script src="http://v3.jiathis.com/code_mini/jia.js"
                         a.btn id="like-for-nbatopic-#{@topic.id}" href=nba_topic_like_path(@topic) data-remote="true" data-method="post"
                           i.fa.fa-lightbulb-o
                           '
