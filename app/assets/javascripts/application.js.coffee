@@ -57,3 +57,10 @@ $(document).on 'page:fetch', ->
 
 window.glo_iosapp_nav = ->
   $('button.navbar-toggle').click()
+
+window.jiathis_config =
+    siteNum: 6
+    sm: "douban,twitter,tqq,renren,fb,googleplus"
+    summary: ""
+    shortUrl: true
+    hideMore: true
