@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :login_required, :no_locked_required, except: [:index, :show, :search]
+  before_action :login_required, :no_locked_required, except: [:index, :show, :search, :hot_json]
   before_action :find_topic, only: [:edit, :update, :trash]
   before_action :topic_categories, only: [:new, :edit]
   before_action :modern_bower, only: [:index, :show, :search]
