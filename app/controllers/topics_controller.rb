@@ -3,11 +3,19 @@ class TopicsController < ApplicationController
   before_action :find_topic, only: [:edit, :update, :trash]
   before_action :topic_categories, only: [:new, :edit]
   before_action :modern_bower, only: [:index, :show, :search]
+  protect_from_forgery except: :hot_json
 
   def modern_bower
     unless modern_bower?
       render :action=>'index_old', :layout=>false
     end
+  end
+
+  def hot_json
+    topics = Topic.includes(:user, :category).order(hot: :desc).page(1).per(10) #在rails里pagesize称为limit
+    nba_topics = NbaTopic.includes(:user, :category).order(hot: :desc).page(1).per(10)
+    tennis_topics = TennisTopic.includes(:user, :category).order(hot: :desc).page(1).per(10)
+    render :json => {soccer: topics, nba: nba_topics, tennis: tennis_topics}, :callback => params[:callback]
   end
 
   def index
