@@ -97,9 +97,9 @@
 
   .topic.haspreview{
     padding-right:131px;
-    img.preview{
-      max-height: 74px; max-width: 121px;
-      position:absolute;top:0;right:0;
+    .previewimg-box{position:absolute;top:0;right:0;
+      height: 77px;width: 121px;overflow:hidden;text-align:right;
+      img{height: 77px;}
     }
   }
 
