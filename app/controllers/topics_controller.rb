@@ -57,7 +57,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find params[:id]
-
+    @category = @topic.category
     if params[:comment_id] and comment = @topic.comments.find_by(id: params.delete(:comment_id))
       params[:page] = comment.page
     end
