@@ -34,6 +34,7 @@ $border-radius-large:       2px;
 @import "comments";
 @import "notifications";
 @import "subscriptions";
+@import "patterns";
 
 html.for-iosapp {
   @media (max-width: 767px) {
@@ -52,61 +53,6 @@ body {background: #eee!important;}
 }
 
 .main{position:relative;z-index:3;background-position: 0 0, 0 50%;background-repeat: repeat-x, repeat;}
-footer{background-position: 0 50%;background-repeat: repeat;}
-body{
-  &.worldcup{
-    .main{background-image: url(shadow_light.png), url(patterns/congruent_pentagon.png);}
-    footer{background-image: url(patterns/congruent_pentagon.png);color:$gray-lighter;border-top:none;}
-  }
-  &.barcelona{
-    .main{background-color: #87222f;background-image: url(shadow_light.png), url(patterns/pixels.png);}
-    footer{background-color: #87222f;background-image: url(patterns/pixels.png);color:$gray-lighter;border-top:none;}
-  }
-  &.chelsea{
-    .main{background-color: #36498e;background-image: url(shadow_light.png), url(patterns/pixels.png);}
-    footer{background-color: #36498e;background-image: url(patterns/pixels.png);color:$gray-lighter;border-top:none;}
-  }
-  &.man-utd{
-    .main{background-color: #DA1620;background-image: url(shadow_light.png), url(patterns/pixels.png);}
-    footer{background-color: #DA1620;background-image: url(patterns/pixels.png);color:$gray-lighter;border-top:none;}
-  }
-  &.bayern-munchen{
-    .main{background-color: #DB0040;background-image: url(shadow_light.png), url(patterns/pixels.png);}
-    footer{background-color: #DB0040;background-image: url(patterns/pixels.png);color:$gray-lighter;border-top:none;}
-  }
-  &.real-madrid{
-    .main{background-color: #FABC01;background-image: url(shadow_light.png), url(patterns/pixels.png);}
-    footer{background-color: #FABC01;background-image: url(patterns/pixels.png);color:$gray-lighter;border-top:none;}
-  }
-  &.arsenal{
-    .main{background-color: #ED1C23;background-image: url(shadow_light.png), url(patterns/pixels.png);}
-    footer{background-color: #ED1C23;background-image: url(patterns/pixels.png);color:$gray-lighter;border-top:none;}
-  }
-  &.man-city{
-    .main{background-color: #7FCFF5;background-image: url(shadow_light.png), url(patterns/pixels.png);}
-    footer{background-color: #7FCFF5;background-image: url(patterns/pixels.png);color:$gray-lighter;border-top:none;}
-  }
-  &.liverpool{
-    .main{background-color: #C63A2B;background-image: url(shadow_light.png), url(patterns/pixels.png);}
-    footer{background-color: #C63A2B;background-image: url(patterns/pixels.png);color:$gray-lighter;border-top:none;}
-  }
-  &.ac-milan{
-    .main{background-color: #A93633;background-image: url(shadow_light.png), url(patterns/pixels.png);}
-    footer{background-color: #A93633;background-image: url(patterns/pixels.png);color:$gray-lighter;border-top:none;}
-  }
-  &.rocket{
-    .main{background-image: url(shadow_light.png), url(patterns/lego.gif);}
-    footer{background-image: url(patterns/lego.gif);color:$gray-lighter;border-top:none;}
-  }
-  &.spurs{
-    .main{background-image: url(shadow_light.png), url(patterns/congruent_outline.png);}
-    footer{background-image: url(patterns/congruent_outline.png);color:$gray-lighter;border-top:none;}
-  }
-  &.federer{
-    .main{background-image: url(shadow_light.png), url(patterns/skulls.png);}
-    footer{background-image: url(patterns/skulls.png);color:$gray-lighter;border-top:none;}
-  }
-}
 
 .file-upload {background: $gray-lighter;position: relative;
   input[type=file] {position: absolute;width: 100%;top: 0;bottom: 0;outline: 0;opacity: 0;cursor: pointer;}
