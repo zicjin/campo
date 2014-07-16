@@ -7,7 +7,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new params.require(:user).permit(:username, :email, :name, :password).merge(locale: locale)
+    @user = User.new params.require(:user).permit(:username, :email, :password).merge(locale: locale)
+    @user.name = @user.username
     if @user.save
       login_as @user
       UserMailer.confirmation(@user.id).deliver
