@@ -25,7 +25,7 @@ html
       link rel="apple-touch-icon" href="/assets/favicon.png"
     = csrf_meta_tags
 
-  body
+  body class=(@category.slug if @category)
     header#navdoc.navbar.navbar-inverse.navbar-fixed-top role="banner"
       .container
         .navbar-header
