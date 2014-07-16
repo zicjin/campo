@@ -1,55 +1,41 @@
-footer{background-position: 0 50%;background-repeat: repeat;}
 body{
-  &.world-cup{
+  &.World-Cup{
     .main{background-image: url(shadow_light.png), url(patterns/congruent_pentagon.png);}
-    footer{background-image: url(patterns/congruent_pentagon.png);color:$gray-lighter;border-top:none;}
   }
   &.Barcelona{
     .main{background-color: #87222f;background-image: url(shadow_light.png), url(patterns/pixels.png);}
-    footer{background-color: #87222f;background-image: url(patterns/pixels.png);color:$gray-lighter;border-top:none;}
   }
   &.Chelsea{
     .main{background-color: #36498e;background-image: url(shadow_light.png), url(patterns/pixels.png);}
-    footer{background-color: #36498e;background-image: url(patterns/pixels.png);color:$gray-lighter;border-top:none;}
   }
   &.Man-Utd{
     .main{background-color: #DA1620;background-image: url(shadow_light.png), url(patterns/pixels.png);}
-    footer{background-color: #DA1620;background-image: url(patterns/pixels.png);color:$gray-lighter;border-top:none;}
   }
   &.Bayern-Munchen{
     .main{background-color: #DB0040;background-image: url(shadow_light.png), url(patterns/pixels.png);}
-    footer{background-color: #DB0040;background-image: url(patterns/pixels.png);color:$gray-lighter;border-top:none;}
   }
   &.Real-Madrid{
     .main{background-color: #FABC01;background-image: url(shadow_light.png), url(patterns/pixels.png);}
-    footer{background-color: #FABC01;background-image: url(patterns/pixels.png);color:$gray-lighter;border-top:none;}
   }
   &.Arsenal{
     .main{background-color: #ED1C23;background-image: url(shadow_light.png), url(patterns/pixels.png);}
-    footer{background-color: #ED1C23;background-image: url(patterns/pixels.png);color:$gray-lighter;border-top:none;}
   }
   &.Man-City{
     .main{background-color: #7FCFF5;background-image: url(shadow_light.png), url(patterns/pixels.png);}
-    footer{background-color: #7FCFF5;background-image: url(patterns/pixels.png);color:$gray-lighter;border-top:none;}
   }
   &.Liverpool{
     .main{background-color: #C63A2B;background-image: url(shadow_light.png), url(patterns/pixels.png);}
-    footer{background-color: #C63A2B;background-image: url(patterns/pixels.png);color:$gray-lighter;border-top:none;}
   }
   &.AC-Milan{
     .main{background-color: #A93633;background-image: url(shadow_light.png), url(patterns/pixels.png);}
-    footer{background-color: #A93633;background-image: url(patterns/pixels.png);color:$gray-lighter;border-top:none;}
   }
   &.Rocket{
     .main{background-image: url(shadow_light.png), url(patterns/lego.gif);}
-    footer{background-image: url(patterns/lego.gif);color:$gray-lighter;border-top:none;}
   }
   &.Spurs{
     .main{background-image: url(shadow_light.png), url(patterns/congruent_outline.png);}
-    footer{background-image: url(patterns/congruent_outline.png);color:$gray-lighter;border-top:none;}
   }
   &.Federer{
     .main{background-image: url(shadow_light.png), url(patterns/skulls.png);}
-    footer{background-image: url(patterns/skulls.png);color:$gray-lighter;border-top:none;}
   }
 }
