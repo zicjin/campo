@@ -1,3 +1,4 @@
+
 class User < ActiveRecord::Base
   include Gravtastic
   gravtastic secure: true, default: 'wavatar', rating: 'G', size: 48
