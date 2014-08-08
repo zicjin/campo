@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   get 'hot_topics', to: 'topics#hot_json'
 
+  resources :appids, only: [:create, :index, :destroy]
+  
   resources :users, only: [:create] do
     collection do
       get :check_email

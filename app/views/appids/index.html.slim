@@ -1,0 +1,26 @@
+- @page_title = t '.appids'
+
+.main
+  .container
+    = render 'share/flash_messages'
+
+    .row
+      .col-md-8.col-md-push-2
+        .panel
+          .panel-heading
+            h2.panel-title Appid
+          .panel-body
+            .list-group.list-group-campo
+              - @appids.each do |appid|
+                a.list-group-item href=admin_appid_path(appid)
+                  .list-group-item-heading
+                    = appid.id
+                    = '. '
+                    b = truncate strip_tags(appid.idstring)
+                  .text-muted
+                    = appid.type
+                    = ' · '
+                    = time_ago_tag appid.last_login
+          .panel-footer.clearfix
+            .pull-right
+              = paginate @appids, theme: 'campo'
