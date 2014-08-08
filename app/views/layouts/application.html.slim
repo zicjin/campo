@@ -46,8 +46,8 @@ html
               a href=topics_path 足球
             li class=('active' if params[:controller] == 'nba_topics')
               a href=nba_topics_path NBA
-            li class=('active' if params[:controller] == 'tennis_topics')
-              a href=tennis_topics_path 网球
+            / li class=('active' if params[:controller] == 'tennis_topics')
+            /   a href=tennis_topics_path 网球
           ul#loginedNav.nav.navbar-nav.navbar-right
             - if login?
               li class=('active' if params[:controller] == 'notifications')
