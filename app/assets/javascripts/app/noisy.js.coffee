@@ -1,13 +1,6 @@
-#= require jquery_ujs
-#= require turbolinks
-#= require bootstrap
-#= require jquery.autosize
-#= require jquery.validate
-#= require jquery.timeago
-#= require nprogress
 #= require_self
-#= require_tree ./plugins
-#= require_tree ./simditor
+#= require_tree ../plugins
+#= require_tree ../simditor
 
 window.campo = {}
 
@@ -44,16 +37,7 @@ ready = ->
 
 $(document).ready ready
 
-$(document).on 'page:fetch', ->
-  NProgress.start()
-.on 'page:change', ->
-  NProgress.done()
-.on 'page:restore', ->
-  NProgress.remove()
-.on 'page:update', ->
-  $('[data-behaviors~=autosize]').autosize()
-  $("time[data-behaviors~=timeago]").timeago()
-.on 'page:load', ready
+$(document).on 'page:load', ready
 
 window.glo_iosapp_nav = ->
   $('button.navbar-toggle').click()

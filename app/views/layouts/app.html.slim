@@ -7,8 +7,8 @@ html
     link href="/assets/base.css" rel="stylesheet"
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "//libs.baidu.com/jquery/1.10.2/jquery.min.js"
-    script src="/assets/base.js"
-    = javascript_include_tag "application", "data-turbolinks-track" => true
+    script src="/assets/app/base.js"
+    = javascript_include_tag "app/noisy", "data-turbolinks-track" => true
     javascript:
       window.glo_touchDevice = 'ontouchstart' in document.documentElement
       campo.currentUserId = #{login? ? current_user.id.to_s : 'null;'}
