@@ -98,17 +98,17 @@ class ApplicationController < ActionController::Base
   def remember_me
     cookies[:remember_token] = {
       value: current_user.remember_token,
-      expires: 2.weeks.from_now,
+      expires: 4.weeks.from_now,
       httponly: true
     }
     cookies[:customer_name] = {
       value: current_user.username,
-      expires: 2.weeks.from_now,
+      expires: 4.weeks.from_now,
       domain: '.baozoubisai.com'
     }
     cookies[:customer_avatar] = {
       value: current_user.avatar.small.url,
-      expires: 2.weeks.from_now,
+      expires: 4.weeks.from_now,
       domain: '.baozoubisai.com'
     }
     cookies[:csrf_token] = {

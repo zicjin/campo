@@ -341,3 +341,46 @@ zh-TW:
         publish: "發佈"
         topics: "話題"
         user_s_topics: "%{name} 的話題"
+    accounts:
+      flashes:
+        successfully_updated: "成功更新帳號"
+      show:
+        account: "帳號"
+        account_settings: "帳號設置"
+        current_password: "當前密碼"
+        save_changes: "保存修改"
+    flashes:
+      incorrect_current_password: "當前密碼錯誤"
+    notifications:
+      flashes:
+        successfully_updated: "更新成功"
+      show:
+        comment: "評論"
+        email: Email
+        mention: "提及"
+        notifications: "通知"
+        notifications_settings: "通知設置"
+        save_changes: "保存修改"
+        web: "網站"
+        when_receive_new_comment_on_watching_items: "當你關注的內容有新回覆"
+        when_someone_mention_you_with_username: "當有人提到你的用戶名"
+    passwords:
+      flashes:
+        successfully_updated: "成功更新密碼"
+      show:
+        current_password: "當前密碼"
+        password: "密碼"
+        password_settings: "密碼設置"
+        save_changes: "保存修改"
+    profiles:
+      flashes:
+        successfully_updated: "成功更新個人資料"
+      show:
+        profile: "個人資料"
+        profile_settings: "個人資料設置"
+        save_changes: "保存修改"
+    sidebar:
+      account: "帳號"
+      notifications: "通知"
+      password: "密碼"
+      profile: "個人資料"

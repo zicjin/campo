@@ -1,0 +1,55 @@
+- case params[:tab]
+- when 'hot'
+  - @page_title = '热门话题'
+- when 'newest'
+  - @page_title = '最新话题'
+
+- if @category
+  - @page_title += " #{@category.name}"
+
+.main
+  .container
+    .row
+      .col-md-9
+        .panel
+          .panel-heading.clearfix
+            .pull-right
+              ul.nav.nav-pills
+                li class=('active' if params[:tab] == 'hot')
+                  a href=url_for(tab: 'hot') 热门
+                li class=('active' if params[:tab] == 'newest')
+                  a href=url_for(tab: 'newest') 最新
+            h3.panel-title
+              = @category.try(:name)
+
+          - if @category && @category.description.present?
+            .panel-body
+              == @category.description
+
+          .panel-body
+            .list-group.list-group-campo.recordable
+              - if @topics.any?
+                = render @topics
+              - else
+                .list-group-item.text-center.text-muted.empty-message 还没有话题
+          - if @topics.total_pages > 1
+            .panel-footer.clearfix
+              .pull-right
+                = paginate @topics, theme: 'campo'
+
+      .col-md-3
+        .panel
+          .panel-body
+            a.btn.btn-default.btn-block.btn-lg.mb20 href=new_apps_topic_path(category_id: @category.try(:slug))
+              | 创建话题
+              i.fa.fa-pencil.ml10
+            = render 'search_form'
+        .panel
+          .panel-body
+            ul.nav.nav-pills
+              li class=('active' unless @category)
+                a href=topics_path 所有
+              - Category.order(topics_count: :desc).where(group: 0).each do |category|
+                li class=('active' if category == @category)
+                  a href=categoried_topics_path(category_id: category.slug)
+                    = category.name

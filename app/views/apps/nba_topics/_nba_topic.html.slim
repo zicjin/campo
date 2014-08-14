@@ -1,6 +1,5 @@
 - cache [nba_topic, locale] do
-  = 'asdasd'
-  a.list-group-item.topic href=nba_topic_last_path(nba_topic) class=('haspreview' if nba_topic.preview)
+  a.list-group-item.topic href=apps_nba_topic_last_path(nba_topic) class=('haspreview' if nba_topic.preview)
     .list-group-item-avatar
       img.img-rounded alt="avatar" src=nba_topic.user.avatar.normal.url
     .list-group-item-content

@@ -11,7 +11,7 @@ class TopicsController < ApplicationController
     end
   end
 
-  def hot_json
+  def hot_byjson
     topics = Topic.includes(:user, :category).order(hot: :desc).page(1).per(10) #在rails里pagesize称为limit
     nba_topics = NbaTopic.includes(:user, :category).order(hot: :desc).page(1).per(10)
     tennis_topics = TennisTopic.includes(:user, :category).order(hot: :desc).page(1).per(10)

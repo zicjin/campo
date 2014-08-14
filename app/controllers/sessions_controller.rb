@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   before_action :no_login_required, :access_limiter, only: [:new, :create]
-  # skip_before_action :verify_authenticity_token
+  protect_from_forgery except: :create_byjson
 
   def new
     store_location params[:return_to]
@@ -21,6 +21,21 @@ class SessionsController < ApplicationController
     else
       flash[:warning] = I18n.t('sessions.flashes.incorrect_user_name_or_password')
       redirect_to login_url
+    end
+  end
+
+  def create_byjson
+    login = params[:login].downcase
+    @user = if login.include?('@')
+              User.where('lower(email) = ?', login).first
+            else
+              User.where('lower(username) = ?', login).first
+            end
+
+    if @user && @user.authenticate(params[:password])
+      render :json => {remember_token: @user.remember_token}
+    else
+      render :json => {error: "错误的用户名或密码"}
     end
   end
 

@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title = @page_title ? "#{@page_title} | #{CONFIG['title']}" : CONFIG['title']
+    meta http-equiv="Content-Type" content="text/html; charset=utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    link href="/assets/base.css" rel="stylesheet"
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "//libs.baidu.com/jquery/1.10.2/jquery.min.js"
+    script src="/assets/base.js"
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    javascript:
+      window.glo_touchDevice = 'ontouchstart' in document.documentElement
+      campo.currentUserId = #{login? ? current_user.id.to_s : 'null;'}
+    = csrf_meta_tags
+    scss:
+      body{padding-top: 0;}
+
+  body class=(@category.slug if @category)
+    = yield
+    = yield :script

@@ -1,0 +1,27 @@
+- @page_title = t '.app_s_comments', name: @user.name
+
+.main
+  .container
+    .row
+      .col-md-9
+        #comments.panel
+          .panel-heading.clearfix
+            .pull-right
+              ul.nav.nav-pills
+                li class=('active' if action_name == 'index')
+                  a href=apps_comments_path 发布
+                li class=('active' if action_name == 'likes')
+                  a href=likes_apps_comments_path 喜欢的
+            h3.panel-title
+              = t '.comments'
+          .panel-body
+            .list-group.list-group-campo
+              - if @comments.any?
+                = render @comments
+              - else
+                .list-group-item.text-center.text-muted.empty-message
+                  = t '.no_comment_yet'
+          - if @comments.total_pages > 1
+            .panel-footer.clearfix
+              .pull-right
+                = paginate @comments, theme: 'campo', params: { anchor: 'comments' }

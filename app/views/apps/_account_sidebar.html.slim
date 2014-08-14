@@ -1,0 +1,9 @@
+.list-group
+  a.list-group-item class=('active' if controller_name == 'accounts') href=apps_account_path
+    .pull-right
+      i.fa.fa-chevron-right
+    = t '.account'
+  a.list-group-item class=('active' if controller_name == 'passwords') href=apps_password_path
+    .pull-right
+      i.fa.fa-chevron-right
+    = t '.password'

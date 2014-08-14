@@ -1,0 +1,26 @@
+- @page_title = t '.app_s_topics', name: @user.name
+
+.main
+  .container
+    .row
+      .col-md-9
+        #topics.panel
+          .panel-heading.clearfix
+            .pull-right
+              ul.nav.nav-pills
+                li class=('active' if action_name == 'index')
+                  a href=apps_user_topics_path 发布
+                li class=('active' if action_name == 'likes')
+                  a href=likes_apps_user_topics_path 喜欢的
+            h3.panel-title 足球话题
+          .panel-body
+            .list-group.list-group-campo
+              - if @topics.any?
+                = render partial: 'apps/topics/topic', collection: @topics
+              - else
+                .list-group-item.text-center.text-muted.empty-message
+                  = t '.no_topic_yet'
+          - if @topics.total_pages > 1
+            .panel-footer.clearfix
+              .pull-right
+                = paginate @topics, theme: 'campo', params: { anchor: 'topics' }

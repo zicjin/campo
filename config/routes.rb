@@ -12,11 +12,13 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-  get 'hot_topics', to: 'topics#hot_json'
+  get 'hot_topics', to: 'topics#hot_byjson'
+  post 'app_users_creat', to: 'users#create_byjson'
+  post 'app_sessions_creat', to: 'sessions#create_byjson'
 
   resources :appids, only: [:create, :index, :destroy]
   
-  resources :users, only: [:create] do
+  resources :users, only: [:create, :destroy] do
     collection do
       get :check_email
       get :check_username
@@ -60,15 +62,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :tennis_topics, only: [:index, :show, :new, :create, :edit, :update], concerns: [:commentable, :likeable, :subscribable] do
-    collection do
-      get 'categoried/:category_id', to: 'tennis_topics#index', as: :categoried
-      get 'search'
-    end
-    member do
-      delete :trash
-    end
-  end
+  # resources :tennis_topics, only: [:index, :show, :new, :create, :edit, :update], concerns: [:commentable, :likeable, :subscribable] do
+  #   collection do
+  #     get 'categoried/:category_id', to: 'tennis_topics#index', as: :categoried
+  #     get 'search'
+  #   end
+  #   member do
+  #     delete :trash
+  #   end
+  # end
 
   resources :comments, only: [:edit, :update], concerns: [:likeable] do
     member do
@@ -100,7 +102,29 @@ Rails.application.routes.draw do
         get :likes
       end
     end
-    resources :tennis_topics, only: [:index] do
+    # resources :tennis_topics, only: [:index] do
+    #   collection do
+    #     get :likes
+    #   end
+    # end
+    resources :comments, only: [:index] do
+      collection do
+        get :likes
+      end
+    end
+
+    root to: 'topics#index'
+  end
+
+  namespace :apps do
+    resource :account, only: [:show, :update]
+    resource :password, only: [:show, :update]
+    resources :user_topics, only: [:index] do
+      collection do
+        get :likes
+      end
+    end
+    resources :user_nba_topics, only: [:index] do
       collection do
         get :likes
       end
@@ -111,7 +135,25 @@ Rails.application.routes.draw do
       end
     end
 
-    root to: 'topics#index'
+    resources :topics, only: [:index, :show, :new, :create, :edit, :update], concerns: [:commentable, :likeable, :subscribable] do
+      collection do
+        get 'categoried/:category_id', to: 'topics#index', as: :categoried
+        get 'search'
+      end
+      member do
+        delete :trash
+      end
+    end
+
+    resources :nba_topics, only: [:index, :show, :new, :create, :edit, :update], concerns: [:commentable, :likeable, :subscribable] do
+      collection do
+        get 'categoried/:category_id', to: 'nba_topics#index', as: :categoried
+        get 'search'
+      end
+      member do
+        delete :trash
+      end
+    end
   end
 
   namespace :settings do

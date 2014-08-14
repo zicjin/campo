@@ -336,42 +336,6 @@ zh-CN:
       your_account_had_been_locked: "你的帐号已被锁定"
     nba_topic:
       comments_count: "%{count} 条评论"
-  tennis_topics:
-    edit:
-      edit_topic: "编辑话题"
-    form:
-      cancel: "取消"
-      create_topic: "创建话题"
-      no_category: "不分类"
-      save_changes: "保存修改"
-      title: "标题"
-    index:
-      all_categories: "所有分类"
-      create_topic: "创建话题"
-      hot: "热门"
-      hot_topics: "热门话题"
-      newest: "最新"
-      newest_topics: "最新话题"
-      no_topic_yet: "还没有话题"
-    new:
-      new_topic: "新话题"
-    search:
-      no_matching_results: "没有匹配结果"
-      search: "搜索"
-    show:
-      add_this_comment: "添加评论"
-      comments: "评论"
-      delete_confirm: "你确定要删除此话题吗？"
-      login: "登录"
-      no_comment_yet: "还没有评论"
-      no_more_topics: "没有更多话题"
-      or: "或"
-      related_topics: "相关话题"
-      sign_up: "注册"
-      to_comment: "后发表评论"
-      your_account_had_been_locked: "你的帐号已被锁定"
-    tennis_topic:
-      comments_count: "%{count} 条评论"
   user_mailer:
     confirmation:
       subject: "邮箱确认"
@@ -450,10 +414,174 @@ zh-CN:
         publish: "发布"
         topics: "话题"
         user_s_topics: "%{name} 的话题"
-    tennis_topics:
+  apps:
+    comments:
+      index:
+        comments: "评论"
+        likes: "收藏"
+        no_comment_yet: "还没有评论"
+        publish: "发布"
+        app_s_comments: "%{name} 的评论"
+    confirmations:
+      confirm_success: "恭喜，你的邮件地址已确认成功。"
+      create:
+        resend_success: "确认邮件已发送。"
+      limiter:
+        resend_limiter: "一分钟只能发送一次确认邮件。"
+      new:
+        click_resend_button_to_resend_confirmation_email: "点击“重新发送邮件”按钮重发确认邮件。"
+        need_confirm_email: "需要验证邮件地址"
+      show:
+        confirm_fail: "确认失败"
+        confirmation_toke_invalid_or_expired_please_resend: "确认码无效或已过期，请重新发送确认邮件。"
+    likes:
+      index:
+        no_comment_yet: "还没有评论"
+    new:
+      choose_a_password: "选一个密码"
+      create_account: "创建帐号"
+      pick_a_username: "挑一个用户名"
+      sign_up: "注册"
+      your_email: "你的邮箱地址"
+      your_full_name: "你的全名"
+    passwords:
+      edit:
+        password_reset: "密码重置"
+        save_changes: "保存修改"
+      new:
+        email: Email
+        password_reset: "密码重置"
+        send_reset_email: "发送重置密码"
+        your_email: "你的 Email 地址"
+      show:
+        password_reset: "密码重置"
+        password_reset_email_has_been_sent_message: "密码重置邮件已发送，请注意查收。"
+    profile:
+      edit_profile: "编辑个人资料"
+    sidebar:
+      comments: "评论"
+      topics: "话题"
+    user_topics:
       index:
         likes: "收藏"
         no_topic_yet: "还没有话题"
         publish: "发布"
         topics: "话题"
-        user_s_topics: "%{name} 的话题"
+        app_s_topics: "%{name} 的话题"
+    user_nba_topics:
+      index:
+        likes: "收藏"
+        no_topic_yet: "还没有话题"
+        publish: "发布"
+        topics: "话题"
+        app_s_topics: "%{name} 的话题"
+    accounts:
+      flashes:
+        successfully_updated: "成功更新帐号"
+      show:
+        account: "帐号"
+        account_settings: "帐号设置"
+        current_password: "当前密码"
+        save_changes: "保存修改"
+    flashes:
+      incorrect_current_password: "当前密码错误"
+    notifications:
+      flashes:
+        successfully_updated: "更新成功"
+      show:
+        comment: "评论"
+        email: Email
+        mention: "提及"
+        notifications: "通知"
+        notifications_settings: "通知设置"
+        save_changes: "保存修改"
+        web: "网站"
+        when_receive_new_comment_on_watching_items: "当你关注的内容有新回复"
+        when_someone_mention_you_with_username: "当有人提到你的用户名"
+    passwords:
+      flashes:
+        successfully_updated: "成功更新密码"
+      show:
+        current_password: "当前密码"
+        password: "密码"
+        password_settings: "密码设置"
+        save_changes: "保存修改"
+    profiles:
+      flashes:
+        successfully_updated: "成功更新个人资料"
+      show:
+        profile: "个人资料"
+        profile_settings: "个人资料设置"
+        save_changes: "保存修改"
+    topics:
+      edit:
+        edit_topic: "编辑话题"
+      form:
+        cancel: "取消"
+        create_topic: "创建话题"
+        no_category: "不分类"
+        save_changes: "保存修改"
+        title: "标题"
+      index:
+        all_categories: "所有分类"
+        create_topic: "创建话题"
+        hot: "热门"
+        hot_topics: "热门话题"
+        newest: "最新"
+        newest_topics: "最新话题"
+        no_topic_yet: "还没有话题"
+      new:
+        new_topic: "新话题"
+      search:
+        no_matching_results: "没有匹配结果"
+        search: "搜索"
+      show:
+        add_this_comment: "添加评论"
+        comments: "评论"
+        delete_confirm: "你确定要删除此话题吗？"
+        login: "登录"
+        no_comment_yet: "还没有评论"
+        no_more_topics: "没有更多话题"
+        or: "或"
+        related_topics: "相关话题"
+        sign_up: "注册"
+        to_comment: "后发表评论"
+        your_account_had_been_locked: "你的帐号已被锁定"
+      topic:
+        comments_count: "%{count} 条评论"
+    nba_topics:
+      edit:
+        edit_topic: "编辑话题"
+      form:
+        cancel: "取消"
+        create_topic: "创建话题"
+        no_category: "不分类"
+        save_changes: "保存修改"
+        title: "标题"
+      index:
+        all_categories: "所有分类"
+        create_topic: "创建话题"
+        hot: "热门"
+        hot_topics: "热门话题"
+        newest: "最新"
+        newest_topics: "最新话题"
+        no_topic_yet: "还没有话题"
+      new:
+        new_topic: "新话题"
+      search:
+        no_matching_results: "没有匹配结果"
+        search: "搜索"
+      show:
+        add_this_comment: "添加评论"
+        comments: "评论"
+        delete_confirm: "你确定要删除此话题吗？"
+        login: "登录"
+        no_comment_yet: "还没有评论"
+        no_more_topics: "没有更多话题"
+        or: "或"
+        related_topics: "相关话题"
+        sign_up: "注册"
+        to_comment: "后发表评论"
+        your_account_had_been_locked: "你的帐号已被锁定"
+      nba_topic:
+        comments_count: "%{count} 条评论"
