@@ -40,16 +40,15 @@
       .col-md-3
         .panel
           .panel-body
-            a.btn.btn-default.btn-block.btn-lg.mb20 href=new_apps_topic_path(category_id: @category.try(:slug))
+            a.btn.btn-default.btn-block.btn-lg href=new_apps_topic_path(category_id: @category.try(:slug))
               | 创建话题
               i.fa.fa-pencil.ml10
-            = render 'search_form'
         .panel
           .panel-body
             ul.nav.nav-pills
               li class=('active' unless @category)
-                a href=topics_path 所有
+                a href=apps_topics_path 所有
               - Category.order(topics_count: :desc).where(group: 0).each do |category|
                 li class=('active' if category == @category)
-                  a href=categoried_topics_path(category_id: category.slug)
+                  a href=categoried_apps_topics_path(category_id: category.slug)
                     = category.name

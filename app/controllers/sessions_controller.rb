@@ -33,7 +33,7 @@ class SessionsController < ApplicationController
             end
 
     if @user && @user.authenticate(params[:password])
-      render :json => {remember_token: @user.remember_token}
+      render :json => {remember_token: @user.remember_token, username: @user.username, email: @user.email}
     else
       render :json => {error: "错误的用户名或密码"}
     end

@@ -1,8 +1,6 @@
 @import "var";
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
-@import "simditor";
-@import "simditor-emoji";
 
 $navbar-inverse-bg: $violet;
 
@@ -36,7 +34,7 @@ $border-radius-large:       2px;
 @import "subscriptions";
 @import "patterns";
 
-body {background: #fff!important;}
+body {background: #eee!important;}
 
 .text-hide-overflow {
   overflow: hidden;
@@ -61,8 +59,6 @@ input.form-head{max-width:606px;}
 
 .notifications-bell span.badge{background-color: $yellow;}
 
-#editor{display:inline!important;visibility:hidden;height:0!important;position:absolute;}
-
 @mixin make-grid-columns($i: 1, $list: ">.col-xs-#{$i}, >.col-sm-#{$i}, >.col-md-#{$i}, >.col-lg-#{$i}") {
   @for $i from (1 + 1) through $grid-columns {
     $list: "#{$list}, >.col-xs-#{$i}, >.col-sm-#{$i}, >.col-md-#{$i}, >.col-lg-#{$i}";
@@ -78,4 +74,4 @@ input.form-head{max-width:606px;}
   }
 }
 
-.panel.adspanel{padding:6px;}
+textarea[name$="topic[body]"] {width:100%;max-width:none;}

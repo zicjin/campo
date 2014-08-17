@@ -1,7 +1,7 @@
 source 'https://ruby.taobao.org/'
 
 gem 'rails', '4.1.1'
-gem "mongoid", "~> 4.0.0"
+# gem "mongoid", "~> 4.0.0"
 
 # Use postgresql as the database for Active Record
 gem 'pg'

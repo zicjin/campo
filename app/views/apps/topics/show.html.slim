@@ -52,13 +52,6 @@
                       == @topic.body
                     .list-group-item-actions.clearfix
                       .pull-right
-                        span.jiathis_style.fn-clear.fn-inbk
-                          a.jiathis_button_tsina
-                          a.jiathis_button_weixin
-                          a.jiathis_button_qzone
-                          a.jiathis.jiathis_txt.jiathis_separator.jtico.jtico_jiathis href="http://www.jiathis.com/share" target="_blank"
-                          a#jiathis_counter_style.jiathis_counter_style
-                        script src="http://v3.jiathis.com/code_mini/jia.js"
                         a.btn id="like-for-topic-#{@topic.id}" href=topic_like_path(@topic) data-remote="true" data-method="post"
                           i.fa.fa-lightbulb-o
                           '
@@ -103,7 +96,7 @@
                           = "@#{current_user.username}"
                       = form_for @topic.comments.new, url: topic_comments_path(@topic), remote: true do |f|
                         .form-group
-                          = render partial: 'share/editor_area', locals: {form: f, name: :body}
+                          = f.text_area :body, data: { behaviors: 'autosize' }, autofocus:"", class: 'form-control'
                         = f.submit t('.add_this_comment'), class: 'btn btn-success', 'data-disable-with' => t('.add_this_comment')
               - else
                 = t '.your_account_had_been_locked'
@@ -119,11 +112,6 @@
               = t '.to_comment'
 
       .col-md-3
-        - if login?
-          .panel
-            .panel-body
-              = render 'subscriptions/subscription', subscribable: @topic
-
         .panel
           .panel-heading
             h4.panel-title

@@ -18,6 +18,15 @@ class Users::PasswordsController < ApplicationController
     end
   end
 
+  def create_byjson
+    if @user = User.find_by(email: params[:email])
+      UserMailer.password_reset(@user.id).deliver
+      render :json => {result: 'ok'}
+    else
+      render :json => {error: I18n.t('passwords.flashes.user_email_not_found')}
+    end
+  end
+
   def edit
   end
 

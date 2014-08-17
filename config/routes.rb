@@ -13,8 +13,12 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   get 'hot_topics', to: 'topics#hot_byjson'
-  post 'app_users_creat', to: 'users#create_byjson'
-  post 'app_sessions_creat', to: 'sessions#create_byjson'
+
+  post 'app_users', to: 'users#create_byjson'
+  post 'app_users_passwords', to: 'users/passwords#creat_byjson'
+  post 'app_sessions', to: 'sessions#create_byjson'
+  post 'app_settings_accounts', to: 'settings/accounts#update_byjson'
+  post 'app_settings_passwords', to: 'settings/passwords#update_byjson'
 
   resources :appids, only: [:create, :index, :destroy]
   

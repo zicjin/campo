@@ -167,6 +167,48 @@ ALTER SEQUENCE likes_id_seq OWNED BY likes.id;
 
 
 --
+-- Name: matchs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE matchs (
+    id integer NOT NULL,
+    "time" timestamp without time zone,
+    type integer,
+    cap integer,
+    cap_detail character varying(255),
+    title character varying(255),
+    team character varying(255),
+    team_guest character varying(255),
+    point integer,
+    point_guest integer,
+    hot double precision DEFAULT 0.0,
+    comments_count integer DEFAULT 0,
+    likes_count integer DEFAULT 0,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: matchs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE matchs_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: matchs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE matchs_id_seq OWNED BY matchs.id;
+
+
+--
 -- Name: nba_topics; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -439,6 +481,13 @@ ALTER TABLE ONLY likes ALTER COLUMN id SET DEFAULT nextval('likes_id_seq'::regcl
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY matchs ALTER COLUMN id SET DEFAULT nextval('matchs_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY nba_topics ALTER COLUMN id SET DEFAULT nextval('nba_topics_id_seq'::regclass);
 
 
@@ -507,6 +556,14 @@ ALTER TABLE ONLY comments
 
 ALTER TABLE ONLY likes
     ADD CONSTRAINT likes_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: matchs_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY matchs
+    ADD CONSTRAINT matchs_pkey PRIMARY KEY (id);
 
 
 --
@@ -597,6 +654,13 @@ CREATE INDEX index_likes_on_likeable_id_and_likeable_type ON likes USING btree (
 --
 
 CREATE INDEX index_likes_on_user_id ON likes USING btree (user_id);
+
+
+--
+-- Name: index_matchs_on_hot; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_matchs_on_hot ON matchs USING btree (hot);
 
 
 --
@@ -750,4 +814,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140624142848');
 INSERT INTO schema_migrations (version) VALUES ('20140624154119');
 
 INSERT INTO schema_migrations (version) VALUES ('20140627050953');
+
+INSERT INTO schema_migrations (version) VALUES ('20140816135007');
 

@@ -55,9 +55,6 @@ $(document).on 'page:fetch', ->
   $("time[data-behaviors~=timeago]").timeago()
 .on 'page:load', ready
 
-window.glo_iosapp_nav = ->
-  $('button.navbar-toggle').click()
-
 window.jiathis_config =
     siteNum: 6
     sm: "douban,twitter,tqq,renren,fb,googleplus"
