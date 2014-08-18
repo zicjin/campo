@@ -1,4 +1,4 @@
-class Apps::MatchController < ApplicationController
+class Apps::MatchsController < ApplicationController
   before_action :set_user
 
   def add_likematch

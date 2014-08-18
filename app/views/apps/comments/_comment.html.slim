@@ -1,12 +1,32 @@
 - cache [comment, locale] do
-  a.list-group-item.commentable href=comment_link(comment)
-    .list-group-item-avatar
+  li.list-group-item.comment id="comment-#{comment.id}" data-creator-id=comment.user_id
+    a.list-group-item-avatar href=apps_user_link(comment.user)
       img.img-rounded alt="avatar" src=comment.user.avatar.normal.url
     .list-group-item-content
       .list-group-item-heading
-        b = comment_title(comment)
-        span.text-muted
-          = ' · '
+        a.comment-user href=apps_user_link(comment.user)
+          b = comment.user.name
+          '
+          = "@#{comment.user.username}"
+        = ' · '
+        a href=comment_link(comment)
           = time_ago_tag comment.created_at
-      .text-muted
-        = truncate strip_tags(comment.body), length: 140
+      article.comment-body
+        == comment.body
+      .list-group-item-actions.clearfix
+        .pull-right
+          a.btn data-reply-to="@#{comment.user.username} ##{comment.id} "
+            i.fa.fa-reply
+            '
+            '回复
+          a.btn id="like-for-comment-#{comment.id}" href=comment_like_path(comment) data-remote="true" data-method="post"
+            i.fa.fa-lightbulb-o
+            '
+            '亮了
+            span.count
+              - if comment.likes_count > 0
+                = comment.likes_count
+          a.btn href=edit_comment_path(comment) data-remote="true" data-visible-to="creator"
+            i.fa.fa-pencil
+          a.btn href=trash_comment_path(comment) data-remote="true" data-method="delete" data-visible-to="creator" data-confirm=t('.delete_confirm')
+            i.fa.fa-trash-o

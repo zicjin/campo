@@ -169,7 +169,6 @@ zh-CN:
   locales:
     en: "英文"
     zh-CN: "简体中文"
-    zh-TW: "正体中文"
   notification_mailer:
     comment:
       view_it_on_web: "查看网页"
@@ -416,12 +415,11 @@ zh-CN:
         user_s_topics: "%{name} 的话题"
   apps:
     comments:
-      index:
-        comments: "评论"
-        likes: "收藏"
-        no_comment_yet: "还没有评论"
-        publish: "发布"
-        app_s_comments: "%{name} 的评论"
+      comment:
+        delete_confirm: "你确定要删除此评论吗？"
+      form:
+        cancel: "取消"
+        save_changes: "保存修改"
     confirmations:
       confirm_success: "恭喜，你的邮件地址已确认成功。"
       create:
@@ -461,20 +459,6 @@ zh-CN:
     sidebar:
       comments: "评论"
       topics: "话题"
-    user_topics:
-      index:
-        likes: "收藏"
-        no_topic_yet: "还没有话题"
-        publish: "发布"
-        topics: "话题"
-        app_s_topics: "%{name} 的话题"
-    user_nba_topics:
-      index:
-        likes: "收藏"
-        no_topic_yet: "还没有话题"
-        publish: "发布"
-        topics: "话题"
-        app_s_topics: "%{name} 的话题"
     accounts:
       flashes:
         successfully_updated: "成功更新帐号"
@@ -513,6 +497,28 @@ zh-CN:
         profile: "个人资料"
         profile_settings: "个人资料设置"
         save_changes: "保存修改"
+    user:
+      comments:
+        index:
+          comments: "评论"
+          likes: "收藏"
+          no_comment_yet: "还没有评论"
+          publish: "发布"
+          app_s_comments: "%{name} 的评论"
+      topics:
+        index:
+          likes: "收藏"
+          no_topic_yet: "还没有话题"
+          publish: "发布"
+          topics: "话题"
+          app_s_topics: "%{name} 的话题"
+      nba_topics:
+        index:
+          likes: "收藏"
+          no_topic_yet: "还没有话题"
+          publish: "发布"
+          topics: "话题"
+          app_s_topics: "%{name} 的话题"
     topics:
       edit:
         edit_topic: "编辑话题"

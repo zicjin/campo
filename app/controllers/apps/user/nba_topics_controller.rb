@@ -1,4 +1,4 @@
-class Apps::UserNbaTopicsController < ApplicationController
+class Apps::User::NbaTopicsController < ApplicationController
   layout 'app'
   before_action :set_user
 

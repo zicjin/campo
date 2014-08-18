@@ -172,7 +172,6 @@ en:
   locales:
     en: English
     zh-CN: Chinese(Simplified)
-    zh-TW: Chinese(Traditional)
   notification_mailer:
     comment:
       view_it_on_web: View it on web
@@ -420,15 +419,36 @@ en:
         no_topic_yet: No topic yet
         publish: Publish
         topics: Topics
-        user_s_topics: "%{name}'s topics"             
+        user_s_topics: "%{name}'s topics"
   apps:
     comments:
-      index:
-        comments: "评论"
-        likes: "收藏"
-        no_comment_yet: "还没有评论"
-        publish: "发布"
-        app_s_comments: "%{name} 的评论"
+      comment:
+        delete_confirm: Are you sure you want to delete this comment?
+      form:
+        cancel: Cancel
+        save_changes: Save changes
+    user:
+      comments:
+        index:
+          comments: "评论"
+          likes: "收藏"
+          no_comment_yet: "还没有评论"
+          publish: "发布"
+          app_s_comments: "%{name} 的评论"
+      topics:
+        index:
+          likes: "收藏"
+          no_topic_yet: "还没有话题"
+          publish: "发布"
+          topics: "话题"
+          app_s_topics: "%{name} 的话题"
+      nba_topics:
+        index:
+          likes: "收藏"
+          no_topic_yet: "还没有话题"
+          publish: "发布"
+          topics: "话题"
+          app_s_topics: "%{name} 的话题"
     confirmations:
       confirm_success: "恭喜，你的邮件地址已确认成功。"
       create:
@@ -468,20 +488,6 @@ en:
     sidebar:
       comments: "评论"
       topics: "话题"
-    user_topics:
-      index:
-        likes: "收藏"
-        no_topic_yet: "还没有话题"
-        publish: "发布"
-        topics: "话题"
-        app_s_topics: "%{name} 的话题"
-    user_nba_topics:
-      index:
-        likes: "收藏"
-        no_topic_yet: "还没有话题"
-        publish: "发布"
-        topics: "话题"
-        app_s_topics: "%{name} 的话题"
     accounts:
       flashes:
         successfully_updated: Successfully updated
