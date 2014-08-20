@@ -66,6 +66,15 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :games, only: [:index, :show, :edit, :update, :destroy], concerns: [:likeable] do
+    collection do
+      get  :index_liked
+      get  :index_liked_byjson
+      post :create_simplify
+      post :create_simplify_withlike
+    end
+  end
+
   resources :comments, only: [:edit, :update], concerns: [:likeable] do
     member do
       get :cancel

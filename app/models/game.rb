@@ -1,11 +1,9 @@
-class Match < ActiveRecord::Base
+class Game < ActiveRecord::Base
   include Likeable
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
 
   has_many :comments, as: 'commentable'
 
-  validates :type, :time, presence: true
+  # validates :type, :time, presence: true
 
   after_create :update_hot
   after_touch :update_hot

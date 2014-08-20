@@ -134,6 +134,42 @@ ALTER SEQUENCE comments_id_seq OWNED BY comments.id;
 
 
 --
+-- Name: games; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE games (
+    id integer NOT NULL,
+    mongo_id character varying(255) NOT NULL,
+    "time" timestamp without time zone,
+    type integer,
+    hot double precision DEFAULT 0.0,
+    comments_count integer DEFAULT 0,
+    likes_count integer DEFAULT 0,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: games_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE games_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: games_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE games_id_seq OWNED BY games.id;
+
+
+--
 -- Name: likes; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -164,48 +200,6 @@ CREATE SEQUENCE likes_id_seq
 --
 
 ALTER SEQUENCE likes_id_seq OWNED BY likes.id;
-
-
---
--- Name: matchs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE matchs (
-    id integer NOT NULL,
-    "time" timestamp without time zone,
-    type integer,
-    cap integer,
-    cap_detail character varying(255),
-    title character varying(255),
-    team character varying(255),
-    team_guest character varying(255),
-    point integer,
-    point_guest integer,
-    hot double precision DEFAULT 0.0,
-    comments_count integer DEFAULT 0,
-    likes_count integer DEFAULT 0,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone
-);
-
-
---
--- Name: matchs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE matchs_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: matchs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE matchs_id_seq OWNED BY matchs.id;
 
 
 --
@@ -474,14 +468,14 @@ ALTER TABLE ONLY comments ALTER COLUMN id SET DEFAULT nextval('comments_id_seq':
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY likes ALTER COLUMN id SET DEFAULT nextval('likes_id_seq'::regclass);
+ALTER TABLE ONLY games ALTER COLUMN id SET DEFAULT nextval('games_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY matchs ALTER COLUMN id SET DEFAULT nextval('matchs_id_seq'::regclass);
+ALTER TABLE ONLY likes ALTER COLUMN id SET DEFAULT nextval('likes_id_seq'::regclass);
 
 
 --
@@ -551,19 +545,19 @@ ALTER TABLE ONLY comments
 
 
 --
+-- Name: games_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY games
+    ADD CONSTRAINT games_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: likes_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY likes
     ADD CONSTRAINT likes_pkey PRIMARY KEY (id);
-
-
---
--- Name: matchs_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY matchs
-    ADD CONSTRAINT matchs_pkey PRIMARY KEY (id);
 
 
 --
@@ -643,6 +637,13 @@ CREATE INDEX index_comments_on_user_id ON comments USING btree (user_id);
 
 
 --
+-- Name: index_games_on_hot; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_games_on_hot ON games USING btree (hot);
+
+
+--
 -- Name: index_likes_on_likeable_id_and_likeable_type; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -654,13 +655,6 @@ CREATE INDEX index_likes_on_likeable_id_and_likeable_type ON likes USING btree (
 --
 
 CREATE INDEX index_likes_on_user_id ON likes USING btree (user_id);
-
-
---
--- Name: index_matchs_on_hot; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX index_matchs_on_hot ON matchs USING btree (hot);
 
 
 --
