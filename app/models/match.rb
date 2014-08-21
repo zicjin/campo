@@ -1,4 +1,4 @@
-class Game < ActiveRecord::Base
+class Match < ActiveRecord::Base
   include Likeable
 
   has_many :comments, as: 'commentable'

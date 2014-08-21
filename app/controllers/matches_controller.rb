@@ -1,6 +1,7 @@
-class GamesController < ApplicationController
+class MatchesController < ApplicationController
   before_action :find_macth, only: [:show, :edit, :update, :destroy]
   before_action :login_required, :no_locked_required, except: [:index, :show]
+  protect_from_forgery except: [:create_simplify, :create_simplify_withlike]
 
   def index
   end
@@ -25,6 +26,7 @@ class GamesController < ApplicationController
   def create_simplify_withlike
     match = create_simplify
     match.likes.find_or_create_by user: current_user
+    render :json => {result: 'ok'}
   end
 
   def edit

@@ -1,9 +1,9 @@
 class CteateMatchs < ActiveRecord::Migration
   def change
-    create_table :games do |t|
+    create_table :matches do |t|
       t.string :mongo_id, unique: true, null: false
       t.datetime :time
-      t.integer :type
+      t.integer :mtype
 
       t.float :hot, default: 0.0
       t.integer :comments_count, default: 0
@@ -12,7 +12,7 @@ class CteateMatchs < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :games, :hot
+    add_index :matches, :hot
   end
 end
 

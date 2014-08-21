@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   has_many :like_nba_topics, through: :likes, source: :likeable, source_type: 'NbaTopic'
   has_many :like_tennis_topics, through: :likes, source: :likeable, source_type: 'TennisTopic'
   has_many :like_comments, through: :likes, source: :likeable, source_type: 'Comment'
-  has_many :like_games, through: :likes, source: :likeable, source_type: 'Game'
+  has_many :like_matches, through: :likes, source: :likeable, source_type: 'Match'
 
   has_many :attachments, dependent: :delete_all
 

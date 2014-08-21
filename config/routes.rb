@@ -66,7 +66,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :games, only: [:index, :show, :edit, :update, :destroy], concerns: [:likeable] do
+  resources :matches, only: [:index, :show, :edit, :update, :destroy], concerns: [:likeable] do
     collection do
       get  :index_liked
       get  :index_liked_byjson
