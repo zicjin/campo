@@ -1,21 +1,22 @@
 default: &default
-  title: Campo
-  host: localhost:3000
+  title: 暴走比赛 —— 有趣、有爱的体育社区
+  host: localhost:3000 #change to d.baozoubisai.com on production
 
   mailer:
     # For localhost postfix
+    # http://codecampo.com/topics/890
     smtp_settings:
-      address: localhost
+      address: smtp.mailgun.org
       port: 25
-      enable_starttls_auto: false
+      enable_starttls_auto: true
       #domain:
-      #user_name:
+      #user_name: # go to https://mailgun.com
       #password:
       #authentication:
     default_options:
-      from: no-reply@example.com
+      from: no-reply@d.baozoubisai.com
     default_url_options:
-      host: localhost:3000
+      host: d.baozoubisai.com
 
   redis:
     host: 127.0.0.1
@@ -28,15 +29,15 @@ default: &default
 development:
   <<: *default
   admin_emails:
-    - admin@example.com
+    - zicjin@gmail.com
 
 test:
   <<: *default
   admin_emails:
-    - admin@example.com
+    - zicjin@gmail.com
 
 production:
   <<: *default
 
   admin_emails:
-    # - admin@example.com
+    - zicjin@gmail.com
