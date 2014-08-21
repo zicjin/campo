@@ -79,7 +79,7 @@ gem 'hiredis', '~> 0.4.5'
 gem 'getvideo'
 
 # Background jobs
-gem 'resque', '~> 1.25.1'
+gem 'resque', '~> 1.25.2'
 gem 'resque_mailer', '~> 2.2.6'
 
 gem "non-stupid-digest-assets"
