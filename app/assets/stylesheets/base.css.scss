@@ -88,8 +88,8 @@ a.trans{@include transition(color 0.2s ease-in-out 0s,background-color 0.2s ease
 .violet{color:$violet;}
 .bviolet{background:$violet;}
 
-body{padding-top:51px;}
-#navdoc {box-shadow: 0 1px 0 rgba(255,255,255,.1);}
+body{padding-top:50px;}
+#navdoc {border-bottom: 0;box-shadow: 0 1px 0 rgba(255,255,255,.1);}
 #brand {width: 194+15+5px;height: 50px;background: url("logo.png") no-repeat;padding:0;
 	@include background-image-retina(logo, png, 194px, 100px);
 	@media (min-width: $grid-float-breakpoint) { //varbar.scss 153 line
