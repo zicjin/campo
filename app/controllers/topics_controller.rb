@@ -3,7 +3,7 @@ class TopicsController < ApplicationController
   before_action :find_topic, only: [:edit, :update, :trash]
   before_action :topic_categories, only: [:new, :edit]
   before_action :modern_bower, only: [:index, :show, :search]
-  protect_from_forgery except: :hot_json
+  protect_from_forgery except: :hot_byjson
 
   def modern_bower
     unless modern_bower?
