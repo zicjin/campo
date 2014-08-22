@@ -14,7 +14,7 @@ role :db,  %w{d.baozoubisai.com}
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server 'd.baozoubisai.com', port: '58286', user: 'zcj', password: 'zcj', roles: %w{web app db}
+server 'd.baozoubisai.com', port: '22', user: 'zcj', password: 'z5656z', roles: %w{web app db}
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options
