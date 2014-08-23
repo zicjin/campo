@@ -2,11 +2,11 @@
 
 $simditor-button-height: 40px;
 
-// html.app_pattern {
-//   .simditor-wrapper.toolbar-floating {
-//     .simditor-toolbar {top: 0;}
-//   }
-// }
+html.app_pattern {
+  .simditor-wrapper.toolbar-floating {
+    .simditor-toolbar {top: 0;}
+  }
+}
 
 .simditor {
   position: relative;

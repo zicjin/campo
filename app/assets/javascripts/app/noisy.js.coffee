@@ -1,18 +1,20 @@
 #= require_self
 #= require_tree ../plugins
 
-window.campo = {}
-
 ready = ->
-
 
 $(document).ready ready
 
 $(document).on 'page:load', ready
 
-window.jiathis_config =
-    siteNum: 6
-    sm: "douban,twitter,tqq,renren,fb,googleplus"
-    summary: ""
-    shortUrl: true
-    hideMore: true
+window.console = new Object()
+window.console.log = (log)->
+    iframe = document.createElement("IFRAME")
+    iframe.setAttribute "src", "ios-log:#iOS#" + log
+    document.documentElement.appendChild iframe
+    iframe.parentNode.removeChild iframe
+    iframe = null
+window.console.debug = console.log
+window.console.info = console.log
+window.console.warn = console.log
+window.console.error = console.log
