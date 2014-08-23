@@ -33,7 +33,7 @@ $simditor-button-height: 40px;
     &.toolbar-floating {
       .simditor-toolbar {
         position: fixed;
-        top: 51px; //zic: padding for header
+        top: 50px; //zic: padding for header
         z-index: 10;
         box-shadow: 0 0 6px rgba(0,0,0,0.1);
       }
