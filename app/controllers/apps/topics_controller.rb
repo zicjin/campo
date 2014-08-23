@@ -77,7 +77,7 @@ class Apps::TopicsController < ApplicationController
 
   def trash
     @topic.trash
-    redirect_via_turbolinks_to topics_path
+    redirect_via_turbolinks_to apps_topics_path
   end
 
   private

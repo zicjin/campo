@@ -1,4 +1,4 @@
-= form_for @topic, remote: true, html: { class: 'topic-form' } do |f|
+= form_for @topic, url: @topic.new_record? ? apps_topics_path : apps_topic_path(@topic.id), remote: true, html: { class: 'topic-form' } do |f|
   .form-group
     = f.text_field :title, class: 'form-control form-head', placeholder: '标题', tabIndex: 1
   .form-group
