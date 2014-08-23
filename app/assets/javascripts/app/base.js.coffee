@@ -6,6 +6,7 @@
 #= require jquery.timeago
 #= require nprogress
 #= require_self
+#= require_tree ../simditor-1.0.5
 
 window.campo = {}
 

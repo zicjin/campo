@@ -4,7 +4,8 @@
   .form-group
     = f.collection_select :category_id, @categories.order(topics_count: :desc), :id, :name, {}, class: 'form-control', tabIndex: 2
   .form-group
-    = f.text_area :body, data: { behaviors: 'autosize' }, tabIndex: 3, autofocus:"", class: 'form-control'
+    / = f.text_area :body, data: { behaviors: 'autosize' }, tabIndex: 3, autofocus:"", class: 'form-control'
+    = render partial: 'share/editor_area', locals: {form: f, name: :body, tabIndex: 3}
   - if topic.new_record?
     = f.submit '创建话题', class: 'btn btn-success', tabIndex: 4, 'data-disable-with' => '创建话题'
   - else

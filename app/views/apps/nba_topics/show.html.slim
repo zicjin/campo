@@ -96,7 +96,8 @@
                           = "@#{current_user.username}"
                       = form_for @topic.comments.new, url: nba_topic_comments_path(@topic), remote: true do |f|
                         .form-group
-                          = f.text_area :body, data: { behaviors: 'autosize' }, autofocus:"", class: 'form-control'
+                          = render partial: 'share/editor_area', locals: {form: f, name: :body}
+                          / = f.text_area :body, data: { behaviors: 'autosize' }, autofocus:"", class: 'form-control'
                         = f.submit t('.add_this_comment'), class: 'btn btn-success', 'data-disable-with' => t('.add_this_comment')
               - else
                 = t '.your_account_had_been_locked'
