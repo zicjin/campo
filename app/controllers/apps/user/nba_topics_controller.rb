@@ -1,5 +1,4 @@
-class Apps::User::NbaTopicsController < ApplicationController
-  layout 'app'
+class Apps::User::NbaTopicsController < Apps::ApplicationController
   before_action :set_user
 
   def index

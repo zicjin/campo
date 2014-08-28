@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :no_login_required, only: [:new, :create, :create_byjson]
+  before_action :no_login_required, only: [:new, :create]
   protect_from_forgery except: :create_byjson
 
   def new

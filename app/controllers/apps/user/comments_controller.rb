@@ -1,4 +1,4 @@
-class Apps::User::CommentsController < ApplicationController
+class Apps::User::CommentsController < Apps::ApplicationController
   layout 'app'
 
   def index

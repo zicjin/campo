@@ -1,5 +1,4 @@
-class Apps::User::TopicsController < ApplicationController
-  layout 'app'
+class Apps::User::TopicsController < Apps::ApplicationController
   before_action :set_user
 
   def index

@@ -1,4 +1,4 @@
-class Apps::CommentsController < ApplicationController
+class Apps::CommentsController < Apps::ApplicationController
   before_action :login_required, :no_locked_required
   before_action :find_comment, only: [:edit, :cancel, :update, :trash]
 

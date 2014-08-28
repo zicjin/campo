@@ -1,5 +1,4 @@
-class Apps::TopicsController < ApplicationController
-  layout 'app'
+class Apps::TopicsController < Apps::ApplicationController
   before_action :login_required, :no_locked_required, except: [:index, :show, :search]
   before_action :find_topic, only: [:edit, :update, :trash]
   before_action :topic_categories, only: [:new, :edit]

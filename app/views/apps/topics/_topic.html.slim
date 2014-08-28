@@ -1,7 +1,7 @@
 - cache [topic, locale] do
   a.list-group-item.topic href=apps_topic_last_path(topic) class=('haspreview' if topic.preview)
-    .list-group-item-avatar
-      img.img-rounded alt="avatar" src=topic.user.avatar.normal.url
+    / .list-group-item-avatar
+    /   img.img-rounded alt="avatar" src=topic.user.avatar.normal.url
     .list-group-item-content
       .list-group-item-heading
         b = topic.title
