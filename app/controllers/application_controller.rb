@@ -66,7 +66,6 @@ class ApplicationController < ActionController::Base
   end
 
   def login_from_cookies
-    # binding.pry
     if cookies[:remember_token].present?
       if user = User.find_by_remember_token(cookies[:remember_token])
         session[:user_id] = user.id
@@ -151,7 +150,6 @@ class ApplicationController < ActionController::Base
   end
 
   def prevImageName(img)
-    binding.pry
     prevName = img.gsub(".jpg", "_77.jpg")
     prevName.gsub!(".jpeg", "_77.jpeg")
     prevName.gsub!(".png", "_77.png")

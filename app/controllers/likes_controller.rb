@@ -12,7 +12,6 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @likeable.likes.where(user: current_user).destroy_all
   end
 
