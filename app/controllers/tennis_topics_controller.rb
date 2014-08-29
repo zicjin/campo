@@ -69,7 +69,7 @@ class TennisTopicsController < ApplicationController
   def create
     _params = topic_params
     _params[:preview] = parse_preview _params[:body]
-    _params[:hasflash] = has_flash _params[:body]
+    _params[:hasflash] = has_flash? _params[:body]
     @topic = current_user.tennis_topics.create _params
   end
 
@@ -79,7 +79,7 @@ class TennisTopicsController < ApplicationController
   def update
     _params = topic_params
     _params[:preview] = parse_preview _params[:body]
-    _params[:hasflash] = has_flash _params[:body]
+    _params[:hasflash] = has_flash? _params[:body]
     @topic.update_attributes _params
   end
 
