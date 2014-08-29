@@ -151,11 +151,12 @@ class ApplicationController < ActionController::Base
   end
 
   def prevImageName(img)
-      prevName = img.gsub(".jpg", "_77.jpg")
-      prevName.gsub!(".jpeg", "_77.jpeg")
-      prevName.gsub!(".png", "_77.png")
-      prevName.gsub!(".gif", "_77.gif")
-      return prevName
+    binding.pry
+    prevName = img.gsub(".jpg", "_77.jpg")
+    prevName.gsub!(".jpeg", "_77.jpeg")
+    prevName.gsub!(".png", "_77.png")
+    prevName.gsub!(".gif", "_77.gif")
+    return prevName
   end
 
   def modern_bower?
