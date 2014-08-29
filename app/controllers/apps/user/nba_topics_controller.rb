@@ -2,7 +2,7 @@ class Apps::User::NbaTopicsController < Apps::ApplicationController
   before_action :set_user
 
   def index
-    @topics = @user.nba_topics.includes(:category).where(hasflash: false).order(id: :desc).page(params[:page])
+    @topics = @user.nba_topics.includes(:category).where(hasflash: [nil, false]).order(id: :desc).page(params[:page])
   end
 
   def likes

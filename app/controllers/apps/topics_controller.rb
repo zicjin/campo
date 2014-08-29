@@ -4,7 +4,7 @@ class Apps::TopicsController < Apps::ApplicationController
   before_action :topic_categories, only: [:new, :edit]
 
   def index
-    @topics = Topic.includes(:user, :category).where(hasflash: false).page(params[:page])
+    @topics = Topic.includes(:user, :category).where(hasflash: [nil, false]).page(params[:page])
 
     if params[:category_id]
       @category = Category.where('lower(slug) = ?', params[:category_id].downcase).first!
