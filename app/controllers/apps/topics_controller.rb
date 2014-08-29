@@ -11,7 +11,7 @@ class Apps::TopicsController < Apps::ApplicationController
       @topics = @topics.where(category: @category)
     end
 
-    @topics = @topics.where(hasfalsh: false)
+    @topics = @topics.where(hasflash: false)
 
     # Set default tab
     unless %w(hot newest).include? params[:tab]

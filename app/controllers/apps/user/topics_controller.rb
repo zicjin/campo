@@ -2,7 +2,7 @@ class Apps::User::TopicsController < Apps::ApplicationController
   before_action :set_user
 
   def index
-    @topics = @user.topics.includes(:category).where(hasfalsh: false).order(id: :desc).page(params[:page])
+    @topics = @user.topics.includes(:category).where(hasflash: false).order(id: :desc).page(params[:page])
   end
 
   def likes
