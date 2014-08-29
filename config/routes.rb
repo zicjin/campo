@@ -39,7 +39,12 @@ Rails.application.routes.draw do
   end
 
   concern :likeable do
-    resource :like, only: [:create, :destroy]
+    resource :like, only: [:create, :destroy] do
+      collection do
+        post :create_byjson
+        delete :destroy_byjson
+      end
+    end
   end
 
   concern :subscribable do
