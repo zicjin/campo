@@ -4,14 +4,12 @@ class Apps::NbaTopicsController < Apps::ApplicationController
   before_action :topic_categories, only: [:new, :edit]
 
   def index
-    @topics = NbaTopic.includes(:user, :category).page(params[:page])
+    @topics = NbaTopic.includes(:user, :category).where(hasflash: false).page(params[:page])
 
     if params[:category_id]
       @category = Category.where('lower(slug) = ?', params[:category_id].downcase).first!
       @topics = @topics.where(category: @category)
     end
-
-    @topics = @topics.where(hasflash: false)
 
     # Set default tab
     unless %w(hot newest).include? params[:tab]
