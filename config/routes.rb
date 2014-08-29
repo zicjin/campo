@@ -71,6 +71,16 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :tennis_topics, only: [:index, :show, :new, :create, :edit, :update], concerns: [:commentable, :likeable, :subscribable] do
+    collection do
+      get 'categoried/:category_id', to: 'nba_topics#index', as: :categoried
+      get 'search'
+    end
+    member do
+      delete :trash
+    end
+  end
+
   resources :matches, only: [:index, :show, :edit, :update, :destroy], concerns: [:likeable] do
     collection do
       get  :index_liked
@@ -110,6 +120,11 @@ Rails.application.routes.draw do
         get :likes
       end
     end
+    resources :tennis_topics, only: [:index] do
+      collection do
+        get :likes
+      end
+    end
     resources :comments, only: [:index] do
       collection do
         get :likes
@@ -126,6 +141,11 @@ Rails.application.routes.draw do
         end
       end
       resources :nba_topics, only: [:index] do
+        collection do
+          get :likes
+        end
+      end
+      resources :tennis_topics, only: [:index] do
         collection do
           get :likes
         end

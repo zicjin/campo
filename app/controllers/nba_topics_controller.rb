@@ -4,12 +4,6 @@ class NbaTopicsController < ApplicationController
   before_action :topic_categories, only: [:new, :edit]
   before_action :modern_bower, only: [:index, :show, :search]
 
-  def modern_bower
-    unless modern_bower?
-      render :action=>'index_old', :layout=>false
-    end
-  end
-
   def index
     @topics = NbaTopic.includes(:user, :category).page(params[:page])
 

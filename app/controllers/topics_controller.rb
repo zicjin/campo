@@ -5,12 +5,6 @@ class TopicsController < ApplicationController
   before_action :modern_bower, only: [:index, :show, :search]
   protect_from_forgery except: :hot_byjson
 
-  def modern_bower
-    unless modern_bower?
-      render :action=>'index_old', :layout=>false
-    end
-  end
-
   def hot_byjson
     topics = Topic.includes(:user, :category).order(hot: :desc).page(1).per(10) #在rails里pagesize称为limit
     nba_topics = NbaTopic.includes(:user, :category).order(hot: :desc).page(1).per(10)

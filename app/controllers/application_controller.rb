@@ -160,7 +160,9 @@ class ApplicationController < ActionController::Base
   end
 
   def modern_bower?
-    session[:modern_bower] ||= (request.user_agent !~ /MSIE 7/) && (request.user_agent !~ /MSIE 6/)
+    unless session[:modern_bower] ||= (request.user_agent !~ /MSIE 7/) && (request.user_agent !~ /MSIE 6/)
+      render :action=>'index_old', :layout=>false
+    end
   end
 
   def touch_device?
