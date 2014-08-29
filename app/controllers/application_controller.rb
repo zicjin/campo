@@ -136,9 +136,26 @@ class ApplicationController < ActionController::Base
 
     _imgs = _doc.css("img")
     if _imgs.length > 0 and _imgs.first['src'].length < 200
-      return _imgs.first['src']
+      return prevImageName _imgs.first['src']
     end
     # images = doc.css("img").map{|links| links['src']}
+  end
+
+  def has_flash?(content)
+    _doc = Nokogiri::HTML(content)
+    _embeds = _doc.css("embed")
+    if _embeds.length > 0
+      return true
+    end
+    return false
+  end
+
+  def prevImageName(img)
+      prevName = img.gsub(".jpg", "_77.jpg")
+      prevName.gsub!(".jpeg", "_77.jpeg")
+      prevName.gsub!(".png", "_77.png")
+      prevName.gsub!(".gif", "_77.gif")
+      return prevName
   end
 
   def modern_bower?

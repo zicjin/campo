@@ -77,6 +77,7 @@ class TopicsController < ApplicationController
   def create
     _params = topic_params
     _params[:preview] = parse_preview _params[:body]
+    _params[:hasflash] = has_flash _params[:body]
     @topic = current_user.topics.create _params
   end
 
@@ -86,6 +87,7 @@ class TopicsController < ApplicationController
   def update
     _params = topic_params
     _params[:preview] = parse_preview _params[:body]
+    _params[:hasflash] = has_flash _params[:body]
     @topic.update_attributes _params
   end
 

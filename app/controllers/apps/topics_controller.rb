@@ -11,6 +11,8 @@ class Apps::TopicsController < Apps::ApplicationController
       @topics = @topics.where(category: @category)
     end
 
+    @topics = @topics.where(hasfalsh: false)
+
     # Set default tab
     unless %w(hot newest).include? params[:tab]
       params[:tab] = 'hot'
@@ -62,6 +64,7 @@ class Apps::TopicsController < Apps::ApplicationController
   def create
     _params = topic_params
     _params[:preview] = parse_preview _params[:body]
+    _params[:hasflash] = has_flash _params[:body]
     @topic = current_user.topics.create _params
   end
 
@@ -71,6 +74,7 @@ class Apps::TopicsController < Apps::ApplicationController
   def update
     _params = topic_params
     _params[:preview] = parse_preview _params[:body]
+    _params[:hasflash] = has_flash _params[:body]
     @topic.update_attributes _params
   end
 

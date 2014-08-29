@@ -219,7 +219,8 @@ CREATE TABLE nba_topics (
     trashed boolean DEFAULT false,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    preview character varying(255)
+    preview character varying(255),
+    hasflash boolean
 );
 
 
@@ -337,7 +338,8 @@ CREATE TABLE tennis_topics (
     trashed boolean DEFAULT false,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    preview character varying(255)
+    preview character varying(255),
+    hasflash boolean
 );
 
 
@@ -377,7 +379,8 @@ CREATE TABLE topics (
     trashed boolean DEFAULT false,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    preview character varying(255)
+    preview character varying(255),
+    hasflash boolean
 );
 
 
@@ -810,4 +813,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140624154119');
 INSERT INTO schema_migrations (version) VALUES ('20140627050953');
 
 INSERT INTO schema_migrations (version) VALUES ('20140816135007');
+
+INSERT INTO schema_migrations (version) VALUES ('20140829111430');
 

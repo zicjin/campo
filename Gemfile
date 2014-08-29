@@ -1,7 +1,7 @@
 source 'https://ruby.taobao.org/'
 
 gem 'rails', '4.1.1'
-gem "mongoid", "~> 4.0.0"
+# gem "mongoid", "~> 4.0.0"
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -63,7 +63,7 @@ gem 'elasticsearch-rails', '~> 0.1.0'
 
 # File upload
 gem 'carrierwave', '~> 0.9.0'
-gem 'mini_magick', '~> 3.7.0'
+gem 'mini_magick', '~> 3.8.0'
 
 # User locale detect
 gem 'http_accept_language', '~> 2.0.1'
