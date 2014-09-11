@@ -499,19 +499,16 @@ en:
     flashes:
       incorrect_current_password: Incorrect current password
     notifications:
-      flashes:
-        successfully_updated: Successfully updated
-      show:
-        comment: Comment
-        email: Email
-        mention: Mention
+      index:
+        delete_all: Delete all
+        delete_all_confirm: Delete all confirm
+        no_notifications: No notifications
         notifications: Notifications
-        notifications_settings: Notifications settings
-        save_changes: Save changes
-        web: Web
-        when_receive_new_comment_on_watching_items: When receive new comment on watching
-          items
-        when_someone_mention_you_with_username: When someone mention you with username
+      notification:
+        comment:
+          commented_on: Commented on
+        mention:
+          mentioned_you_on: Mentioned you on
     passwords:
       flashes:
         successfully_updated: Successfully updated
