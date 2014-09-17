@@ -14,14 +14,14 @@
               /   = f.text_field :name, placeholder: t('.your_full_name'), tabindex: 1, class: 'form-control'
               .form-group
                 = f.label :username, class: 'control-label'
-                = f.text_field :username, placeholder: t('.pick_a_username'), tabindex: 3, class: 'form-control'
+                = f.text_field :username, placeholder: t('.pick_a_username'), tabindex: 1, class: 'form-control'
               .form-group
                 = f.label :password, class: 'control-label'
-                = f.password_field :password, placeholder: t('.choose_a_password'), tabindex: 4, class: 'form-control'
+                = f.password_field :password, placeholder: t('.choose_a_password'), tabindex: 2, class: 'form-control'
               .form-group
                 = f.label :email, class: 'control-label'
-                = f.text_field :email, placeholder: t('.your_email'), tabindex: 2, class: 'form-control'
-              = f.submit t('.create_account'), class: 'btn btn-success', tabindex: 5
+                = f.text_field :email, placeholder: t('.your_email'), tabindex: 3, class: 'form-control'
+              = f.submit t('.create_account'), class: 'btn btn-success', tabindex: 4
 
 = content_for :script
   javascript:

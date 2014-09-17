@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
     @commentable = resource.singularize.classify.constantize.find(id)
     @comment = @commentable.comments.new params.require(:comment).permit(:body).merge(user: current_user)
     if @comment.save
+      # binding.pry
       Resque.enqueue(CommentNotificationJob, @comment.id)
     end
   end

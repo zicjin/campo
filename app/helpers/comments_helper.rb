@@ -11,6 +11,18 @@ module CommentsHelper
     end
   end
 
+  def app_comment_link(comment, options = {})
+    options[:only_path] = true unless options[:only_path] == false
+    case comment.commentable
+    when Topic
+      apps_topic_path(comment.commentable, comment_id: comment.id, anchor: "comment-#{comment.id}", only_path: options[:only_path])
+    when NbaTopic
+      apps_nba_topic_path(comment.commentable, comment_id: comment.id, anchor: "comment-#{comment.id}", only_path: options[:only_path])
+    when TennisTopic
+      apps_tennis_topic_path(comment.commentable, comment_id: comment.id, anchor: "comment-#{comment.id}", only_path: options[:only_path])
+    end
+  end
+
   def comment_title(comment)
     case comment.commentable
     when Topic
