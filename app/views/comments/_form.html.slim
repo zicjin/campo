@@ -11,23 +11,22 @@
         = time_ago_tag comment.created_at
   = form_for comment, remote: true do |f|
     .form-group
-      = render partial: 'share/editor_area', locals: {form: f, name: :body}
+      = render partial: 'share/editor_area_comment', locals: {form: f, name: :body}
     = f.submit t('.save_changes'), class: 'btn btn-success', 'data-disable-with' => t('.save_changes')
     '
     a.btn.btn-default href=cancel_comment_path(comment) data-remote="true"
       = t '.cancel'
 
-= content_for :script
-  javascript:
-    $('#edit_comment_#{comment.id}').validate({
-      rules: {
-        'comment[body]': {
-          required: true
-        }
-      },
-      messages: {
-        'comment[body]': {
-          required: '#{@comment.errors.generate_message :body, :blank}'
-        }
+javascript:
+  $('#edit_comment_#{comment.id}').validate({
+    rules: {
+      'comment[body]': {
+        required: true
       }
-    });
+    },
+    messages: {
+      'comment[body]': {
+        required: '#{@comment.errors.generate_message :body, :blank}'
+      }
+    }
+  });

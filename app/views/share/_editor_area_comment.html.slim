@@ -1,0 +1,15 @@
+- tabIndex ||= nil
+= form.text_area name, id: 'editor-comment', data: { behaviors: 'autosize' }, tabIndex: tabIndex, autofocus:""
+
+/ 动态填充的内容（如edit.js.erb渲染的内容）不能使用content_for layout标签
+javascript:
+  window.glo_editor = new Simditor({
+    textarea: $('#editor-comment'),
+    placeholder: "文明发言……",
+    toolbar: (window.glo_touchDevice? ['image', 'link', 'title', 'bold', 'blockquote']: ['image', 'video', 'link', 'title', 'bold', 'italic', 'underline', 'ol', 'ul', 'blockquote', 'table', 'hr']),
+    upload: {
+      url: '/attachments'
+    },
+    pasteImage: true,
+    defaultImage: '#{ image_url "image.png" }'
+  });
