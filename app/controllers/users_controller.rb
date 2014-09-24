@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @user.name = @user.username
     if @user.save
       login_as @user
+      remember_me
       UserMailer.confirmation(@user.id).deliver
       redirect_back_or_default root_url
     else
