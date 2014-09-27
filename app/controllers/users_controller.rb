@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     @user.name = @user.username
     if @user.save
       UserMailer.confirmation(@user.id).deliver
-      render :json => {id: @user.id.to_s, remember_token: @user.remember_token, username: @user.username}
+      render :json => {email: @user.email, remember_token: @user.remember_token, username: @user.username}
     else
       render :json => {error: @user.errors.full_messages}
     end
