@@ -6,9 +6,9 @@ class TopicsController < ApplicationController
   protect_from_forgery except: :hot_byjson
 
   def hot_byjson
-    topics = Topic.includes(:user, :category).order(hot: :desc).page(1).per(10) #在rails里pagesize称为limit
-    nba_topics = NbaTopic.includes(:user, :category).order(hot: :desc).page(1).per(10)
-    # tennis_topics = TennisTopic.includes(:user, :category).order(hot: :desc).page(1).per(10)
+    topics = Topic.includes(:user, :category).order(hot: :desc).page(1).per(10).select(:title, :id, :user_id, :category_id) #在rails里pagesize称为limit
+    nba_topics = NbaTopic.includes(:user, :category).order(hot: :desc).page(1).per(10).select(:title, :id, :user_id, :category_id)
+    # tennis_topics = TennisTopic.select(:title, :id).includes(:user, :category).order(hot: :desc).page(1).per(10)
     render :json => {soccer: topics, nba: nba_topics}, :callback => params[:callback]
   end
 
